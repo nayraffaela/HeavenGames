@@ -1,0 +1,36 @@
+﻿@model IEnumerable<HavenGames.Business.Models.Jogo>
+
+@{
+    ViewData["Title"] = "Catálogo de Jogos";
+}
+
+<h1>Catálogo de Jogos</h1>
+
+<p>
+    <a asp-action="Create">Novo jogo</a>
+</p>
+
+
+
+<div class="container mt-5">
+    <div class="row">
+        @foreach (var item in Model) {
+            
+            
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card">
+                    <img src="@Html.DisplayFor(modelItem => item.Imagem)" class="img-index" alt="Card Image">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nome)</h5>
+                        <p class="card-text">Plataforma: @Html.DisplayFor(modelItem => item.Plataforma)</p>
+                        <p class="card-text">Genero: @Html.DisplayFor(modelItem => item.Genero)</p>
+                         <button class="btn-design"> <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> </button>
+                        <button class="btn-design"> <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> </button>
+                        <button class="btn-design"> <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a> </button>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

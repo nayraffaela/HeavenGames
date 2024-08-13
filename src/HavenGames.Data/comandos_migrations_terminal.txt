@@ -1,0 +1,4 @@
+dotnet ef migrations add CriacaoTabelaSistema --context AppDbContext --project "C:\Users\nsilva\Documents\CursoLogica\MVC_Project\HavenGames\src\HavenGames.Data\HavenGames.Data.csproj" --startup-project "C:\Users\nsilva\Documents\CursoLogica\MVC_Project\HavenGames\src\HavenGames.App\HavenGames.App.csproj"
+
+
+dotnet ef database update --context AppDbContext --project "C:\Users\nsilva\Documents\CursoLogica\MVC_Project\HavenGames\src\HavenGames.Data\HavenGames.Data.csproj" --startup-project "C:\Users\nsilva\Documents\CursoLogica\MVC_Project\HavenGames\src\HavenGames.App\HavenGames.App.csproj"
