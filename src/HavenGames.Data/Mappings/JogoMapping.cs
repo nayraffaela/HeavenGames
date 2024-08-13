@@ -1,6 +1,7 @@
 ﻿using HavenGames.Business.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 
 namespace HavenGames.Data.Mappings
 {
@@ -25,6 +26,12 @@ namespace HavenGames.Data.Mappings
             builder.Property(e => e.Imagem)
                 .IsRequired()
                 .HasColumnType("varchar(255)");
+
+            // Configuração para relação muitos-para-muitos, se necessário
+           builder
+                .HasMany(j => j.Personagens)
+                .WithOne(p => p.Jogo)
+                    .HasForeignKey("JogoId");
 
             builder.ToTable("TB_JOGOS");
 

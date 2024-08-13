@@ -4,7 +4,7 @@ using HavenGames.Data.Contexts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Games_Mvc.Controllers
+namespace HavenGames.App.Controllers
 {
     public class JogosController : Controller
     {
@@ -39,10 +39,11 @@ namespace Games_Mvc.Controllers
             return View(jogo);
         }
 
-        // GET: Jogos/Create
+        // GET: Jogo/Create
         public IActionResult Create()
         {
-            return View();
+            ViewBag.Personagens = _context.Personagens.ToList(); // Carrega todos os personagens disponíveis
+            return View(); 
         }
 
         // POST: Jogos/Create
@@ -50,26 +51,47 @@ namespace Games_Mvc.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Plataforma,Genero,Imagem")] Jogo jogo)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Plataforma,Genero,Imagem")] Jogo jogo, int[] selectedPersonagens)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(jogo);
+
+                // Adicionar personagens ao jogo
+                if (selectedPersonagens != null)
+                {
+                    foreach (var personagemId in selectedPersonagens)
+                    {
+                        var personagem = await _context.Personagens.FindAsync(personagemId);
+                        if (personagem != null)
+                        {
+                            personagem.Jogo = jogo;
+                            jogo.Personagens.Add(personagem);
+                            _context.Personagens.Update(personagem);
+                        }
+                    }
+                }
+                    
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewBag.Personagens = await _context.Personagens.ToListAsync();
             return View(jogo);
         }
 
         // GET: Jogos/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var jogo = await _context.Jogos.FindAsync(id);
+            var jogo = await _context.Jogos
+             .Include(j => j.Personagens)
+             .FirstOrDefaultAsync(j => j.Id == id);
+
             if (jogo == null)
             {
                 return NotFound();
@@ -82,7 +104,7 @@ namespace Games_Mvc.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Nome,Plataforma,Genero,Imagem")] Jogo jogo)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Nome,Plataforma,Genero,Imagem")] Jogo jogo, int[] selectedPersonagens)
         {
             if (id != jogo.Id)
             {
@@ -94,6 +116,26 @@ namespace Games_Mvc.Controllers
                 try
                 {
                     _context.Update(jogo);
+
+                    // Atualizar personagens associados
+                    var personagensExistentes = _context.Personagens.Where(p => p.Jogo.Id == id).ToList();
+                   
+                    foreach (var personagem in personagensExistentes)
+                    {
+                        personagem.Jogo = null;
+                        _context.Personagens.Update(personagem);
+                    }
+
+                    foreach (var personagemId in selectedPersonagens)
+                    {
+                        var personagem = await _context.Personagens.FindAsync(personagemId);
+                        if (personagem != null)
+                        {
+                            personagem.Jogo = jogo;
+                            _context.Personagens.Update(personagem);
+                        }
+                    }
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -109,6 +151,7 @@ namespace Games_Mvc.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Personagens = await _context.Personagens.ToListAsync();
             return View(jogo);
         }
 

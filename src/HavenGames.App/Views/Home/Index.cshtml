@@ -1,8 +1,73 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<link rel="stylesheet" href="~/css/Home.css" asp-append-version="true" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container text-center">
+    <h1 class="display-4">Bem-Vindo</h1>
+    <h4>Tudo sobre jogos e atualizações</h4>
+
+
+    <div class="row mt-4">
+        <!-- Últimos Jogos -->
+        <div class="col-md-6">
+            <h3>ÚLTIMOS JOGOS</h3>
+            <div class="card">
+                <img src="~/imgs/GameSkyrim.PNG" class="card-img-top" alt="Jogo 1">
+                <div class="card-body">
+                    <h5 class="card-title">The Elder Scrolls V Skyrim</h5>
+                    <p class="card-text">Um vasto jogo de role-playing (RPG) que se passa no reino fictício de Skyrim, uma das províncias do continente de Tamriel. O jogo se destaca por seu mundo aberto ...</p>
+                    <a class="btn btn-primary animated-button" asp-area="" asp-controller="Jogos" asp-action="Index">Saiba Mais</a>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <img src="~/imgs/Batman.PNG" class="card-img-top" alt="Jogo 2">
+                <div class="card-body">
+                    <h5 class="card-title">Batman The Enemy Within</h5>
+                    <p class="card-text">um jogo de aventura episódico desenvolvido e publicado pela Telltale Games. Lançado em 2017, é a sequência de Batman: The Telltale Series e continua a explorar a vida dupla do Cavaleiro das Trevas ...</p>
+                    <a class="btn btn-primary animated-button" asp-area="" asp-controller="Jogos" asp-action="Index">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Informações Diversas -->
+        <div class="col-md-6">
+            <h3>GUIAS PARA JOGAR</h3>
+            <div class="card">
+                <img src="~/imgs/DicasAndTips.PNG" class="card-img-top" alt="Jogo 2">
+                <div class="card-body">
+                    <h5 class="card-title">Dicas e Tutoriais</h5>
+                    <p class="card-text">
+                        Guias e Tutoriais: Passo a passo sobre como realizar tarefas específicas e usar ferramentas.
+                        Sugestões úteis relacionadas aos jogos e muito mais.
+                    </p>
+                    <a class="btn btn-primary animated-button" asp-area="" asp-controller="Home" asp-action="Guias">Saiba Mais</a>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <img src="~/imgs/Cosplay.PNG" class="card-img-top" alt="Cosplay">
+                <div class="card-body">
+                    <h5 class="card-title">EVENTOS DE COSPLAYS</h5>
+                    <p class="card-text">Confira a galeria de fotos dos eventos de Cosplay dos últimos anos.</p>
+
+                    <h5 class="card-title">OUTRAS ATIVIDADES</h5>
+                    <p class="card-text">Calendário de Eventos: Informações sobre eventos futuros, webinars, conferências e encontros de Games.</p>
+                    <a class="btn btn-primary animated-button" asp-area="" asp-controller="#" asp-action="Index">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.animated-button').on('click', function () {
+            $(this).addClass('clicked');
+            setTimeout(() => $(this).removeClass('clicked'), 300);
+        });
+    });
+</script>
+
+
