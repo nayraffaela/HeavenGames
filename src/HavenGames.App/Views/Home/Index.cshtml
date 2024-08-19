@@ -1,66 +1,206 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
-<link rel="stylesheet" href="~/css/Home.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
 <div class="container text-center">
     <h1 class="display-4">Bem-Vindo</h1>
     <h4>Tudo sobre jogos e atualizações</h4>
 
-
     <div class="row mt-4">
-        <!-- Últimos Jogos -->
+        <!-- Coluna 1 -->
         <div class="col-md-6">
             <h3>ÚLTIMOS JOGOS</h3>
             <div class="card">
                 <img src="~/imgs/GameSkyrim.PNG" class="card-img-top" alt="Jogo 1">
                 <div class="card-body">
                     <h5 class="card-title">The Elder Scrolls V Skyrim</h5>
-                    <p class="card-text">Um vasto jogo de role-playing (RPG) que se passa no reino fictício de Skyrim, uma das províncias do continente de Tamriel. O jogo se destaca por seu mundo aberto ...</p>
-                    <a class="btn btn-primary animated-button" asp-area="" asp-controller="Jogos" asp-action="Index">Saiba Mais</a>
+                    <p class="card-text">Um vasto jogo de role-playing (RPG) que se passa no reino fictício de Skyrim, uma das províncias do continente de Tamriel. O jogo se destaca por seu mundo aberto e expansivo, oferecendo aos jogadores a liberdade de explorar uma paisagem diversificada repleta de montanhas, florestas, lagos e cidades vibrantes. Cada região de Skyrim tem sua própria identidade, com culturas, climas e desafios únicos.</p>
+                    <a class="btn-glass" asp-area="" asp-controller="Jogos" asp-action="Index">Saiba Mais</a>
                 </div>
             </div>
             <div class="card mt-4">
                 <img src="~/imgs/Batman.PNG" class="card-img-top" alt="Jogo 2">
                 <div class="card-body">
                     <h5 class="card-title">Batman The Enemy Within</h5>
-                    <p class="card-text">um jogo de aventura episódico desenvolvido e publicado pela Telltale Games. Lançado em 2017, é a sequência de Batman: The Telltale Series e continua a explorar a vida dupla do Cavaleiro das Trevas ...</p>
-                    <a class="btn btn-primary animated-button" asp-area="" asp-controller="Jogos" asp-action="Index">Saiba Mais</a>
+                    <p class="card-text">Um jogo de aventura episódico desenvolvido e publicado pela Telltale Games. Lançado em 2017, é a sequência de Batman: The Telltale Series e continua a explorar a vida dupla do Cavaleiro das Trevas ...</p>
+                    <a class="btn-glass" asp-area="" asp-controller="Jogos" asp-action="Index">Saiba Mais</a>
+                </div>
+            </div>
+
+            <h3 class="mt-4">GUIAS PARA JOGAR</h3>
+            <div class="card">
+                <img src="~/imgs/DicasAndTips.PNG" class="card-img-top" alt="Dicas e Tutoriais">
+                <div class="card-body">
+                    <h5 class="card-title">Dicas e Tutoriais</h5>
+                    <p class="card-text">Guias e Tutoriais: Passo a passo sobre como realizar tarefas específicas e usar ferramentas. Sugestões úteis relacionadas aos jogos e muito mais.</p>
+                    <a class="btn-glass" asp-area="" asp-controller="Home" asp-action="Guide">Saiba Mais</a>
+                </div>
+            </div>
+
+            <!-- Carrossel de Comentários -->
+            <div class="card mt-4">
+                <img src="~/imgs/Feedbacks.PNG" class="card-img-top" alt="Feedbacks">
+                <div class="card-body">
+                    <h5 class="card-title">Voz dos Gamers</h5>
+                    <div class="carousel-container">
+                        <div class="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="comment">
+                                        <div class="comment-header">
+                                            <span class="username">GamerX</span>
+                                            <span class="date">-12 Ago 2024</span>
+                                        </div>
+                                        <div class="comment-body">
+                                            <p>O jogo está incrível! Adorei a nova atualização e os gráficos estão simplesmente fantásticos. Só sinto falta de um modo cooperativo para jogar com amigos. Espero que isso seja incluído nas próximas atualizações!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="comment">
+                                        <div class="comment-header">
+                                            <span class="username">PixelMaster</span>
+                                            <span class="date">11 Ago 2024</span>
+                                        </div>
+                                        <div class="comment-body">
+                                            <p>Gostei muito da nova mecânica de combate, mas achei alguns inimigos um pouco difíceis demais. Talvez um ajuste na dificuldade possa ajudar. No mais, o jogo está ótimo e super divertido!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="comment">
+                                        <div class="comment-header">
+                                            <span class="username">RetroGamer</span>
+                                            <span class="date">10 Ago 2024</span>
+                                        </div>
+                                        <div class="comment-body">
+                                            <p>As referências aos jogos clássicos são fantásticas! Senti um pouco de falta de mais personalização nas habilidades dos personagens, mas a experiência geral foi muito positiva. Continuem o bom trabalho!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="comment">
+                                        <div class="comment-header">
+                                            <span class="username">FuturePlayer</span>
+                                            <span class="date">09 Ago 2024</span>
+                                        </div>
+                                        <div class="comment-body">
+                                            <p>Adorei a jogabilidade e os novos níveis são desafiadores! No entanto, encontrei alguns bugs que precisam ser corrigidos. Espero que eles sejam resolvidos rapidamente para uma experiência ainda melhor!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control prev" onclick="prevSlide()">&#10094;</button>
+                            <button class="carousel-control next" onclick="nextSlide()">&#10095;</button>
+                        </div>
+                    </div>
+                    <a class="btn-glass" asp-area="" asp-controller="Home" asp-action="Guias">Saiba Mais</a>
                 </div>
             </div>
         </div>
 
-        <!-- Informações Diversas -->
+        <!-- Coluna 2 -->
         <div class="col-md-6">
-            <h3>GUIAS PARA JOGAR</h3>
-            <div class="card">
-                <img src="~/imgs/DicasAndTips.PNG" class="card-img-top" alt="Jogo 2">
-                <div class="card-body">
-                    <h5 class="card-title">Dicas e Tutoriais</h5>
-                    <p class="card-text">
-                        Guias e Tutoriais: Passo a passo sobre como realizar tarefas específicas e usar ferramentas.
-                        Sugestões úteis relacionadas aos jogos e muito mais.
-                    </p>
-                    <a class="btn btn-primary animated-button" asp-area="" asp-controller="Home" asp-action="Guias">Saiba Mais</a>
-                </div>
-            </div>
-
+            <h3 class="mt-4">EVENTOS ÉPICOS</h3>
             <div class="card mt-4">
                 <img src="~/imgs/Cosplay.PNG" class="card-img-top" alt="Cosplay">
                 <div class="card-body">
                     <h5 class="card-title">EVENTOS DE COSPLAYS</h5>
                     <p class="card-text">Confira a galeria de fotos dos eventos de Cosplay dos últimos anos.</p>
-
                     <h5 class="card-title">OUTRAS ATIVIDADES</h5>
                     <p class="card-text">Calendário de Eventos: Informações sobre eventos futuros, webinars, conferências e encontros de Games.</p>
-                    <a class="btn btn-primary animated-button" asp-area="" asp-controller="#" asp-action="Index">Saiba Mais</a>
+                    <a class="btn-glass" asp-area="" asp-controller="#" asp-action="Index">Saiba Mais</a>
+                </div>
+            </div>
+
+            <!-- Carrossel de Ganhadores do Sorteio -->
+            <div class="card mt-4">
+                <img src="~/imgs/Winner.PNG" class="card-img-top" alt="Ganhadores">
+                <div class="card-body">
+                    <h5 class="card-title">Jogadores da Sorte: Ganhadores dos Sorteios</h5>
+                    <div id="carouselFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                               
+                                <div class="carousel-item active">
+                                    <div class="winner">
+                                        <h5>Lucas Pereira</h5>
+                                        <p>Cidade: São Paulo, SP</p>
+                                        <p>Prêmio: Console PlayStation 5</p>
+                                    </div>
+                                </div>
+                            
+                                <div class="carousel-item">
+                                    <div class="winner">
+                                        <h5>Mariana Costa</h5>
+                                        <p>Cidade: Rio de Janeiro, RJ</p>
+                                        <p>Prêmio: Jogo "The Last of Us Part II"</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="carousel-item">
+                                    <div class="winner">
+                                        <h5>Eduardo Silva</h5>
+                                        <p>Cidade: Belo Horizonte, MG</p>
+                                        <p>Prêmio: Console Xbox Series X</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="carousel-item">
+                                    <div class="winner">
+                                        <h5>Ana Luiza Martins</h5>
+                                        <p>Cidade: Porto Alegre, RS</p>
+                                        <p>Prêmio: Jogo "Cyberpunk 2077"</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="carousel-item">
+                                    <div class="winner">
+                                        <h5>Ricardo Oliveira</h5>
+                                        <p>Cidade: Salvador, BA</p>
+                                        <p>Prêmio: Jogo "Animal Crossing: New Horizons"</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Envie sua Resenha -->
+            <div class="card mt-4">
+                <img src="~/imgs/Resenhas.PNG" class="card-img-top" alt="Resenhas">
+                <div class="card-body">
+                    <h5 class="card-title">Envie Sua Resenha</h5>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nome:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="review">Resenha:</label>
+                            <textarea class="form-control" id="review" rows="4" placeholder="Sua resenha sobre o jogo" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-glass">Enviar</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="~/js/scripts.js"></script>
 <script>
     $(document).ready(function () {
         $('.animated-button').on('click', function () {
@@ -68,6 +208,20 @@
             setTimeout(() => $(this).removeClass('clicked'), 300);
         });
     });
+
+    function prevSlide() {
+        var carousel = $(this).closest('.carousel');
+        var current = carousel.find('.carousel-item.active');
+        var prev = current.prev('.carousel-item').length ? current.prev('.carousel-item') : carousel.find('.carousel-item').last();
+        current.removeClass('active');
+        prev.addClass('active');
+    }
+
+    function nextSlide() {
+        var carousel = $(this).closest('.carousel');
+        var current = carousel.find('.carousel-item.active');
+        var next = current.next('.carousel-item').length ? current.next('.carousel-item') : carousel.find('.carousel-item').first();
+        current.removeClass('active');
+        next.addClass('active');
+    }
 </script>
-
-

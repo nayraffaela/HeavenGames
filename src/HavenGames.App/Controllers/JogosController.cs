@@ -31,6 +31,7 @@ namespace HavenGames.App.Controllers
 
             var jogo = await _context.Jogos
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (jogo == null)
             {
                 return NotFound();
@@ -40,47 +41,30 @@ namespace HavenGames.App.Controllers
         }
 
         // GET: Jogo/Create
+        [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.Personagens = _context.Personagens.ToList(); // Carrega todos os personagens disponíveis
             return View(); 
         }
 
         // POST: Jogos/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Plataforma,Genero,Imagem")] Jogo jogo, int[] selectedPersonagens)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Plataforma,Genero,Imagem")] Jogo jogo)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(jogo);
 
-                // Adicionar personagens ao jogo
-                if (selectedPersonagens != null)
-                {
-                    foreach (var personagemId in selectedPersonagens)
-                    {
-                        var personagem = await _context.Personagens.FindAsync(personagemId);
-                        if (personagem != null)
-                        {
-                            personagem.Jogo = jogo;
-                            jogo.Personagens.Add(personagem);
-                            _context.Personagens.Update(personagem);
-                        }
-                    }
-                }
-                    
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewBag.Personagens = await _context.Personagens.ToListAsync();
             return View(jogo);
         }
 
         // GET: Jogos/Edit/5
+        [HttpGet]
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -100,11 +84,9 @@ namespace HavenGames.App.Controllers
         }
 
         // POST: Jogos/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Nome,Plataforma,Genero,Imagem")] Jogo jogo, int[] selectedPersonagens)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Nome,Plataforma,Genero,Imagem")] Jogo jogo)
         {
             if (id != jogo.Id)
             {
@@ -116,26 +98,6 @@ namespace HavenGames.App.Controllers
                 try
                 {
                     _context.Update(jogo);
-
-                    // Atualizar personagens associados
-                    var personagensExistentes = _context.Personagens.Where(p => p.Jogo.Id == id).ToList();
-                   
-                    foreach (var personagem in personagensExistentes)
-                    {
-                        personagem.Jogo = null;
-                        _context.Personagens.Update(personagem);
-                    }
-
-                    foreach (var personagemId in selectedPersonagens)
-                    {
-                        var personagem = await _context.Personagens.FindAsync(personagemId);
-                        if (personagem != null)
-                        {
-                            personagem.Jogo = jogo;
-                            _context.Personagens.Update(personagem);
-                        }
-                    }
-
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -151,7 +113,7 @@ namespace HavenGames.App.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.Personagens = await _context.Personagens.ToListAsync();
+
             return View(jogo);
         }
 

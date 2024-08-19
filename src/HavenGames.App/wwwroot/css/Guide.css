@@ -1,0 +1,65 @@
+﻿h1 {
+    font-family: Bebas Neue;
+}
+p {
+    font-family: Space Grotesk;
+}
+.card-img-top{
+   height: 126px;
+}
+.card-body {
+    box-shadow: 1px 1px 20px #9400D3;
+    height: 200px;
+    width: auto;
+    
+}
+.card-title {
+    font-family: Bebas Neue;
+    font-weight: 800px;
+}
+.btn-glass {
+    background: linear-gradient(145deg, #ff4081, #e040fb);
+    border: 2px solid #d500f9;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 400;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    letter-spacing: 1px;
+    text-decoration: none;
+    overflow: hidden;
+    backdrop-filter: blur(15px);
+    text-align: center;
+    min-width: 50px;
+    
+    
+}
+
+ .btn-glass::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        width: calc(100% + 10px);
+        height: calc(100% + 10px);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        z-index: -1;
+        transition: all 0.3s ease;
+}
+
+.btn-glass:hover {
+     background: linear-gradient(145deg, #e040fb, #ff4081);
+     border-color: #c51162;
+     transform: scale(1.05);
+     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+ }
+
+.btn-glass:hover::before {
+     background: rgba(255, 255, 255, 0.2);
+     transform: scale(1.1);
+}

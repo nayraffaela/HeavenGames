@@ -2,7 +2,7 @@
 
 namespace HavenGames.Business.Models
 {
-    public class Jogo :BaseEntity
+    public class Jogo : BaseEntity
     {
       
         public string Nome { get; set; }

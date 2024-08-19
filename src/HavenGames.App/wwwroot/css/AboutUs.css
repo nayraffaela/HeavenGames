@@ -1,0 +1,173 @@
+﻿body {
+    background-color: #f8f9fa; /* Cor de fundo leve */
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    color: #343a40; /* Cor escura para o título */
+    margin-bottom: 20px;
+}
+
+h5 {
+    color: #000; /* Cor preta para o subtítulo */
+    margin-bottom: 20px;
+    font-family: 'Agency FB', Arial, sans-serif; /* Garantia de fallback */
+}
+
+h4 {
+    color: #000; /* Cor preta para os subtítulos das seções */
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #000; /* Cor do texto do parágrafo */
+    line-height: 1.6;
+    font-family: 'Agency FB', Arial, sans-serif; /* Garantia de fallback */
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.outer-box {
+    border: 2px solid #000; /* Cor da borda da caixa grande */
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff; /* Cor de fundo branca */
+    box-shadow: 1px 1px 20px #DC143C; /* Adiciona sombra */
+}
+
+.inner-box {
+    width: 100%; /* Ajuste o valor conforme necessário */
+    height: auto; /* Ajusta a altura conforme necessário */
+    border: 2px solid #000; /* Se necessário */
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #000; /* Cor de fundo preta */
+}
+
+    .inner-box img {
+        width: 100px; /* Ajuste o valor conforme necessário */
+        height: auto; /* Mantém a proporção da imagem */
+        border-radius: 4px;
+    }
+
+.box-container {
+    margin-bottom: 20px;
+}
+
+.title {
+    font-family: 'Agency FB', Arial, sans-serif; /* Garantia de fallback */
+}
+
+/* Ajusta o tamanho e a sombra das caixas de cartões */
+.card {
+    box-shadow: 1px 1px 20px #DB7093; /* Adiciona sombra aos cartões */
+    border: 2px solid #000; /* Borda preta para os cartões */
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #fff; /* Cor de fundo branca */
+    margin-bottom: 20px; /* Espaçamento inferior */
+    flex: 1;
+    width: 100%; /* Faz com que os cartões usem a largura total da coluna */
+    max-width: 350px;
+}
+
+    /* Ajusta o estilo da imagem dentro do cartão */
+    .card img {
+        width: 100px; /* Imagem ocupa a largura total do cartão */
+        height: auto; /* Mantém a proporção da imagem */
+        border-radius: 5px 5px 0 0; /* Bordas arredondadas no topo da imagem */
+    }
+
+    .card p {
+        padding: 10px; /* Adiciona espaçamento interno no parágrafo dentro do cartão */
+    }
+
+.col-md-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.outer-box {
+    flex: 1;
+    width: 100%;
+    max-width: none; /* Remove o tamanho máximo para a caixa externa */
+}
+
+.teamCarousel {
+    width: 100%; /* Largura total do contêiner pai */
+    max-width: 100%; /* Garantir que não exceda o tamanho do contêiner pai */
+    margin: 0 auto; /* Centraliza o carrossel */
+    height: 400px; /* Altura fixa para o carrossel */
+    overflow: hidden; /* Garante que qualquer conteúdo excedente não seja exibido */
+}
+
+.carousel-inner {
+    height: 100%; /* Define a altura do contêiner interno do carrossel */
+}
+
+.carousel-item {
+    height: 100%; /* Faz com que cada item do carrossel ocupe a altura do contêiner */
+}
+
+    .carousel-item img {
+        width: 100%; /* Faz a imagem ocupar toda a largura do carrossel */
+        height: 100%; /* Ajusta a altura da imagem para preencher o contêiner */
+        object-fit: cover; /* Faz com que a imagem cubra o contêiner sem distorcer */
+    }
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente para o texto */
+    color: #fff; /* Cor do texto da legenda */
+    bottom: 20px; /* Ajuste a posição da legenda conforme necessário */
+}
+.btn-glass {
+    background: linear-gradient(145deg, #ff4081, #e040fb);
+    border: 2px solid #d500f9;
+    border-radius: 6px; /* Diminuído para bordas mais suaves */
+    color: #fff;
+    font-size: 0.8rem; /* Diminuído para texto menor */
+    font-weight: 400;
+    padding: 0.4rem 0.8rem; /* Diminuído para menos espaçamento interno */
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Diminuído para sombra mais sutil */
+    position: relative;
+    letter-spacing: 1px;
+    text-decoration: none;
+    overflow: hidden;
+    backdrop-filter: blur(15px);
+    text-align: center;
+    width: 150px; /* Largura fixa, ajuste conforme necessário */
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+    .btn-glass::before {
+        content: '';
+        position: absolute;
+        top: -4px; /* Ajustado para a borda externa menor */
+        left: -4px; /* Ajustado para a borda externa menor */
+        width: calc(100% + 8px); /* Ajustado para a borda externa menor */
+        height: calc(100% + 8px); /* Ajustado para a borda externa menor */
+        border-radius: 8px; /* Diminuído para combinar com o border-radius do botão */
+        background: rgba(255, 255, 255, 0.1);
+        z-index: -1;
+        transition: all 0.3s ease;
+    }
+
+    .btn-glass:hover {
+        background: linear-gradient(145deg, #e040fb, #ff4081);
+        border-color: #c51162;
+        transform: scale(1.03); /* Diminuído para uma escala de transformação mais sutil */
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Ajustado para uma sombra mais sutil */
+    }
+
+        .btn-glass:hover::before {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05); /* Ajustado para uma escala de transformação mais sutil */
+        }

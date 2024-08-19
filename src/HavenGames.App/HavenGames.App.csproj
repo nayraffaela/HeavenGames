@@ -8,6 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\Login.cshtml" />
+    <Content Remove="wwwroot\css\AboutUs.cs" />
+    <Content Remove="wwwroot\css\Inicio.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.6" />
@@ -17,6 +26,21 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HavenGames.Data\HavenGames.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Home\Index1.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Home\Index1.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Home\Login.cshtml" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\AboutUs.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\Guide.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Home\Login.cshtml" />
   </ItemGroup>
 
 </Project>

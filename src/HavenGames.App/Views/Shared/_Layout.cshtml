@@ -7,43 +7,80 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/HavenGames.App.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="~/js/theme-toggle.js" defer></script>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="btn-cab" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="btn-cab" asp-area="" asp-controller="Jogos" asp-action="Index">Jogos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn-cab" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn-cab" asp-area="" asp-controller="Home" asp-action="Contato">Contato</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <nav class="magic-navbar">
+            <ul class="magic-menu">
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="AboutUs">Sobre nós</a></li>
+                <li><a asp-area="" asp-controller="Jogos" asp-action="Index">Jogos</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contato</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Privacy">Políticas</a></li>
+                <a class="fas fa-gamepad" aria-hidden="true"></a>
+                <partial name="_LoginPartial" />
+            </ul>
         </nav>
+        <div class="rs-btn">
+            <a href="#" aria-label="Facebook" target="_blank" class="social-buttons">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" aria-label="Twitter" target="_blank" class="social-buttons">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" aria-label="Instagram" target="_blank" class="social-buttons">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <form class="d-flex ms-auto search-bar" role="search">
+                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                <button class="btn-glass " type="submit">Buscar</button>
+            </form>
+            <button id="theme-toggle" class="btn-mode btn-glass btn-secondary ms-3" aria-label="Alternar Modo">
+                <i class="fas fa-moon d-none" id="moon-icon"></i>
+                <i class="fas fa-sun d-none" id="sun-icon"></i>
+           
     </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2024 - HavenGames.App - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

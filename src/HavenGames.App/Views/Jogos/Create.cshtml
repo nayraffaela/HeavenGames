@@ -39,19 +39,6 @@
             </div>
             <br />
 
-            <!-- Seleção de Personagens -->
-            <div class="form-group">
-                <label for="selectedPersonagens">Personagens</label>
-                <select id="selectedPersonagens" name="selectedPersonagens" class="form-control" multiple>
-                    @foreach (var personagem in ViewBag.Personagens as IEnumerable<HavenGames.Business.Models.Personagem>)
-                    {
-                        <option value="@personagem.Id">@personagem.Nome</option>
-                    }
-                </select>
-            </div>
-
-            <br />
-
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
              

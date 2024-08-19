@@ -1,0 +1,195 @@
+﻿@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem; /* Ajusta o tamanho da fonte para telas menores */
+    }
+
+    h4 {
+        font-size: 1.25rem; /* Ajusta o tamanho da fonte para telas menores */
+    }
+
+    .btn-cab {
+        font-size: 0.875rem; /* Ajusta o tamanho da fonte para botões */
+    }
+
+    .card-title {
+        font-size: 1rem; /* Ajusta o tamanho da fonte para o título do cartão */
+    }
+
+    h3 {
+        font-size: 1.25rem; /* Ajusta o tamanho da fonte para h3 */
+    }
+
+    .carousel-control {
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 1.25rem;
+    }
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: white;
+    font-family: Arial, sans-serif; /* Define uma fonte padrão para o corpo */
+}
+
+h1 {
+    font-family: Bebas Neue;
+    letter-spacing: 4px;
+    color: black;
+}
+h4 {
+    font-family: Space Grotesk;
+    letter-spacing: 4px;
+    word-spacing: 4px;
+    color: black;
+}
+h3 {
+    font-family: Bebas Neue;
+    letter-spacing: 4px;
+    word-spacing: 4px;
+    color: black;
+}
+.card-body {
+    box-shadow: 1px 1px 20px #DA70D6;
+}
+.card-img-top {
+    width: 200px;
+    height: 250px;
+    max-width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+.card-title {
+    font-family: Bebas Neue;
+    letter-spacing: 4px;
+    color: black;
+    text-transform: uppercase;
+}
+.card-img-top:hover {
+    transform: scale(1.1);
+}
+.card-text {
+    text-align: justify;
+    font-family: Space Grotesk;
+    letter-spacing: 4px;
+    word-spacing: 2px;
+    color: black;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: nowrap; 
+}
+.username {
+    font-family: Space Grotesk;
+    letter-spacing: 4px;
+    word-spacing: 2px;
+    font-weight: bold;
+    color: #DC143C;
+    text-shadow: 1px 1px 20px #FF69B4;
+}
+.date {
+    font-family: Bebas Neue;
+    letter-spacing: 4px;
+    color: #DC143C;
+    text-shadow: 1px 1px 20px #FF69B4;
+}
+.winner {
+    font-family: Space Grotesk;
+    letter-spacing: 4px;
+    word-spacing: 2px;
+}
+.comment-body {
+    font-family: Space Grotesk;
+    letter-spacing: 4px;
+    word-spacing: 2px;
+    text-align:justify;
+}
+.form-group {
+    font-family: Space Grotesk;
+    letter-spacing: 4px;
+    word-spacing: 2px;
+}
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+carousel-fade {
+    position: absolute;
+    top: 50%;
+    width: 2rem;
+    height: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.prev {
+    left: 5;
+}
+
+.next {
+    right: 5;
+}
+.btn-glass {
+    background: linear-gradient(145deg, #ff4081, #e040fb);
+    border: 2px solid #d500f9;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 400;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    letter-spacing: 1px;
+    text-decoration: none;
+    overflow: hidden;
+    backdrop-filter: blur(15px);
+    text-align: center;
+    min-width: 50px;
+}
+
+.btn-glass::before {
+     content: '';
+     position: absolute;
+     top: -5px;
+     left: -5px;
+     width: calc(100% + 10px);
+     height: calc(100% + 10px);
+     border-radius: 10px;
+     background: rgba(255, 255, 255, 0.1);
+     z-index: -1;
+     transition: all 0.3s ease;
+}
+
+.btn-glass:hover {
+     background: linear-gradient(145deg, #e040fb, #ff4081);
+     border-color: #c51162;
+     transform: scale(1.05);
+     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-glass:hover::before {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.1);
+}
+
