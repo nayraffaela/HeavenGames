@@ -11,7 +11,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Adicionar serviços do Identity
+// Adicionar serviï¿½os do Identity
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
     options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -20,7 +20,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 var app = builder.Build();
 
-// Configuração do pipeline de requisição
+// Configuraï¿½ï¿½o do pipeline de requisiï¿½ï¿½o
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage(); // Use Developer Exception Page no desenvolvimento
@@ -36,7 +36,7 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
 
-// Configuração das rotas
+// Configuraï¿½ï¿½o das rotas
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

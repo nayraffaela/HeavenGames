@@ -12,41 +12,29 @@
 </head>
 <body>
     <header>
+
         <nav class="magic-navbar">
+
             <ul class="magic-menu">
+                <img src="~/imgs/HavenGames1.PNG" alt="Alternate Text" />
+
                 <li><a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a></li>
                 <li><a asp-area="" asp-controller="Home" asp-action="AboutUs">Sobre nós</a></li>
                 <li><a asp-area="" asp-controller="Jogos" asp-action="Index">Jogos</a></li>
                 <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contato</a></li>
                 <li><a asp-area="" asp-controller="Home" asp-action="Privacy">Políticas</a></li>
-                <a class="fas fa-gamepad" aria-hidden="true"></a>
                 <partial name="_LoginPartial" />
+                <a class="fas fa-gamepad" aria-hidden="true"></a>
+
             </ul>
         </nav>
-        <div class="rs-btn">
-            <a href="#" aria-label="Facebook" target="_blank" class="social-buttons">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" aria-label="Twitter" target="_blank" class="social-buttons">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" aria-label="Instagram" target="_blank" class="social-buttons">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <form class="d-flex ms-auto search-bar" role="search">
-                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn-glass " type="submit">Buscar</button>
-            </form>
-            <button id="theme-toggle" class="btn-mode btn-glass btn-secondary ms-3" aria-label="Alternar Modo">
-                <i class="fas fa-moon d-none" id="moon-icon"></i>
-                <i class="fas fa-sun d-none" id="sun-icon"></i>
-           
-    </header>
+       
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3 mainwrapper">
             @RenderBody()
         </main>
     </div>
+
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2024 - HavenGames.App - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
