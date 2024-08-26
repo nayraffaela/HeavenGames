@@ -4,7 +4,7 @@ namespace HavenGames.Business.Models
 {
     public class Jogo : BaseEntity
     {
-      
+        public int JogoId { get; set; }
         public string Nome { get; set; }
         public string Plataforma { get; set; }
         public string Genero { get; set; }

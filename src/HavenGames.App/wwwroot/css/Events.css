@@ -1,22 +1,38 @@
-﻿h1 {
+﻿
+h1 {
+    text-align: center;
+    letter-spacing: 2px;
+    word-spacing: 4px;
     font-family: Bebas Neue;
+    text-transform:uppercase;
 }
 p {
     font-family: Space Grotesk;
+    text-align:justify;
 }
-.card-img-top{
-   height: 126px;
+
+h3 {
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    font-family: Bebas Neue;
+    text-align: center;
 }
+
+.card-img-top {
+    height: 126px;
+}
+
 .card-body {
     box-shadow: 1px 1px 20px #9400D3;
     height: 200px;
     width: auto;
-    
 }
+
 .card-title {
     font-family: Bebas Neue;
     font-weight: 800px;
 }
+
 .btn-glass {
     background: linear-gradient(145deg, #ff4081, #e040fb);
     border: 2px solid #d500f9;
@@ -35,11 +51,9 @@ p {
     backdrop-filter: blur(15px);
     text-align: center;
     min-width: 50px;
-    
-    
 }
 
- .btn-glass::before {
+    .btn-glass::before {
         content: '';
         position: absolute;
         top: -5px;
@@ -50,19 +64,36 @@ p {
         background: rgba(255, 255, 255, 0.1);
         z-index: -1;
         transition: all 0.3s ease;
+    }
+
+    .btn-glass:hover {
+        background: linear-gradient(145deg, #e040fb, #ff4081);
+        border-color: #c51162;
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+        .btn-glass:hover::before {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+
+.myBackground {
+    background-image: url(/imgs/BackReg.PNG);
+    background-size:cover;
+    background-position: center;
+    background-repeat:no-repeat;
+    height:100%;
+    width:100%;
+    z-index:-1;
+    opacity:0,5;
+
 }
 
-.btn-glass:hover {
-     background: linear-gradient(145deg, #e040fb, #ff4081);
-     border-color: #c51162;
-     transform: scale(1.05);
-     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
- }
+.myBackground {
 
-.btn-glass:hover::before {
-     background: rgba(255, 255, 255, 0.2);
-     transform: scale(1.1);
-}
+
 
 media (max-width: 768px) {
     h1

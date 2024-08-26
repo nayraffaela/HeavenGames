@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Home\Index1.cshtml" />
     <Content Remove="Views\Home\Login.cshtml" />
     <Content Remove="wwwroot\css\AboutUs.cs" />
     <Content Remove="wwwroot\css\Inicio.css" />
@@ -39,10 +40,16 @@
     <_ContentIncludedByDefault Remove="Views\Home\Login.cshtml" />
     <_ContentIncludedByDefault Remove="wwwroot\css\AboutUs.cs" />
     <_ContentIncludedByDefault Remove="wwwroot\css\Guide.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\LoginPage.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\RegPage.css" />
   </ItemGroup>
 
   <ItemGroup>
     <UpToDateCheckInput Remove="Views\Home\Login.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Home\Index1.cshtml" />
   </ItemGroup>
 
 </Project>

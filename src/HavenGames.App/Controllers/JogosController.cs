@@ -18,7 +18,9 @@ namespace HavenGames.App.Controllers
         // GET: Jogos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Jogos.ToListAsync());
+            var t = await _context.Jogos.ToListAsync();
+
+            return View(t);
         }
 
         // GET: Jogos/Details/5
@@ -154,5 +156,12 @@ namespace HavenGames.App.Controllers
         {
             return _context.Jogos.Any(e => e.Id == id);
         }
+
+        public IActionResult Personagens(int id)
+        {
+            var personagens = _context.Personagens.Where(p => p.JogoId == id).ToList();
+            return View(personagens);
+        }
+
     }
 }

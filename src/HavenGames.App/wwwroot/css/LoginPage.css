@@ -1,0 +1,119 @@
+﻿@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+h1 {
+    font-family: Bebas Neue;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    text-indent: 20px;
+    text-align:center;
+    text-transform: uppercase;
+
+}
+
+h6 {
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    text-align: justify;
+}
+h4 {
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;  
+}
+
+a {
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    text-indent: 2px;
+    color: #4B0082
+}
+
+p {
+    font-family: Space Grotesk;
+    letter-spacing: 1px;
+    width: 400px;
+    max-width: 100%;
+    text-align: justify;
+}
+
+.btn-glass {
+    background: linear-gradient(145deg, #ff4081, #e040fb);
+    border: 2px solid #d500f9;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 400;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    letter-spacing: 1px;
+    text-decoration: none;
+    overflow: hidden;
+    backdrop-filter: blur(15px);
+    text-align: center;
+    min-width: 50px;
+}
+
+.btn-glass:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: -1;
+}
+
+.btn-glass:hover {
+    background: linear-gradient(145deg, #e040fb, #ff4081);
+    border-color: #c51162;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-glass:hover::before {
+     background: rgba(255, 255, 255, 0.2);
+     transform: scale(1.1);
+}
+
+.section-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 105%;
+    background-position: center;
+    background-size: cover;
+    gap: 10px 10px;
+    
+}
+.form-box {
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background: transparent;
+    border: 2px solid #9932CC;
+    box-shadow: 1px 1px 20px #9400D3;
+}
+.others-forms {
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background: transparent;
+    border: 2px solid #9932CC;
+    box-shadow: 1px 1px 20px #9400D3;
+    
+}
+
+
+
+

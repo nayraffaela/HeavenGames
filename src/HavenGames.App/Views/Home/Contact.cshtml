@@ -1,5 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Contact";
+﻿
+
+@{
+    ViewData["Title"] = "Contato";
 }
 
 <!DOCTYPE html>
@@ -11,9 +13,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/AboutUs.css" asp-append-version="true" />
 </head>
-<body>
-    <div class="container mt-4">
-        Contact
-    </div>
-</body>
-</html>
+
+
+@section Scripts{
+    <partial name="_ValidationScripPartial"/>
+}

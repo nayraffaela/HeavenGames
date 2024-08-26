@@ -1,0 +1,31 @@
+﻿@page
+@using HavenGames.Business.Models
+@model Personagem
+@{
+    ViewData["Title"] = "Personagens";
+}
+
+<h1>Personagens</h1>
+
+<div id="carrosselPersonagens" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        @foreach (var personagem in Model.Personagens)
+        {
+            <div class="carousel-item @(personagem == Model.Personagens.First() ? "active" : "")">
+                <img src="@personagem.Imagem" class="d-block w-100" alt="@personagem.Nome">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>@personagem.Nome</h5>
+                    <p>@personagem.Descricao</p>
+                </div>
+            </div>
+        }
+    </div>
+    <a class="carousel-control-prev" href="#carrosselPersonagens" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carrosselPersonagens" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </a>
+</div>

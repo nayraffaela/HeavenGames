@@ -1,17 +1,25 @@
 ﻿body {
     background-color: #f8f9fa; /* Cor de fundo leve */
-    font-family: Arial, sans-serif;
+    font-family: Space Grotesk;
 }
 
 h2 {
     color: #343a40; /* Cor escura para o título */
     margin-bottom: 20px;
 }
+h3 {
+    font-family: Bebas Neue;
+    letter-spacing: 2px; 
+    word-spacing: 4px;
+}
 
 h5 {
     color: #000; /* Cor preta para o subtítulo */
     margin-bottom: 20px;
-    font-family: 'Agency FB', Arial, sans-serif; /* Garantia de fallback */
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    
 }
 
 h4 {
@@ -23,12 +31,22 @@ h4 {
 p {
     color: #000; /* Cor do texto do parágrafo */
     line-height: 1.6;
-    font-family: 'Agency FB', Arial, sans-serif; /* Garantia de fallback */
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-align:justify;
 }
 
 ul {
     list-style-type: disc;
     margin-left: 20px;
+}
+
+li {
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-align:justify;
 }
 
 .outer-box {
@@ -60,7 +78,9 @@ ul {
 }
 
 .title {
-    font-family: 'Agency FB', Arial, sans-serif; /* Garantia de fallback */
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;
 }
 
 /* Ajusta o tamanho e a sombra das caixas de cartões */
@@ -96,6 +116,9 @@ ul {
     flex: 1;
     width: 100%;
     max-width: none; /* Remove o tamanho máximo para a caixa externa */
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;
 }
 
 .teamCarousel {
@@ -145,6 +168,7 @@ ul {
     width: 150px; /* Largura fixa, ajuste conforme necessário */
     max-width: 100%;
     margin: 0 auto;
+    font-family: Space Grotesk;
 }
 
     .btn-glass::before {
