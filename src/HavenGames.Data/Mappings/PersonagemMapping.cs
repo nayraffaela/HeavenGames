@@ -9,17 +9,17 @@ namespace HavenGames.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Personagem> builder)
         {
-            builder.HasKey(p => p.JogoId);
+            builder.HasKey(p => p.Id);
 
-            builder.Property(p => p.NomePersonagem)
+            builder.Property(p => p.Nome)
                 .IsRequired()
                 .HasColumnType("varchar(100)");
 
-            builder.Property(p => p.DescricaoPersonagem)
+            builder.Property(p => p.Descricao)
                 .IsRequired()
                 .HasColumnType("varchar(200)");
 
-            builder.Property(p => p.ImagemPersonagem)
+            builder.Property(p => p.Imagem)
                 .IsRequired()
                 .HasColumnType("varchar(100)");
 

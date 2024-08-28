@@ -42,6 +42,75 @@ namespace HavenGames.App.Controllers
             return View(jogo);
         }
 
+        // GET: Jogos/Personagens/5
+        [HttpGet, ActionName("Personagens")]
+        public async Task<IActionResult> Personagens(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var jogo = await _context.Jogos
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            if (jogo == null)
+            {
+                return NotFound();
+            }
+
+            jogo.Personagens = jogo.Personagens ?? new List<Personagem>();
+
+            return View(jogo);
+        }
+
+
+        // GET: Jogos/Personagems/5
+        [HttpGet, ActionName("CreatePersonagem")]
+        public async Task<IActionResult> GetCreatePersonagem(Guid id)
+        {
+            return View();
+        }
+
+
+
+        // POST: Jogos/Personagems/5
+        [HttpPost, ActionName("CreatePersonagem")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreatePersonagem(Guid id, Personagem personagem)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var jogo = _context.Jogos.FirstOrDefault(j => j.Id == id);
+
+                    if (jogo == null)
+                    {
+                        return NotFound();
+                    }
+
+                    _context.Update(personagem);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!JogoExists(personagem.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction("Personagens");
+            }
+
+            return View(personagem);
+        }
+
+
         // GET: Jogo/Create
         [HttpGet]
         public IActionResult Create()
@@ -156,12 +225,5 @@ namespace HavenGames.App.Controllers
         {
             return _context.Jogos.Any(e => e.Id == id);
         }
-
-        public IActionResult Personagens(int id)
-        {
-            var personagens = _context.Personagens.Where(p => p.JogoId == id).ToList();
-            return View(personagens);
-        }
-
     }
 }

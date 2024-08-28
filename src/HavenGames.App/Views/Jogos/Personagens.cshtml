@@ -1,6 +1,5 @@
-﻿@page
-@using HavenGames.Business.Models
-@model Personagem
+﻿@using HavenGames.Business.Models 
+@model HavenGames.Business.Models.Jogo
 @{
     ViewData["Title"] = "Personagens";
 }
@@ -9,9 +8,11 @@
 
 <div id="carrosselPersonagens" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
+        @(Model.Personagens.Count <= 0 ?  "Nenhum personagem foi encontrado" : "")
+
         @foreach (var personagem in Model.Personagens)
         {
-            <div class="carousel-item @(personagem == Model.Personagens.First() ? "active" : "")">
+            <div class="carousel-item">
                 <img src="@personagem.Imagem" class="d-block w-100" alt="@personagem.Nome">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>@personagem.Nome</h5>
@@ -20,6 +21,7 @@
             </div>
         }
     </div>
+
     <a class="carousel-control-prev" href="#carrosselPersonagens" role="button" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -28,4 +30,12 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </a>
+</div>
+
+<br />
+
+<div>
+    <p>
+        <a asp-action="CreatePersonagem">Novo personagem</a>
+    </p>
 </div>
