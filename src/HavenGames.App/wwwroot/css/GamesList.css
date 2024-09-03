@@ -49,8 +49,8 @@ p {
 }
 
 .btn-glass {
-    background: linear-gradient(145deg, #ff4081, #e040fb);
-    border: none;
+    background: linear-gradient(145deg, #52b69a, #184e77);
+    border: 2px solid #b5e48c;
     border-radius: 5px;
     backdrop-filter: blur(15px);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Diminuído para sombra mais sutil */
@@ -85,13 +85,13 @@ p {
         transition: all 0.3s ease;
 }
 
-.btn-glass:hover {
-        background: linear-gradient(145deg, #e040fb, #ff4081);
-        border-color: #c51162;
+    .btn-glass:hover {
+        background: linear-gradient(145deg, #52b69a, #76c893);
+        border-color: #d9ed92;
         transform: scale(1.03); /* Diminuído para uma escala de transformação mais sutil */
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Ajustado para uma sombra mais sutil */
         background-color: #0056b3;
-}
+    }
 
 .btn-glass:hover::before {
         background: rgba(255, 255, 255, 0.2);

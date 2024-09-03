@@ -54,7 +54,7 @@ li {
     padding: 20px;
     border-radius: 5px;
     background-color: #fff; /* Cor de fundo branca */
-    box-shadow: 1px 1px 20px #DC143C; /* Adiciona sombra */
+    box-shadow: 1px 1px 15px #52b69a; /* Adiciona sombra */
 }
 
 .inner-box {
@@ -85,7 +85,7 @@ li {
 
 /* Ajusta o tamanho e a sombra das caixas de cartões */
 .card {
-    box-shadow: 1px 1px 20px #DB7093; /* Adiciona sombra aos cartões */
+    box-shadow: 1px 1px 15px #52b69a; /* Adiciona sombra aos cartões */
     border: 2px solid #000; /* Borda preta para os cartões */
     border-radius: 5px; /* Bordas arredondadas */
     background-color: #fff; /* Cor de fundo branca */
@@ -149,8 +149,8 @@ li {
     bottom: 20px; /* Ajuste a posição da legenda conforme necessário */
 }
 .btn-glass {
-    background: linear-gradient(145deg, #ff4081, #e040fb);
-    border: 2px solid #d500f9;
+    background: linear-gradient(145deg, #52b69a, #184e77);
+    border: 2px solid #b5e48c;
     border-radius: 6px; /* Diminuído para bordas mais suaves */
     color: #fff;
     font-size: 0.8rem; /* Diminuído para texto menor */
@@ -185,8 +185,8 @@ li {
     }
 
     .btn-glass:hover {
-        background: linear-gradient(145deg, #e040fb, #ff4081);
-        border-color: #c51162;
+        background: linear-gradient(145deg, #52b69a, #76c893);
+        border-color: #d9ed92;
         transform: scale(1.03); /* Diminuído para uma escala de transformação mais sutil */
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Ajustado para uma sombra mais sutil */
     }

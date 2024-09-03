@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Resenhas";
 }
-<link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/Resenhas.css" asp-append-version="true" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
 <div class="container text-center">
@@ -9,7 +9,7 @@
     <h4>As análises que você não pode perder</h4>
 
     <div class="review">
-        <div class="card">
+        <div class="card-body">
 
             <h2>The Last of Us Part II</h2>
             <p> "O enredo de The Last of Us part II é uma montanha russa emocional que desafia nossas percepções de moralidade e vingança.
@@ -18,9 +18,9 @@
                     <span class="comments-count">3 comentários</span>
                 <span class="toogle-arrow">▼</span>
                 </div>
-                <div class="comments" style="display: none;">
-                    <p>Concordo totalmente! A história realmente mexeu comigo e me fez pensar. by:PlayerOne</p>
-                    <p>Eu achei o ritmo meio lento em algumas partes, mas no geral foi boa a jogabilidade. by:Jorgito</p>
+                <div class="comments" style="display:none">
+                <p><strong>by:PlayerOne: </strong> Concordo totalmente! A história realmente mexeu comigo e me fez pensar. </p>
+                <p><strong>by:Jorgito: </strong> Eu achei o ritmo meio lento em algumas partes, mas no geral foi boa a jogabilidade. </p>
                 </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
         function togglerComments(element) {
             var comments = element.nextElementSibling;
             var arrow = element.querySelector('.toggler-arrow');
-            if (comments.style.display === 'none' || comments.style.display === '') {
+            if (comments.style.display = 'none' || comments.style.display = '') {
                 comments.style.display = 'block';
                 arrow.textContent = '▲'
             } else {

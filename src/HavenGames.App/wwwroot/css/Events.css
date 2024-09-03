@@ -23,7 +23,7 @@ h3 {
 }
 
 .card-body {
-    box-shadow: 1px 1px 20px #9400D3;
+    box-shadow: 1px 1px 15px #52b69a;
     height: 200px;
     width: auto;
 }
@@ -34,8 +34,8 @@ h3 {
 }
 
 .btn-glass {
-    background: linear-gradient(145deg, #ff4081, #e040fb);
-    border: 2px solid #d500f9;
+    background: linear-gradient(145deg, #52b69a, #184e77);
+    border: 2px solid #b5e48c;
     border-radius: 8px;
     color: #fff;
     font-size: 0.9rem;
@@ -67,8 +67,8 @@ h3 {
     }
 
     .btn-glass:hover {
-        background: linear-gradient(145deg, #e040fb, #ff4081);
-        border-color: #c51162;
+        background: linear-gradient(145deg, #52b69a, #76c893);
+        border-color: #d9ed92;
         transform: scale(1.05);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }

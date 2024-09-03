@@ -44,6 +44,7 @@
     <_ContentIncludedByDefault Remove="wwwroot\css\Guide.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\LoginPage.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\PersonaPage.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\Privacity.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\RegPage.css" />
   </ItemGroup>
 
