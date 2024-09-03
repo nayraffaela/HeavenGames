@@ -1,0 +1,111 @@
+﻿h1 {
+    font-family: Bebas Neue;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-transform: uppercase;
+}
+
+h5 {
+    font-family: Bebas Neue;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-transform: uppercase;
+}
+
+
+h4 {
+    font-family: Bebas Neue;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-transform: uppercase;
+}
+
+p {
+    color: #000; /* Cor do texto do parágrafo */
+    line-height: 1.6;
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-align: justify;
+}
+
+.btn-glass {
+    background: linear-gradient(145deg, #ff4081, #e040fb);
+    border: none;
+    border-radius: 5px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Diminuído para sombra mais sutil */
+    color: #fff;
+    display: block;
+    font-size: 0.8rem; /* Diminuído para texto menor */
+    font-weight: 400;
+    font-family: Space Grotesk;
+    letter-spacing: 1px;
+    max-width: 100%;
+    margin-bottom: 5px;
+    overflow: hidden;
+    position: relative;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    width: 150px;
+}
+
+.btn-glass::before {
+        content: '';
+        position: absolute;
+        top: -4px; /* Ajustado para a borda externa menor */
+        left: -4px; /* Ajustado para a borda externa menor */
+        width: calc(100% + 8px); /* Ajustado para a borda externa menor */
+        height: calc(100% + 8px); /* Ajustado para a borda externa menor */
+        border-radius: 8px; /* Diminuído para combinar com o border-radius do botão */
+        background: rgba(255, 255, 255, 0.1);
+        z-index: -1;
+        transition: all 0.3s ease;
+}
+
+.btn-glass:hover {
+        background: linear-gradient(145deg, #e040fb, #ff4081);
+        border-color: #c51162;
+        transform: scale(1.03); /* Diminuído para uma escala de transformação mais sutil */
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Ajustado para uma sombra mais sutil */
+        background-color: #0056b3;
+}
+
+.btn-glass:hover::before {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05); /* Ajustado para uma escala de transformação mais sutil */
+}
+
+.btn-glass a {
+        color: white;
+        text-decoration: none;
+}
+
+.control-label {
+    line-height: 1.6;
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-align: justify;
+}
+
+.col-sm-2 {
+    line-height: 1.6;
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-align: justify;
+}
+
+col-sm-10 {
+    line-height: 1.6;
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-align: justify;
+}
+
+

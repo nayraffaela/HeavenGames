@@ -193,3 +193,6 @@ carousel-fade {
         transform: scale(1.1);
 }
 
+.btn-esp {
+    justify-content: space-evenly 2px;
+}

@@ -4,35 +4,50 @@
     ViewData["Title"] = "Catálogo de Jogos";
 }
 
-<h1>Catálogo de Jogos</h1>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/GamesList.css" asp-append-version="true" />
 
-<p>
-    <a asp-action="Create">Novo jogo</a>
-</p>
+
+    <h1>Catálogo de Jogos</h1>
+
+    <p>
+
+        <a asp-action="Create" class="btn-glass btn-cad">Cadastrar jogo</a><br />
 
 
+        <div class="container mt-5">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
 
-<div class="container mt-5">
-    <div class="row">
-        @foreach (var item in Model) {
-            
-            
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card">
-                    <img src="@Html.DisplayFor(modelItem => item.Imagem)" class="img-index" alt="Card Image">
-                    <div class="card-body">
-                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nome)</h5>
-                        <p class="card-text">Plataforma: @Html.DisplayFor(modelItem => item.Plataforma)</p>
-                        <p class="card-text">Genero: @Html.DisplayFor(modelItem => item.Genero)</p>
-                         <button class="btn-design"> <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> </button>
-                        <button class="btn-design"> <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> </button>
-                        <button class="btn-design"> <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a> </button>
-                        <button class="btn-design"> <a asp-action="Personagens" asp-route-id="@item.Id">Personagens</a> </button>
+                        <div class="card">
+                            <img src="@Html.DisplayFor(modelItem => item.Imagem)" class="img-index" alt="Card Image">
+                            <div class="game-container">
+                                <div class="details">
+                                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nome)</h5>
+                                    <p class="card-text">Plataforma: @Html.DisplayFor(modelItem => item.Plataforma)</p>
+                                    <p class="card-text">Gênero: @Html.DisplayFor(modelItem => item.Genero)</p>
 
+                                    <button class="btn-glass"><a asp-action="Edit" asp-route-id="@item.Id">Editar</a></button>
+                                    <button class="btn-glass"><a asp-action="Details" asp-route-id="@item.Id">Detalhes</a></button>
+                                    <button class="btn-glass"><a asp-action="Delete" asp-route-id="@item.Id">Excluir</a></button>
+                                    <button class="btn-glass"><a asp-action="Personagens" asp-route-id="@item.Id">Personagens</a></button>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-        }
-    </div>
-</div>
+                }
+            </div>
+</head>
+</html>
+
+

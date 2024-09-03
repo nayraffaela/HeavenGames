@@ -1,0 +1,30 @@
+﻿h1 {
+    font-family: Bebas Neue;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-transform: uppercase;
+}
+
+h5 {
+    font-family: Bebas Neue;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-transform: uppercase;
+}
+
+
+h4 {
+    font-family: Bebas Neue;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-transform: uppercase;
+}
+
+p {
+    color: #000; /* Cor do texto do parágrafo */
+    line-height: 1.6;
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-align: justify;
+}

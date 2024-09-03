@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Resenhas";
+}
+<link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+<div class="container text-center">
+    <h1 class="display-4">Resenhas</h1>
+    <h4>As análises que você não pode perder</h4>
+
+    <div class="review">
+        <div class="card">
+
+            <h2>The Last of Us Part II</h2>
+            <p> "O enredo de The Last of Us part II é uma montanha russa emocional que desafia nossas percepções de moralidade e vingança.
+                Gráficos de tirar o folego e uma jogabilidade envolvente fazem deste um dos melhores jogos de todos os tempos." Enviado por: GamerFan </p>
+                <div class="comments-toggle" onclick="toggleComments(this)">
+                    <span class="comments-count">3 comentários</span>
+                <span class="toogle-arrow">▼</span>
+                </div>
+                <div class="comments" style="display: none;">
+                    <p>Concordo totalmente! A história realmente mexeu comigo e me fez pensar. by:PlayerOne</p>
+                    <p>Eu achei o ritmo meio lento em algumas partes, mas no geral foi boa a jogabilidade. by:Jorgito</p>
+                </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function togglerComments(element) {
+            var comments = element.nextElementSibling;
+            var arrow = element.querySelector('.toggler-arrow');
+            if (comments.style.display === 'none' || comments.style.display === '') {
+                comments.style.display = 'block';
+                arrow.textContent = '▲'
+            } else {
+                comments.style.display = 'none';
+                arrow.textContent = '▼';
+            }
+        }
+    </script>

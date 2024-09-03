@@ -39,8 +39,11 @@
     <_ContentIncludedByDefault Remove="Views\Home\Index1.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Home\Login.cshtml" />
     <_ContentIncludedByDefault Remove="wwwroot\css\AboutUs.cs" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\GamesList.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\GamesPage.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\Guide.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\LoginPage.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\PersonaPage.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\RegPage.css" />
   </ItemGroup>
 

@@ -21,7 +21,7 @@ namespace HavenGames.Data.Mappings
 
             builder.Property(p => p.Imagem)
                 .IsRequired()
-                .HasColumnType("varchar(100)");
+                .HasColumnType("varchar(250s)");
 
             builder.ToTable("TB_PERSONAGENS");
                

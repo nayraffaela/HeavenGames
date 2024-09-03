@@ -191,7 +191,10 @@
                             <label for="review">Resenha:</label>
                             <textarea class="form-control" id="review" rows="4" placeholder="Sua resenha sobre o jogo" required></textarea>
                         </div>
-                        <button type="submit" class="btn-glass">Enviar</button>
+                        <div class="btn-esp">
+                            <a class="btn-glass" asp-area="" asp-controller="" asp-action="Index">Enviar</a>
+                            <a class="btn-glass" asp-area="" asp-controller="Home" asp-action="Resenhas">Veja as resenhas</a>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -3,8 +3,16 @@
 @{
     ViewData["Title"] = "Create Personagem";
 }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/GamesPage.css" asp-append-version="true" />
 
-<h1>Create</h1>
+<h1>Cadastrar Novo Personagem</h1>
 
 <h4>Personagem</h4>
 <hr />
@@ -30,13 +38,15 @@
             <br />
 
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Cadastrar" class="btn-glass btn-primary" />
              
-                <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+                <a asp-action="Index" class="btn-glass btn-outline-primary">Voltar a Lista</a>
             </div>
         </form>
     </div>
 </div>
+</head>
+</html>
 
 
 

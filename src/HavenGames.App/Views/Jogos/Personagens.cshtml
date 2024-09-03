@@ -4,6 +4,15 @@
     ViewData["Title"] = "Personagens";
 }
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/PersonaPage.css" asp-append-version="true" />
+
 <h1>Personagens</h1>
 
 <div id="carrosselPersonagens" class="carousel slide" data-bs-ride="carousel">
@@ -39,3 +48,5 @@
         <a asp-action="CreatePersonagem">Novo personagem</a>
     </p>
 </div>
+</head>
+</html>
