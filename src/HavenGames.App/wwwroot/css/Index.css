@@ -82,14 +82,14 @@ h3 {
     letter-spacing: 4px;
     word-spacing: 2px;
     font-weight: bold;
-    color: #DC143C;
-    text-shadow: 1px 1px 20px #FF69B4;
+    color: #22577a;
+    text-shadow: 1px 1px 15px #52b69a;
 }
 .date {
     font-family: Bebas Neue;
     letter-spacing: 4px;
-    color: #DC143C;
-    text-shadow: 1px 1px 20px #FF69B4;
+    color: #22577a;
+    text-shadow: 1px 1px 15px #52b69a;
 }
 .winner {
     font-family: Space Grotesk;
@@ -141,6 +141,14 @@ carousel-fade {
     flex-direction: column;
     align-items: center;
 }
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5); 
+    color: #e9edc9; 
+    bottom: 20px; 
+}
+
+
 .prev {
     left: 5;
 }
@@ -195,4 +203,11 @@ carousel-fade {
 
 .btn-esp {
     justify-content: space-evenly 2px;
+}
+.img-carousel {
+    filter: brightness(50%);
+}
+
+.textbox {
+    color: #e9edc9;
 }
