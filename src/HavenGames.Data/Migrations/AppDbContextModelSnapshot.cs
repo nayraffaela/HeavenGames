@@ -17,7 +17,7 @@ namespace HavenGames.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.7")
+                .HasAnnotation("ProductVersion", "8.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -73,12 +73,12 @@ namespace HavenGames.Data.Migrations
 
                     b.Property<string>("Imagem")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(250)");
 
                     b.Property<DateTime>("Inclusao")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("JogoId")
+                    b.Property<Guid>("JogoId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Nome")
@@ -92,11 +92,37 @@ namespace HavenGames.Data.Migrations
                     b.ToTable("TB_PERSONAGENS", (string)null);
                 });
 
+            modelBuilder.Entity("HavenGames.Business.Models.Tickets", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Desconto")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Valor")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TB_TICKETS", (string)null);
+                });
+
             modelBuilder.Entity("HavenGames.Business.Models.Personagem", b =>
                 {
                     b.HasOne("HavenGames.Business.Models.Jogo", "Jogo")
                         .WithMany("Personagens")
-                        .HasForeignKey("JogoId");
+                        .HasForeignKey("JogoId")
+                        .IsRequired();
 
                     b.Navigation("Jogo");
                 });

@@ -28,11 +28,12 @@ namespace HavenGames.Data.Mappings
                 .HasColumnType("varchar(255)");
 
             // Configuração para relação muitos-para-muitos, se necessário
-           builder
-                .HasMany(j => j.Personagens)
-                .WithOne(p => p.Jogo)
-                    .HasForeignKey("JogoId");
+            builder
+                 .HasMany(j => j.Personagens)
+                 .WithOne(p => p.Jogo)
+                     .HasForeignKey(p => p.JogoId);
 
+          
             builder.ToTable("TB_JOGOS");
 
         }

@@ -11,6 +11,7 @@ namespace HavenGames.Data.Contexts
 
         public DbSet<Jogo> Jogos { get; set; }
         public DbSet<Personagem> Personagens { get; set; }
+        public DbSet<Tickets> Tickets { get; set; }
 
        
         protected override void OnModelCreating(ModelBuilder modelBuilder)

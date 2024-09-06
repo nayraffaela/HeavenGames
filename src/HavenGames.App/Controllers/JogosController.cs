@@ -121,7 +121,7 @@ namespace HavenGames.App.Controllers
         // POST: Jogos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Plataforma,Genero,Imagem")] Jogo jogo)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Plataforma,Genero,Imagem, Descricao")] Jogo jogo)
         {
             if (ModelState.IsValid)
             {
@@ -157,7 +157,7 @@ namespace HavenGames.App.Controllers
         // POST: Jogos/Edit/5
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Nome,Plataforma,Genero,Imagem")] Jogo jogo)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Nome,Plataforma,Genero,Imagem, Descricao")] Jogo jogo)
         {
             if (id != jogo.Id)
             {

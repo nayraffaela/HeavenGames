@@ -9,10 +9,12 @@ using System.Threading.Tasks;
 
 namespace HavenGames.Data.Mappings
 {
-    internal class TicketsMapping: IEntityTypeConfiguration<Tickets>
+    public class TicketsMapping : IEntityTypeConfiguration<Tickets>
     {
-        public void Configure(EntityTypeBuilder<Jogo> builder)
+        public void Configure(EntityTypeBuilder<Tickets> builder)
         {
+            builder.HasKey(e => e.Id);
+
             builder.Property(e => e.Nome)
                 .IsRequired()
                 .HasColumnType("varchar(100)");
@@ -25,5 +27,7 @@ namespace HavenGames.Data.Mappings
                 .IsRequired()
                 .HasColumnType("varchar(100)");
 
+            builder.ToTable("TB_TICKETS");
         }
     }
+}
