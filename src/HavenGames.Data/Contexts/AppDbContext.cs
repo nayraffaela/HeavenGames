@@ -1,6 +1,7 @@
 ﻿using HavenGames.Business.Models;
 using HavenGames.Data.Mappings;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Sockets;
 
 
 namespace HavenGames.Data.Contexts
@@ -11,9 +12,11 @@ namespace HavenGames.Data.Contexts
 
         public DbSet<Jogo> Jogos { get; set; }
         public DbSet<Personagem> Personagens { get; set; }
-        public DbSet<Tickets> Tickets { get; set; }
-
+        public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<Event> Events { get; set; }
        
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             foreach (var propety in modelBuilder.Model.GetEntityTypes()

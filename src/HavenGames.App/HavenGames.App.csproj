@@ -8,18 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Controllers\TicketsController.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Remove="Views\Home\Index1.cshtml" />
     <Content Remove="Views\Home\Login.cshtml" />
-    <Content Remove="Views\Home\Tickets.cshtml" />
     <Content Remove="wwwroot\css\AboutUs.cs" />
     <Content Remove="wwwroot\css\Inicio.css" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.8" />
@@ -43,7 +39,6 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Views\Home\Index1.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Home\Login.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Home\Tickets.cshtml" />
     <_ContentIncludedByDefault Remove="wwwroot\css\AboutUs.cs" />
     <_ContentIncludedByDefault Remove="wwwroot\css\GamesList.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\GamesPage.css" />
@@ -60,10 +55,6 @@
 
   <ItemGroup>
     <UpToDateCheckInput Remove="Views\Home\Index1.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Home\Tickets.cshtml" />
   </ItemGroup>
 
 </Project>

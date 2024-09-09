@@ -16,12 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\Event.cs" />
-    <Compile Remove="Models\Events.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
