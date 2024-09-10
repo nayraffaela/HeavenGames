@@ -9,6 +9,7 @@ namespace HavenGames.Business.Models
     public class Ticket: BaseEntity
     {
         public int EventId { get; set; }
+        public decimal Value { get; set; }
         public Event Event { get; set; }
         public string BuyerName { get; set; }
         public string BuyerCPF { get; set; }

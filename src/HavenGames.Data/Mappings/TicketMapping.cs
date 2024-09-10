@@ -13,7 +13,29 @@ namespace HavenGames.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Ticket> builder)
         {
-           
+
+            builder.Property(e => e.Value)
+                .IsRequired()
+                .HasColumnType("NUMERIC(10,2)");
+
+            builder.Property(e => e.BuyerName)
+                .IsRequired()
+                .HasColumnType("varchar(100)");
+
+            builder.Property(e => e.BuyerCPF)
+                    .IsRequired()
+                    .HasColumnType("varchar(11)");
+
+            builder.Property(e => e.TicketType)
+                  .IsRequired()
+                  .HasColumnType("varchar(100)");
+
+            builder.Property(e => e.PaymentMethod)
+                  .IsRequired()
+                  .HasColumnType("varchar(100)");
+
+            builder.HasOne(e => e.Event)
+                 .WithOne(e => e.Tickets);
 
             builder.ToTable("TB_TICKETS");
         }

@@ -85,53 +85,44 @@ namespace HavenGames.App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id,  TicketViewModel ticketViewModel)
         {
-            if (id !=ticketViewModel.Id) return NotFound();
+            if (id != ticketViewModel.Id)  return NotFound();
             var ticketatualização = await ObterTicketEvent(id);
-          
+            ticketatualização = await PopularEventos(ticketViewModel);
+            ticketViewModel.Event = ticketatualização.Event;
+
             if (!ModelState.IsValid) return View(ticketViewModel);
-         
+            ticketatualização.BuyerName=ticketViewModel.BuyerName;
+            ticketatualização.BuyerCPF=ticketViewModel.BuyerCPF;
+            ticketatualização.Value = ticketViewModel.Value;
+            ticketatualização.TicketType=ticketViewModel.TicketType;
+            ticketatualização.PaymentMethod=ticketViewModel.PaymentMethod;
+            await _ticketRepository.Alterar(_mapper.Map<Ticket>(ticketViewModel));
             return RedirectToAction("Index");
         }
 
         // GET: Tickets/Delete/5
         public async Task<IActionResult> Delete(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var ticketViewModel = await 
-                .Include(t => t.Event)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (ticketViewModel == null)
-            {
-                return NotFound();
-            }
-
+            var ticketViewModel = await ObterTicketEvent(id);
+                
+            if (ticketViewModel == null) return NotFound();
+            
             return View(ticketViewModel);
         }
 
         // POST: Tickets/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var ticketViewModel = await 
-            if (ticketViewModel != null)
-            {
-                
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            var ticketViewModel = await ObterTicketEvent(id);
+            if (ticketViewModel == null) return NotFound();
+            
+            await _ticketRepository.Remover(id);
+            return RedirectToAction("Index");
         }
 
-        private bool TicketViewModelExists(int id)
-        {
-            return _context.TicketViewModel.Any(e => e.Id == id);
-        }
-
+       
         private async Task<TicketViewModel> ObterTicketEvent(Guid id)
         {
             return _mapper.Map<TicketViewModel>(await _ticketRepository.ObterPorId(id));
