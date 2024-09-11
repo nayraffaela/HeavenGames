@@ -29,14 +29,13 @@ namespace HavenGames.App.Controllers
             _mapper = mapper;
         }
 
-        // GET: Tickets
+
         public async Task<IActionResult> Index()
         {
             
             return View(_mapper.Map<IEnumerable<TicketViewModel>>(await _ticketRepository.ObterTodos()));
         }
 
-        // GET: Tickets/Details/5
         public async Task<IActionResult> Details(Guid id)
         {
            
@@ -50,7 +49,6 @@ namespace HavenGames.App.Controllers
 
       
 
-        // GET: Tickets/Create
         public async Task <IActionResult> Create()
         {
             var ticketViewModel = await PopularEventos(new TicketViewModel());
@@ -69,7 +67,6 @@ namespace HavenGames.App.Controllers
 
         }
 
-        // GET: Tickets/Edit/5
         public async Task<IActionResult> Edit(Guid id)
         {
 
@@ -100,7 +97,6 @@ namespace HavenGames.App.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Tickets/Delete/5
         public async Task<IActionResult> Delete(Guid id)
         {
             var ticketViewModel = await ObterTicketEvent(id);
@@ -110,7 +106,6 @@ namespace HavenGames.App.Controllers
             return View(ticketViewModel);
         }
 
-        // POST: Tickets/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)

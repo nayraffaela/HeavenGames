@@ -34,8 +34,11 @@ namespace HavenGames.Data.Mappings
                   .IsRequired()
                   .HasColumnType("varchar(100)");
 
-            builder.HasOne(e => e.Event)
-                 .WithOne(e => e.Tickets);
+            //Relacionamento 1 p/N
+            builder.HasOne(t => t.Event)
+               .WithMany(e => e.Tickets)
+               .HasForeignKey(propa => propa.EventId);
+
 
             builder.ToTable("TB_TICKETS");
         }

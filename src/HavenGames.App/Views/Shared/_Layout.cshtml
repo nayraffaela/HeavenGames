@@ -25,9 +25,14 @@
                 <li><a asp-area="" asp-controller="Home" asp-action="Privacy">Políticas</a></li>
                 <li><a asp-area="" asp-controller="Tickets" asp-action="Index">Ingressos</a></li>
 
-
-                <partial name="_LoginPartial" />
-                <a class="fas fa-gamepad" aria-hidden="true"></a>
+                <div class="btn-group">
+                    <button type="button" class="btn-menu dropdown-toggle text-uppercase fs-3" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                        <i class="fas fa-gamepad" aria-hidden="true"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-lg-end rounded-5 fs-4 text-uppercase">
+                        <li><partial name="_LoginPartial" /></li>
+                    </ul>
+                </div>
 
             </ul>
         </nav>
