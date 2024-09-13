@@ -77,6 +77,21 @@ h3 {
     overflow: hidden; 
     white-space: nowrap; 
 }
+.guias-text{
+    text-align: justify;
+    font-family: Space Grotesk;
+    letter-spacing: 4px;
+    word-spacing: 2px;
+    color: black;
+}
+.event-text {
+    text-align: justify;
+    font-family: Space Grotesk;
+    letter-spacing: 4px;
+    word-spacing: 2px;
+    color: black;
+}
+
 .username {
     font-family: Space Grotesk;
     letter-spacing: 4px;

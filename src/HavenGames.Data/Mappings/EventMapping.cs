@@ -23,7 +23,7 @@ namespace HavenGames.Data.Mappings
 
             builder.Property(e => e.Date)
                     .IsRequired()
-                    .HasColumnType("varchar(11)");
+                    .HasColumnType("varchar(100)");
 
             //Relacionamento 1 p/N
             builder.HasMany(e => e.Tickets)

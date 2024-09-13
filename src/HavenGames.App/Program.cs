@@ -20,7 +20,6 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 var app = builder.Build();
 
-// Configura��o do pipeline de requisi��o
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage(); // Use Developer Exception Page no desenvolvimento

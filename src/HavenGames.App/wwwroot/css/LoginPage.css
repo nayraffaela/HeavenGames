@@ -113,6 +113,20 @@ p {
     box-shadow: 1px 1px 15px #52b69a;
 }
 
+.eye-icon{
+    position:absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    will-change:
+        opacity, transform;
+    pointer-events: none;
+    cursor: pointer;
+   
+    
+
+}
+
 
 
 
