@@ -12,11 +12,11 @@ namespace HavenGames.Data.Mappings
 
             builder.Property(e => e.Value)
                 .IsRequired()
-                .HasColumnType("NUMERIC(10,2)");
+                .HasColumnType("varchar(200)");
 
             builder.Property(e => e.BuyerName)
                 .IsRequired()
-                .HasColumnType("varchar(100)");
+                .HasColumnType("varchar(200)");
 
             builder.Property(e => e.BuyerCPF)
                     .IsRequired()
@@ -32,8 +32,7 @@ namespace HavenGames.Data.Mappings
 
             //Relacionamento 1 p/N
             builder.HasOne(t => t.Event)
-               .WithMany(e => e.Tickets)
-               .HasForeignKey(propa => propa.EventId);
+               .WithMany(e => e.Tickets);
 
 
             builder.ToTable("TB_TICKETS");

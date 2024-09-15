@@ -1,4 +1,4 @@
-﻿@model HavenGames.Business.Models.Personagem
+﻿@model HavenGames.Business.Models.Jogo
 
 @{
     ViewData["Title"] = "Create Personagem";
@@ -39,8 +39,8 @@
 
             <div class="form-group">
                 <input type="submit" value="Cadastrar" class="btn-glass btn-primary" />
-             
-                <a asp-action="Index" class="btn-glass btn-outline-primary">Voltar a Lista</a>
+
+                    <a asp-action="Personagens" class="btn-glass btn-outline-primary" asp-route-id="@Model.Id">Voltar a Lista</a>
             </div>
         </form>
     </div>

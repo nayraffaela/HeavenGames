@@ -51,7 +51,7 @@ namespace HavenGames.App.Controllers
                 return NotFound();
             }
 
-            var jogo = await _context.Jogos
+            var jogo = await _context.Jogos.Include(t => t.Personagens)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             if (jogo == null)
@@ -69,7 +69,20 @@ namespace HavenGames.App.Controllers
         [HttpGet, ActionName("CreatePersonagem")]
         public async Task<IActionResult> GetCreatePersonagem(Guid id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var jogo = await _context.Jogos
+                      .FirstOrDefaultAsync(m => m.Id == id);
+
+            if (jogo == null)
+            {
+                return NotFound();
+            }
+
+            return View(jogo);
         }
 
 
@@ -83,15 +96,23 @@ namespace HavenGames.App.Controllers
             {
                 try
                 {
-                    var jogo = _context.Jogos.FirstOrDefault(j => j.Id == id);
+                    personagem.Id = Guid.NewGuid(); 
+
+                    var jogo = _context.Jogos.Include(t => t.Personagens)
+                        .FirstOrDefault(j => j.Id == id);
 
                     if (jogo == null)
                     {
                         return NotFound();
                     }
 
-                    _context.Update(personagem);
-                    await _context.SaveChangesAsync();
+                    jogo.Personagens.Add(personagem);
+
+
+                    _context.Add(personagem);
+                    _context.Update(jogo);
+
+                    _context.SaveChanges();
                 }
                 catch (DbUpdateConcurrencyException)
                 {

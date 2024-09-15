@@ -13,26 +13,27 @@ namespace HavenGames.Data.Mappings
 
             builder.Property(e => e.Nome)
                 .IsRequired()
-                .HasColumnType("varchar(100)");
+                .HasColumnType("varchar(200)");
+
+            builder.Property(e => e.Descricao)
+              .IsRequired()
+              .HasColumnType("varchar(500)");
 
             builder.Property(e => e.Plataforma)
                 .IsRequired()
-                .HasColumnType("varchar(100)");
+                .HasColumnType("varchar(200)");
 
             builder.Property(e => e.Genero)
                 .IsRequired()
-                .HasColumnType("varchar(100)");
+                .HasColumnType("varchar(200)");
 
             builder.Property(e => e.Imagem)
                 .IsRequired()
-                .HasColumnType("varchar(255)");
+                .HasColumnType("varchar(500)");
 
-            // Configuração para relação muitos-para-muitos, se necessário
             builder
                  .HasMany(j => j.Personagens)
-                 .WithOne(p => p.Jogo)
-                     .HasForeignKey(p => p.JogoId);
-
+                 .WithOne(p => p.Jogo);
           
             builder.ToTable("TB_JOGOS");
 

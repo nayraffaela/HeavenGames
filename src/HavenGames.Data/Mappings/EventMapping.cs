@@ -15,20 +15,18 @@ namespace HavenGames.Data.Mappings
         {
             builder.Property(e => e.Name)
                .IsRequired()
-               .HasColumnType("NUMERIC(10,2)");
+               .HasColumnType("varchar(200)");
 
             builder.Property(e => e.Description)
                 .IsRequired()
-                .HasColumnType("varchar(100)");
+                .HasColumnType("varchar(500)");
 
             builder.Property(e => e.Date)
-                    .IsRequired()
-                    .HasColumnType("varchar(100)");
+                    .IsRequired();
 
             //Relacionamento 1 p/N
             builder.HasMany(e => e.Tickets)
-               .WithOne(t => t.Event)
-               .HasForeignKey(propa => propa.EventId);
+               .WithOne(t => t.Event);
 
             builder.ToTable("TB_EVENTS");
         }

@@ -13,15 +13,15 @@ namespace HavenGames.Data.Mappings
 
             builder.Property(p => p.Nome)
                 .IsRequired()
-                .HasColumnType("varchar(100)");
+                .HasColumnType("varchar(200)");
 
             builder.Property(p => p.Descricao)
                 .IsRequired()
-                .HasColumnType("varchar(200)");
+                .HasColumnType("varchar(500)");
 
             builder.Property(p => p.Imagem)
                 .IsRequired()
-                .HasColumnType("varchar(250)");
+                .HasColumnType("varchar(500)");
 
             builder.ToTable("TB_PERSONAGENS");
                
