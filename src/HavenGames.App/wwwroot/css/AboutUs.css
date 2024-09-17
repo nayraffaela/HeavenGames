@@ -121,33 +121,6 @@ li {
     word-spacing: 4px;
 }
 
-.teamCarousel {
-    width: 100%; /* Largura total do contêiner pai */
-    max-width: 100%; /* Garantir que não exceda o tamanho do contêiner pai */
-    margin: 0 auto; /* Centraliza o carrossel */
-    height: 400px; /* Altura fixa para o carrossel */
-    overflow: hidden; /* Garante que qualquer conteúdo excedente não seja exibido */
-}
-
-.carousel-inner {
-    height: 100%; /* Define a altura do contêiner interno do carrossel */
-}
-
-.carousel-item {
-    height: 100%; /* Faz com que cada item do carrossel ocupe a altura do contêiner */
-}
-
-    .carousel-item img {
-        width: 100%; /* Faz a imagem ocupar toda a largura do carrossel */
-        height: 100%; /* Ajusta a altura da imagem para preencher o contêiner */
-        object-fit: cover; /* Faz com que a imagem cubra o contêiner sem distorcer */
-    }
-
-.carousel-caption {
-    background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente para o texto */
-    color: #fff; /* Cor do texto da legenda */
-    bottom: 20px; /* Ajuste a posição da legenda conforme necessário */
-}
 .btn-glass {
     background: linear-gradient(145deg, #52b69a, #184e77);
     border: 2px solid #b5e48c;
@@ -195,3 +168,21 @@ li {
             background: rgba(255, 255, 255, 0.2);
             transform: scale(1.05); /* Ajustado para uma escala de transformação mais sutil */
         }
+
+.equipe{
+    display:flex;
+    justify-content:center;
+    text-transform:uppercase;
+    
+}
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.1); /* Fundo semitransparente para o texto */
+    color: #fff; /* Cor do texto da legenda */
+    bottom: 10px; /* Ajuste a posição da legenda conforme necessário */
+}
+.textbox{
+    color: antiquewhite;
+}
+.name {
+    color: antiquewhite;
+}

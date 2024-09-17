@@ -36,7 +36,7 @@ namespace HavenGames.Data.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("varchar(500)");
+                        .HasColumnType("varchar(max)");
 
                     b.Property<DateTime>("Inclusao")
                         .HasColumnType("datetime2");
@@ -61,7 +61,7 @@ namespace HavenGames.Data.Migrations
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("varchar(500)");
+                        .HasColumnType("varchar(max)");
 
                     b.Property<string>("Genero")
                         .IsRequired()
@@ -98,7 +98,7 @@ namespace HavenGames.Data.Migrations
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("varchar(500)");
+                        .HasColumnType("varchar(max)");
 
                     b.Property<string>("Imagem")
                         .IsRequired()

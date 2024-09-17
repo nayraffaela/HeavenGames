@@ -19,7 +19,7 @@ namespace HavenGames.Data.Mappings
 
             builder.Property(e => e.Description)
                 .IsRequired()
-                .HasColumnType("varchar(500)");
+                .HasColumnType("varchar(max)");
 
             builder.Property(e => e.Date)
                     .IsRequired();

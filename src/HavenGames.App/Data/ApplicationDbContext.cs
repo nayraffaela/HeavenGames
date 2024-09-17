@@ -13,5 +13,6 @@ namespace HavenGames.App.Data
 
         public object Events { get; internal set; }
         public DbSet<HavenGames.App.ViewModels.TicketViewModel> TicketViewModel { get; set; } = default!;
+        public DbSet<HavenGames.App.ViewModels.EventViewModel> EventViewModel { get; set; } = default!;
     }
 }

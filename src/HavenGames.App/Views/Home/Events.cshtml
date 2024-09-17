@@ -1,0 +1,54 @@
+﻿@model IEnumerable<HavenGames.Model.Event>
+
+@{
+    ViewBag.Title = "Eventos";
+}
+
+<h2>Eventos</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                Ingressos
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @foreach (var ticket in item.Tickets)
+                    {
+                        <div>
+                            @Html.DisplayFor(modelItem => ticket.TicketType) - @Html.DisplayFor(modelItem => ticket.Price)
+                        </div>
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.EventId }) |
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.EventId }) |
+                    @Html.ActionLink("Excluir", "Delete", new { id = item.EventId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    @Html.ActionLink("Criar Novo", "Create")
+</p>

@@ -26,12 +26,12 @@
                 @foreach (var item in Model)
                 {
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
-
-                        <div class="card">
+                        <div class="game-container">
+                        @* <div class="card"> *@
                             <img src="@Html.DisplayFor(modelItem => item.Imagem)" class="img-index" alt="Card Image">
-                            <div class="game-container">
+                            @* <div class="game-container"> *@
                                 <div class="details">
-                                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nome)</h5>
+                                    <h4 class="card-title">@Html.DisplayFor(modelItem => item.Nome)</h4>
                                     <p class="card-text">Plataforma: @Html.DisplayFor(modelItem => item.Plataforma)</p>
                                     <p class="card-text">Gênero: @Html.DisplayFor(modelItem => item.Genero)</p>
 
@@ -42,7 +42,7 @@
 
                                 </div>
                             </div>
-                        </div>
+                        @* </div> *@
                     </div>
 
                 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HavenGames.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240915172101_CriacaoTabelasSistema")]
-    partial class CriacaoTabelasSistema
+    [Migration("20240917181933_TabelaSistema")]
+    partial class TabelaSistema
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,7 +39,7 @@ namespace HavenGames.Data.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("varchar(500)");
+                        .HasColumnType("varchar(max)");
 
                     b.Property<DateTime>("Inclusao")
                         .HasColumnType("datetime2");
@@ -64,7 +64,7 @@ namespace HavenGames.Data.Migrations
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("varchar(500)");
+                        .HasColumnType("varchar(max)");
 
                     b.Property<string>("Genero")
                         .IsRequired()
@@ -101,7 +101,7 @@ namespace HavenGames.Data.Migrations
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("varchar(500)");
+                        .HasColumnType("varchar(max)");
 
                     b.Property<string>("Imagem")
                         .IsRequired()

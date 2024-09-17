@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HavenGames.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class CriacaoTabelasSistema : Migration
+    public partial class TabelaSistema : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,7 +17,7 @@ namespace HavenGames.Data.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "varchar(200)", nullable: false),
-                    Description = table.Column<string>(type: "varchar(500)", nullable: false),
+                    Description = table.Column<string>(type: "varchar(max)", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Inclusao = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Alteracao = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -36,7 +36,7 @@ namespace HavenGames.Data.Migrations
                     Plataforma = table.Column<string>(type: "varchar(200)", nullable: false),
                     Genero = table.Column<string>(type: "varchar(200)", nullable: false),
                     Imagem = table.Column<string>(type: "varchar(500)", nullable: false),
-                    Descricao = table.Column<string>(type: "varchar(500)", nullable: false),
+                    Descricao = table.Column<string>(type: "varchar(max)", nullable: false),
                     Inclusao = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Alteracao = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -76,7 +76,7 @@ namespace HavenGames.Data.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Nome = table.Column<string>(type: "varchar(200)", nullable: false),
                     Imagem = table.Column<string>(type: "varchar(500)", nullable: false),
-                    Descricao = table.Column<string>(type: "varchar(500)", nullable: false),
+                    Descricao = table.Column<string>(type: "varchar(max)", nullable: false),
                     JogoId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Inclusao = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Alteracao = table.Column<DateTime>(type: "datetime2", nullable: false)

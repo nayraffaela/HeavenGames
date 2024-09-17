@@ -17,7 +17,7 @@ namespace HavenGames.Data.Mappings
 
             builder.Property(p => p.Descricao)
                 .IsRequired()
-                .HasColumnType("varchar(500)");
+                .HasColumnType("varchar(max)");
 
             builder.Property(p => p.Imagem)
                 .IsRequired()

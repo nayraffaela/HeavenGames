@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Home\Index1.cshtml" />
+    <Content Remove="Views\Home\Events.cshtml" />
     <Content Remove="Views\Home\Login.cshtml" />
     <Content Remove="wwwroot\css\AboutUs.cs" />
     <Content Remove="wwwroot\css\Inicio.css" />
@@ -25,7 +25,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.5" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,11 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Home\Index1.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Views\Home\Index1.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Home\Login.cshtml" />
     <_ContentIncludedByDefault Remove="wwwroot\css\AboutUs.cs" />
     <_ContentIncludedByDefault Remove="wwwroot\css\GamesList.css" />
@@ -51,10 +46,6 @@
 
   <ItemGroup>
     <UpToDateCheckInput Remove="Views\Home\Login.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Home\Index1.cshtml" />
   </ItemGroup>
 
 </Project>
