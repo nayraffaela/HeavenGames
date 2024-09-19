@@ -12,6 +12,14 @@ h1 {
     text-transform: uppercase;
 
 }
+h2 {
+    font-family: Bebas Neue;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    text-indent: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
 
 h6 {
     font-family: Space Grotesk;
@@ -22,6 +30,7 @@ h4 {
     font-family: Space Grotesk;
     letter-spacing: 2px;
     word-spacing: 4px;  
+    text-align: center; !important;
 }
 
 a {
@@ -101,7 +110,7 @@ p {
     width: 400px;
     height: 450px;
     background: transparent;
-    border: 2px solid #9932CC;
+    border: 2px solid #52b69a;
     box-shadow: 1px 1px 15px #52b69a;
 }
 .others-forms {
@@ -109,22 +118,25 @@ p {
     width: 400px;
     height: 450px;
     background: transparent;
-    border: 2px solid #9932CC;
+    border: 2px solid #52b69a;
     box-shadow: 1px 1px 15px #52b69a;
 }
 
-.eye-icon{
-    position:absolute;
+.form-floating {
+    margin: 0 15px;
+}
+
+.eye-icon {
+    position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    will-change:
-        opacity, transform;
+    will-change: opacity, transform;
     pointer-events: none;
     cursor: pointer;
-   
-    
-
+}
+.boxing {
+    height: 150%;
 }
 
 

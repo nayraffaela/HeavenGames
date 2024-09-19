@@ -3,23 +3,40 @@
 @{
     ViewData["Title"] = "Reenviar e-mail de confirmação";
 }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/LoginPage.css" asp-append-version="true" />
+</head>
+<body>
 
-<h1>@ViewData["Title"]</h1>
-<h2>Digite seu e-mail.</h2>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="All" class="text-danger" role="alert"></div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.Email" class="form-control" aria-required="true" placeholder="name@example.com" />
-                <label asp-for="Input.Email" class="form-label"></label>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <button type="submit" class="w-100 btn btn-lg btn-primary">Resend</button>
-        </form>
+    <h2>@ViewData["Title"]</h2>
+    <br />
+    <h4>Digite seu e-mail.</h4>
+    <hr />
+    <div class="d-flex justify-content-center">
+        <div class="form-box boxing">
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Email" class="form-control" aria-required="true" placeholder="name@example.com" />
+                    <br />
+                    <label asp-for="Input.Email" class="form-label"></label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    <button type="submit" class="w-100 btn-glass btn-lg btn-primary">Reenviar</button>
+            </form>
+        </div>
     </div>
-</div>
+    </div>
+</body>
+</html>
+
+
+
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
