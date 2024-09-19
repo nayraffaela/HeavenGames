@@ -1,18 +1,17 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
-
 using Microsoft.EntityFrameworkCore;
-using HavenGames.App.Data;
 using HavenGames.App.ViewModels;
+using HavenGames.Data.Contexts;
 
 
 namespace HavenGames.App.Controllers
 {
     public class EventsController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly AppDbContext _context;
 
-        public EventsController(ApplicationDbContext context)
+        public EventsController(AppDbContext context)
         {
             _context = context;
         }
@@ -20,18 +19,18 @@ namespace HavenGames.App.Controllers
         // GET: Events
         public async Task<IActionResult> Index()
         {
-            return View(await _context.EventViewModel.ToListAsync());
+            return View(await _context.Events.ToListAsync());
         }
 
         // GET: Events/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var eventViewModel = await _context.EventViewModel
+            var eventViewModel = await _context.Events
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (eventViewModel == null)
             {
@@ -71,7 +70,7 @@ namespace HavenGames.App.Controllers
                 return NotFound();
             }
 
-            var eventViewModel = await _context.EventViewModel.FindAsync(id);
+            var eventViewModel = await _context.Events.FindAsync(id);
             if (eventViewModel == null)
             {
                 return NotFound();
@@ -84,7 +83,7 @@ namespace HavenGames.App.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Date")] EventViewModel eventViewModel)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,Description,Date")] EventViewModel eventViewModel)
         {
             if (id != eventViewModel.Id)
             {
@@ -115,14 +114,14 @@ namespace HavenGames.App.Controllers
         }
 
         // GET: Events/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var eventViewModel = await _context.EventViewModel
+            var eventViewModel = await _context.Events
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (eventViewModel == null)
             {
@@ -137,19 +136,19 @@ namespace HavenGames.App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var eventViewModel = await _context.EventViewModel.FindAsync(id);
+            var eventViewModel = await _context.Events.FindAsync(id);
             if (eventViewModel != null)
             {
-                _context.EventViewModel.Remove(eventViewModel);
+                _context.Events.Remove(eventViewModel);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool EventViewModelExists(int id)
+        private bool EventViewModelExists(Guid id)
         {
-            return _context.EventViewModel.Any(e => e.Id == id);
+            return _context.Events.Any(e => e.Id == id);
         }
 
         
