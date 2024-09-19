@@ -1,5 +1,8 @@
+using HavenGames.App.AutoMapper;
 using HavenGames.App.Data;
+using HavenGames.Business.Interfaces;
 using HavenGames.Data.Contexts;
+using HavenGames.Data.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,6 +20,10 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddAutoMapper(typeof(ConfigAutoMapper));
+builder.Services.AddScoped<ITicketRepository, TicketRepository>();
+builder.Services.AddScoped<IEventRepository, EventRepository>();
 
 var app = builder.Build();
 

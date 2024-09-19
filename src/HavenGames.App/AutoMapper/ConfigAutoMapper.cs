@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using HavenGames.App.ViewModels;
 using HavenGames.Business.Models;
-using Microsoft.Build.Framework.Profiler;
 
 namespace HavenGames.App.AutoMapper
 {

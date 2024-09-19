@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using HavenGames.App.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using HavenGames.App.ViewModels;
 using HavenGames.Business.Interfaces;
 using AutoMapper;
@@ -18,9 +11,6 @@ namespace HavenGames.App.Controllers
         private readonly ITicketRepository _ticketRepository;
         private readonly IEventRepository _eventRepository;
         private readonly IMapper _mapper;
-
-
-
 
         public TicketsController(ITicketRepository ticketRepository, IEventRepository eventRepository, IMapper mapper)
         {
