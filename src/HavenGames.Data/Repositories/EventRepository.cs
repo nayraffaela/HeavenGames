@@ -2,15 +2,10 @@
 using HavenGames.Business.Models;
 using HavenGames.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HavenGames.Data.Repositories
 {
-    internal class EventRepository : BaseRepository<Event>, IEventRepository
+    public class EventRepository : BaseRepository<Event>, IEventRepository
     {
         public EventRepository(AppDbContext db) : base(db)
         {
