@@ -90,6 +90,7 @@ p {
     letter-spacing: 2px;
     word-spacing: 4px;
     text-align: justify;
+    
 }
 
 .col-sm-2 {
@@ -98,6 +99,7 @@ p {
     letter-spacing: 2px;
     word-spacing: 4px;
     text-align: justify;
+    
 }
 
 col-sm-10 {
@@ -107,5 +109,10 @@ col-sm-10 {
     word-spacing: 4px;
     text-align: justify;
 }
-
-
+.row {
+    box-shadow: 2px 2px 5px #74c69d;
+    display: inline-block;
+    font-family: Space Grotesk;
+    text-align: justify;
+    text-transform: uppercase;
+}

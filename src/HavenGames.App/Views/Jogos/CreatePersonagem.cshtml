@@ -38,8 +38,9 @@
             <br />
 
             <div class="form-group">
-                <input type="submit" value="Cadastrar" class="btn-glass btn-primary" />
+                    <input type="submit" value="Cadastrar" asp-action="Personagens" class="btn-glass btn-outline-primary" asp-route-id="@Model.Id" />
 
+                    
                     <a asp-action="Personagens" class="btn-glass btn-outline-primary" asp-route-id="@Model.Id">Voltar a Lista</a>
             </div>
         </form>

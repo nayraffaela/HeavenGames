@@ -87,7 +87,7 @@ namespace HavenGames.App.Controllers
 
 
 
-        // POST: Jogos/Personagems/5
+        // POST: Jogos/Personagens/5
         [HttpPost, ActionName("CreatePersonagem")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreatePersonagem(Guid id, Personagem personagem)
@@ -109,7 +109,7 @@ namespace HavenGames.App.Controllers
                     jogo.Personagens.Add(personagem);
 
 
-                    _context.Add(personagem);
+                     _context.Add(personagem);
                     _context.Update(jogo);
 
                     _context.SaveChanges();
