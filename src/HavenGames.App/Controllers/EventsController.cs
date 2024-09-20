@@ -1,8 +1,8 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using HavenGames.App.ViewModels;
 using HavenGames.Data.Contexts;
+using HavenGames.Business.Models;
 
 
 namespace HavenGames.App.Controllers
@@ -51,31 +51,31 @@ namespace HavenGames.App.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,Date")] EventViewModel eventViewModel)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,Imagem,Localization,Date")] Event createdEvent)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(eventViewModel);
+                _context.Add(createdEvent);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(eventViewModel);
+            return View(createdEvent);
         }
 
         // GET: Events/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var eventViewModel = await _context.Events.FindAsync(id);
-            if (eventViewModel == null)
+            var eventFromDb = await _context.Events.FindAsync(id);
+            if (eventFromDb == null)
             {
                 return NotFound();
             }
-            return View(eventViewModel);
+            return View(eventFromDb);
         }
 
         // POST: Events/Edit/5
@@ -83,9 +83,9 @@ namespace HavenGames.App.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,Description,Date")] EventViewModel eventViewModel)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,Description,Imagem,Localization,Date")] Event editedEvent)
         {
-            if (id != eventViewModel.Id)
+            if (id != editedEvent.Id)
             {
                 return NotFound();
             }
@@ -94,12 +94,12 @@ namespace HavenGames.App.Controllers
             {
                 try
                 {
-                    _context.Update(eventViewModel);
+                    _context.Update(editedEvent);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EventViewModelExists(eventViewModel.Id))
+                    if (!EventExists(editedEvent.Id))
                     {
                         return NotFound();
                     }
@@ -110,7 +110,7 @@ namespace HavenGames.App.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(eventViewModel);
+            return View(editedEvent);
         }
 
         // GET: Events/Delete/5
@@ -146,7 +146,7 @@ namespace HavenGames.App.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool EventViewModelExists(Guid id)
+        private bool EventExists(Guid id)
         {
             return _context.Events.Any(e => e.Id == id);
         }
