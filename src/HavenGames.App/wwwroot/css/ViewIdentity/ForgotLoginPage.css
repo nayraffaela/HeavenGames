@@ -1,0 +1,101 @@
+﻿@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+h2 {
+    font-family: Bebas Neue;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    text-indent: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h6 {
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    text-align: justify;
+}
+
+h4 {
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+}
+
+a {
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    text-indent: 2px;
+    color: #4B0082
+}
+
+p {
+    font-family: Space Grotesk;
+    letter-spacing: 1px;
+    width: 400px;
+    max-width: 100%;
+    text-align: justify;
+}
+
+.btn-glass {
+    background: linear-gradient(145deg, #52b69a, #184e77);
+    border: 2px solid #b5e48c;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 400;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    letter-spacing: 1px;
+    text-decoration: none;
+    overflow: hidden;
+    backdrop-filter: blur(15px);
+    text-align: center;
+    min-width: 50px;
+}
+
+.btn-glass:before {
+     content: '';
+     position: absolute;
+     top: -5px;
+     left: -5px;
+     width: calc(100% + 10px);
+     height: calc(100% + 10px);
+     border-radius: 10px;
+     background: rgba(255, 255, 255, 0.1);
+     z-index: -1;
+}
+
+    .btn-glass:hover {
+        background: linear-gradient(145deg, #52b69a, #76c893);
+        border-color: #d9ed92;
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+.btn-glass:hover::before {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.dig-email {
+    margin-top: 20px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 1px 1px 15px #52b69a;
+    background: transparent;
+    padding: 50px;
+    width: 40%;
+    margin: 0 auto;
+}

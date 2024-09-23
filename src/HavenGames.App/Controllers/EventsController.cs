@@ -151,6 +151,88 @@ namespace HavenGames.App.Controllers
             return _context.Events.Any(e => e.Id == id);
         }
 
-        
+        //[HttpGet, ActionName("Tickets")]
+        //public async Task<IActionResult> Tickets(Guid? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    var jogo = await _context.Events.Include(t => t.Tickets)
+        // .FirstOrDefaultAsync(m => m.Id == id);
+        //    if (jogo == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    jogo.Tickets = jogo.Tickets ?? new List<Ticket>();
+
+        //    return View(jogo);
+        //}
+
+        //// GET: Jogos/Personagems/5
+        //[HttpGet, ActionName("CreateTicket")]
+        //public async Task<IActionResult> GetCreateTicket(Guid id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var jogo = await _context.Events
+        //              .FirstOrDefaultAsync(m => m.Id == id);
+
+        //    if (jogo == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return View(event);
+        //}
+
+        //// POST: Jogos/Personagens/5
+        //[HttpPost, ActionName("CreateTickets")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> CreateTickets(Guid id, Ticket ticket)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            ticket.Id = Guid.NewGuid();
+
+        //            var jogo = _context.Jogos.Include(t => t.Personagens)
+        //                .FirstOrDefault(j => j.Id == id);
+
+        //            if (jogo == null)
+        //            {
+        //                return NotFound();
+        //            }
+
+        //            jogo.Personagens.Add(ticket);
+
+
+        //            _context.Add(ticket);
+        //            _context.Update(jogo);
+
+        //            _context.SaveChanges();
+        //        }
+        //        catch (DbUpdateConcurrencyException)
+        //        {
+        //            if (!EventExists(ticket.Id))
+        //            {
+        //                return NotFound();
+        //            }
+        //            else
+        //            {
+        //                throw;
+        //            }
+        //        }
+        //        return RedirectToAction("Personagens");
+        //    }
+
+        //    return View(ticket);
+        //}
+
     }
 }

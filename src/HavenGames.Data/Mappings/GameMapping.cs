@@ -5,7 +5,7 @@ using System.Reflection.Emit;
 
 namespace HavenGames.Data.Mappings
 {
-    public class JogoMapping: IEntityTypeConfiguration<Jogo>
+    public class GameMapping: IEntityTypeConfiguration<Jogo>
     {
         public void Configure(EntityTypeBuilder<Jogo> builder)
         {

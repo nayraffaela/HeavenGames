@@ -4,58 +4,46 @@
     ViewData["Title"] = "EVENTOS ÉPICOS";
 }
 
-<h1>EVENTOS ÉPICOS</h1>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/ViewEvent/IndexEvent.css" asp-append-version="true" />
 
-<p>
-    <a asp-action="Create">Novo Evento</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Imagem)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Localization)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Imagem)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Localization)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Ingresso</a> |
-                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <h1>EVENTOS ÉPICOS</h1>
+
+    <p>
+        <a asp-action="Create" class="btn-glass btn-cad">CADASTRAR NOVO </a><br />
+    </p>
+            <div class="container mt-5">
+                <div class="row">
+
+                    @foreach (var item in Model)
+                    {
+                <div class="col-4">
+
+                    <div class="details-forms">
+                                <img src="@Html.DisplayFor(modelItem => item.Imagem)" class="img-index" alt="Card Image">
+
+                                <div class="other-form">
+                                    <h4 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h4>
+                                    <p class="card-text">Descrição:  @Html.DisplayFor(modelItem => item.Description)</p>
+                                    <p class="card-text">Localização: @Html.DisplayFor(modelItem => item.Localization)</p>
+                                    <p class="card-text">Data: @Html.DisplayFor(modelItem => item.Date)</p>
+
+
+                                    <button class="btn-glass"><a asp-action="Editar" asp-route-id="@item.Id">Editar</a></button>
+                                    <button class="btn-glass"><a asp-action="Excluir" asp-route-id="@item.Id">Excluir</a></button>
+                                    <button class="btn-glass"><a asp-action="Ingresso" asp-route-id="@item.Id">Ingresso</a></button>
+                                </div>
+                           </div>
+                        </div>
+                    }
+                </div>
+        </tbody>
+    </table>
+</head> 
+</html>

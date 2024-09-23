@@ -1,0 +1,188 @@
+﻿body {
+    background-color: #f8f9fa; /* Cor de fundo leve */
+    font-family: Space Grotesk;
+}
+
+h2 {
+    color: #343a40; /* Cor escura para o título */
+    margin-bottom: 20px;
+}
+h3 {
+    font-family: Bebas Neue;
+    letter-spacing: 2px; 
+    word-spacing: 4px;
+}
+
+h5 {
+    color: #000; /* Cor preta para o subtítulo */
+    margin-bottom: 20px;
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    
+}
+
+h4 {
+    color: #000; /* Cor preta para os subtítulos das seções */
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #000; /* Cor do texto do parágrafo */
+    line-height: 1.6;
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-align:justify;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+li {
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-align:justify;
+}
+
+.outer-box {
+    border: 2px solid #000; /* Cor da borda da caixa grande */
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff; /* Cor de fundo branca */
+    box-shadow: 1px 1px 15px #52b69a; /* Adiciona sombra */
+}
+
+.inner-box {
+    width: 100%; /* Ajuste o valor conforme necessário */
+    height: auto; /* Ajusta a altura conforme necessário */
+    border: 2px solid #000; /* Se necessário */
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #000; /* Cor de fundo preta */
+}
+
+    .inner-box img {
+        width: 100px; /* Ajuste o valor conforme necessário */
+        height: auto; /* Mantém a proporção da imagem */
+        border-radius: 4px;
+    }
+
+.box-container {
+    margin-bottom: 20px;
+}
+
+.title {
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+}
+
+/* Ajusta o tamanho e a sombra das caixas de cartões */
+.card {
+    box-shadow: 1px 1px 15px #52b69a; /* Adiciona sombra aos cartões */
+    border: 2px solid #000; /* Borda preta para os cartões */
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #fff; /* Cor de fundo branca */
+    margin-bottom: 20px; /* Espaçamento inferior */
+    flex: 1;
+    width: 100%; /* Faz com que os cartões usem a largura total da coluna */
+    max-width: 350px;
+}
+
+    /* Ajusta o estilo da imagem dentro do cartão */
+    .card img {
+        width: 100px; /* Imagem ocupa a largura total do cartão */
+        height: auto; /* Mantém a proporção da imagem */
+        border-radius: 5px 5px 0 0; /* Bordas arredondadas no topo da imagem */
+    }
+
+    .card p {
+        padding: 10px; /* Adiciona espaçamento interno no parágrafo dentro do cartão */
+    }
+
+.col-md-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.outer-box {
+    flex: 1;
+    width: 100%;
+    max-width: none; /* Remove o tamanho máximo para a caixa externa */
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+}
+
+.btn-glass {
+    background: linear-gradient(145deg, #52b69a, #184e77);
+    border: 2px solid #b5e48c;
+    border-radius: 6px; /* Diminuído para bordas mais suaves */
+    color: #fff;
+    font-size: 0.8rem; /* Diminuído para texto menor */
+    font-weight: 400;
+    padding: 0.4rem 0.8rem; /* Diminuído para menos espaçamento interno */
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Diminuído para sombra mais sutil */
+    position: relative;
+    letter-spacing: 1px;
+    text-decoration: none;
+    overflow: hidden;
+    backdrop-filter: blur(15px);
+    text-align: center;
+    width: 150px; /* Largura fixa, ajuste conforme necessário */
+    max-width: 100%;
+    margin: 0 auto;
+    font-family: Space Grotesk;
+}
+
+    .btn-glass::before {
+        content: '';
+        position: absolute;
+        top: -4px; /* Ajustado para a borda externa menor */
+        left: -4px; /* Ajustado para a borda externa menor */
+        width: calc(100% + 8px); /* Ajustado para a borda externa menor */
+        height: calc(100% + 8px); /* Ajustado para a borda externa menor */
+        border-radius: 8px; /* Diminuído para combinar com o border-radius do botão */
+        background: rgba(255, 255, 255, 0.1);
+        z-index: -1;
+        transition: all 0.3s ease;
+    }
+
+    .btn-glass:hover {
+        background: linear-gradient(145deg, #52b69a, #76c893);
+        border-color: #d9ed92;
+        transform: scale(1.03); /* Diminuído para uma escala de transformação mais sutil */
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Ajustado para uma sombra mais sutil */
+    }
+
+        .btn-glass:hover::before {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05); /* Ajustado para uma escala de transformação mais sutil */
+        }
+
+.equipe{
+    display:flex;
+    justify-content:center;
+    text-transform:uppercase;
+    
+}
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.1); /* Fundo semitransparente para o texto */
+    color: #fff; /* Cor do texto da legenda */
+    bottom: 10px; /* Ajuste a posição da legenda conforme necessário */
+}
+.textbox{
+    color: antiquewhite;
+}
+.name {
+    color: antiquewhite;
+}

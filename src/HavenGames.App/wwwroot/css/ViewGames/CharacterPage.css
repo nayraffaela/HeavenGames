@@ -1,0 +1,51 @@
+﻿h1 {
+    font-family: Bebas Neue;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-transform: uppercase;
+}
+
+h5 {
+    font-family: Bebas Neue;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-transform: uppercase;
+}
+
+
+h4 {
+    font-family: Bebas Neue;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-transform: uppercase;
+}
+
+p {
+    color: #000; /* Cor do texto do parágrafo */
+    line-height: 1.6;
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-align: justify;
+}
+
+
+.textbox {
+    color: #e9edc9;
+}
+
+.username {
+    font-family: Space Grotesk;
+    letter-spacing: 4px;
+    word-spacing: 2px;
+    font-weight: bold;
+    color: #22577a;
+    text-shadow: 1px 1px 15px #52b69a;
+}
+
+.date {
+    font-family: Bebas Neue;
+    letter-spacing: 4px;
+    color: #22577a;
+    text-shadow: 1px 1px 15px #52b69a;
+}

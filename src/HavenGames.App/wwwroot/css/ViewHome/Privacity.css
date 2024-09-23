@@ -1,0 +1,66 @@
+﻿@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem; /* Ajusta o tamanho da fonte para telas menores */
+    }
+
+    h4 {
+        font-size: 1.25rem; /* Ajusta o tamanho da fonte para telas menores */
+    }
+
+    .btn-cab {
+        font-size: 0.875rem; /* Ajusta o tamanho da fonte para botões */
+    }
+
+    .card-title {
+        font-size: 1rem; /* Ajusta o tamanho da fonte para o título do cartão */
+    }
+
+    h3 {
+        font-size: 1.25rem; /* Ajusta o tamanho da fonte para h3 */
+    }
+}
+
+h1 {
+    font-family: Bebas Neue;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+}
+
+p {
+    color: #000; /* Cor do texto do parágrafo */
+    line-height: 1.6;
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-align: justify;
+    margin: 5px 10px 10px 10px;
+
+    
+}
+
+h2 {
+    color: #343a40; /* Cor escura para o título */
+    margin-bottom: 20px;
+    font-family: Bebas Neue;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    margin: 10px 10px 10px 10px;
+}
+
+
+.col-md-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    box-shadow: 1px 1px 15px #52b69a; /* Adiciona sombra aos cartões */
+    border: 1px solid #000; /* Borda preta para os cartões */
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #fff; /* Cor de fundo branca */
+    margin-bottom: 20px; /* Espaçamento inferior */
+    flex: 1;
+    width: 100%; /* Faz com que os cartões usem a largura total da coluna */
+    
+}
