@@ -22,7 +22,6 @@ namespace HavenGames.Data.Mappings
                     .IsRequired()
                     .HasColumnType("varchar(max)");
 
-            
             builder.ToTable("TB_COMENTARIOS");
         }
     }
