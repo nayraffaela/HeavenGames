@@ -11,6 +11,7 @@ namespace HavenGames.App.AutoMapper
         {
             CreateMap<Ticket, TicketViewModel>().ReverseMap();
             CreateMap<Event, EventViewModel>().ReverseMap();
+            CreateMap<CommentForm, CommentFormViewModel>().ReverseMap();
 
         }
     }
