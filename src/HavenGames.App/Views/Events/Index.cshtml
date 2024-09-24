@@ -12,38 +12,41 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/ViewEvent/IndexEvent.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>EVENTOS ÉPICOS</h1>
+        <p>
+            <a asp-action="Create" class="btn-glass btn-cad">CADASTRAR NOVO </a><br />
+        </p>
+        <div class="row">
+            <!-- Removido g-4 para ajustar no CSS -->
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 col-sem-margem">
 
-    <h1>EVENTOS ÉPICOS</h1>
-
-    <p>
-        <a asp-action="Create" class="btn-glass btn-cad">CADASTRAR NOVO </a><br />
-    </p>
-            <div class="container mt-5">
-                <div class="row">
-
-                    @foreach (var item in Model)
-                    {
-                <div class="col-4">
-
-                    <div class="details-forms">
-                                <img src="@Html.DisplayFor(modelItem => item.Imagem)" class="img-index" alt="Card Image">
-
-                                <div class="other-form">
-                                    <h4 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h4>
-                                    <p class="card-text">Descrição:  @Html.DisplayFor(modelItem => item.Description)</p>
-                                    <p class="card-text">Localização: @Html.DisplayFor(modelItem => item.Localization)</p>
-                                    <p class="card-text">Data: @Html.DisplayFor(modelItem => item.Date)</p>
+                    <div class="card" style="width: 21rem;">
+                        <img class="img-event" src="@Html.DisplayFor(modelItem => item.Imagem)" alt="Card Image">
 
 
-                                    <button class="btn-glass"><a asp-action="Editar" asp-route-id="@item.Id">Editar</a></button>
-                                    <button class="btn-glass"><a asp-action="Excluir" asp-route-id="@item.Id">Excluir</a></button>
-                                    <button class="btn-glass"><a asp-action="Ingresso" asp-route-id="@item.Id">Ingresso</a></button>
-                                </div>
-                           </div>
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                            <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
                         </div>
-                    }
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Localização: @Html.DisplayFor(modelItem => item.Localization)</li>
+                            <li class="list-group-item">Data: @Html.DisplayFor(modelItem => item.Date)</li>
+                        </ul>
+                        <div class="card-body">
+                            <button class="btn-glass"><a asp-action="Editar" asp-route-id="@item.Id">Editar</a></button>
+                            <button class="btn-glass"><a asp-action="Excluir" asp-route-id="@item.Id">Excluir</a></button>
+                            <button class="btn-glass"><a asp-action="Ingresso" asp-route-id="@item.Id">Ingresso</a></button>
+                        </div>
+                    </div>
+
                 </div>
-        </tbody>
-    </table>
-</head> 
+            }
+        </div>
+    </div>
+</body>
 </html>

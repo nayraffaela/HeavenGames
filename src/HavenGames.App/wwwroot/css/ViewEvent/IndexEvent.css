@@ -18,7 +18,6 @@
     h3 {
         font-size: 1.25rem; /* Ajusta o tamanho da fonte para h3 */
     }
-
 }
 
 h1 {
@@ -33,6 +32,7 @@ h4 {
     word-spacing: 4px;
     color: black;
 }
+
 p {
     color: #000; /* Cor do texto do parágrafo */
     line-height: 1.6;
@@ -41,22 +41,21 @@ p {
     word-spacing: 4px;
     text-align: justify;
 }
-.other-form {
-    width: 350px;  
-    height: 100px;
-    
+
+/*.card-body{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    height: 100%;
+}*/
+
+.img-event {
+    width: 292px;
+    height: 240px;
 }
 
-.img-index {
-    width: 350px;
-    height: 200px;
-}
-.col-sem-margem {
-    padding-left: 15px;
-    
-    padding-right: 15px;
-    
-}
+
+
 .btn-glass {
     background: linear-gradient(145deg, #52b69a, #184e77);
     border: 2px solid #b5e48c;
@@ -111,4 +110,3 @@ p {
         color: white;
         text-decoration: none;
     }
-
