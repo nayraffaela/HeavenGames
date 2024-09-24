@@ -125,7 +125,8 @@ namespace HavenGames.App.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Personagens");
+
+                return RedirectToAction("Index");
             }
 
             return View(personagem);

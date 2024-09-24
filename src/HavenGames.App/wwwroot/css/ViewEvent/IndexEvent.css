@@ -42,12 +42,12 @@ p {
     text-align: justify;
 }
 
-/*.card-body{
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    height: 100%;
-}*/
+.col-sem-margem{
+    padding-left:100px;
+    padding-right:100px;
+    margin-bottom:100px;
+}
+
 
 .img-event {
     width: 292px;

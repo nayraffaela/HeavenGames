@@ -33,7 +33,7 @@ namespace HavenGames.Data.Mappings
 
             builder
                  .HasMany(j => j.Personagens)
-                 .WithOne(p => p.Jogos);
+                 .WithOne(p => p.Jogo);
           
             builder.ToTable("TB_JOGOS");
 
