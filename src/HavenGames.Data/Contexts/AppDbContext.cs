@@ -14,7 +14,7 @@ namespace HavenGames.Data.Contexts
         public DbSet<Personagem> Personagens { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Event> Events { get; set; }
-
+        public DbSet<Comment> Comments { get; set; }
 
         public override int SaveChanges()
         {

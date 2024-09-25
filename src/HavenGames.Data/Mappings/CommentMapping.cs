@@ -2,14 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-
-
-
 namespace HavenGames.Data.Mappings
 {
-    class CommentMapping: IEntityTypeConfiguration<CommentForm>
+    class CommentMapping: IEntityTypeConfiguration<Comment>
     {
-        public void Configure(EntityTypeBuilder<CommentForm> builder)
+        public void Configure(EntityTypeBuilder<Comment> builder)
         {
 
             builder.HasKey(p => p.Id);

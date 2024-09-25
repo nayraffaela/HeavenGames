@@ -1,6 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Home";
+    var index = 0;
 }
+
+@model HavenGames.App.ViewModels.HomeViewModel
 
 <link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
@@ -42,7 +45,7 @@
 
                     
                     <div class="carousel-inner">
-                        <div class="carousel-item active" data-bs-interval="10000">
+                      @*   <div class="carousel-item active" data-bs-interval="10000">
                             <img src="~/imgs/Feedbacks.PNG" class="d-block w-100 " alt="Imagem Feedbacks">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5 class="username">GamerX</h5>
@@ -74,8 +77,27 @@
                                 <span class="date">09 Ago 2024</span>
                                 <p class="coment-feed textbox">Adorei a jogabilidade e os novos níveis são desafiadores! No entanto, encontrei alguns bugs que precisam ser corrigidos. Espero que eles sejam resolvidos rapidamente para uma experiência ainda melhor!</p>
                             </div>
-                        </div>
+                        </div> *@
+
+                        @foreach (var comment in @Model.Comments)
+                        {
+                            var itemClass = index == 0 ? "carousel-item active" : "carousel-item";
+
+                            <div class="@itemClass" data-bs-interval="10000">
+                                <img src="~/imgs/Feedbacks.PNG" class="d-block w-100 " alt="Imagem Feedbacks">
+
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5 class="username">@comment.Nome</h5>
+                                    <span class="date">@comment.Inclusao.ToShortDateString()</span>
+                                    <p class="coment-feed textbox">@comment.Descricao</p>
+                                </div>
+                            </div>
+
+                            index++;
+                        }
+
                     </div>
+
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
@@ -84,6 +106,7 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
+
                 </div>
 
             </div>
@@ -158,17 +181,21 @@
                     <img src="~/imgs/Resenhas.PNG" class="card-img-top" alt="Resenhas">
                     <div class="card-body">
                         <h5 class="card-title">Envie Seu Comentário</h5>
-                        <form>
+                        <form asp-action="CreateComment">
+                        
                             <div class="form-group">
-                                <label for="name">Nome:</label>
-                                <input type="text" class="form-control" id="name" placeholder="Seu nome" required>
+                                <label asp-for="Nome" class="control-label"></label>
+                                <input asp-for="Nome" class="form-control" />
+                                <span asp-validation-for="Nome" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label for="review">Comentário:</label>
-                                <textarea class="form-control" id="review" rows="4" placeholder="Seu comentário sobre o jogo" required></textarea>
+                                <label asp-for="Descricao" class="control-label"></label>
+                                <textarea asp-for="Descricao" class="form-control" rows="4"></textarea>
+                                <span asp-validation-for="Descricao" class="text-danger"></span>
                             </div>
+
                             <div class="btn-esp">
-                                <a class="btn-glass" asp-area="" asp-controller="" asp-action="Index">Enviar</a>
+                                <input type="submit" value="Enviar" asp-action="CreateComment" class="btn-glass btn-outline-primary" />
                                 <a class="btn-glass" asp-area="" asp-controller="Home" asp-action="Resenhas">Veja os comentários</a>
                             </div>
                         </form>

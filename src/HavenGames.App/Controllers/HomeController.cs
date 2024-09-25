@@ -1,5 +1,9 @@
 using HavenGames.App.Models;
+using HavenGames.App.ViewModels;
+using HavenGames.Business.Models;
+using HavenGames.Data.Contexts;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
    
 namespace HavenGames.App.Controllers
@@ -7,16 +11,23 @@ namespace HavenGames.App.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly AppDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, AppDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            return View();
+
+            var comments = await _context.Comments.ToListAsync();
+
+            var viewModel = new HomeViewModel { Comments = comments };
+
+            return View(viewModel);
         }
 
         public IActionResult Privacy()
@@ -52,8 +63,23 @@ namespace HavenGames.App.Controllers
             return View();
         }
 
+        // POST: Jogos/Personagens/5
+        [HttpPost, ActionName("CreateComment")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateComment(Comment comment)
+        {
+            if (ModelState.IsValid)
+            {
+                comment.Id = Guid.NewGuid();
 
-       
+                _context.Add(comment);
+                _context.SaveChanges();
+
+            }
+
+            return RedirectToAction("Index");
+        }
+
 
 
     }
