@@ -14,63 +14,40 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/PersonaPage.css" asp-append-version="true" />
-
-    <div class="card mt-4">
-    <h3>Personagens</h3><br />
-        
+</head>
+<body>
+    <div class="container mt-4">
+        <h3>Personagens</h3>
+        <br />
         <div>
             <p>
-                <a asp-action="CreatePersonagem" asp-route-id="@Model.Id">Novo personagem</a>
+                <a class="btn btn-primary" asp-action="CreatePersonagem" asp-route-id="@Model.Id">Novo personagem</a>
             </p>
         </div>
 
+        @(Model.Personagens.Count <= 0 ? "Nenhum personagem foi encontrado" : "")
 
-      @(Model.Personagens.Count <= 0 ? "Nenhum personagem foi encontrado" : "")
-
-
-    @if (Model.Personagens.Count > 0)
+        @if (Model.Personagens.Count > 0)
         {
-            <div id="carouselExampleDark" class="carousel carousel-dark slide">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-
-
-                <div class="carousel-inner">
-                    @foreach (var personagem in @Model.Personagens)
-                    {
-                        var itemClass = index == 0 ? "carousel-item active" : "carousel-item";
-
-                        <div class="@itemClass" data-bs-interval="10000">
-                            <img src="~/imgs/Feedbacks.PNG" class="d-block w-100 " alt="Imagem Feedbacks">
-
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5 class="username">@personagem.Nome</h5>
-                                <span class="date">@personagem.Inclusao.ToShortDateString()</span>
-                                <p class="coment-feed textbox">@personagem.Descricao</p>
+            <div class="row">
+                @foreach (var personagem in @Model.Personagens)
+                {
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="@personagem.Imagem" class="card-img-top" alt="@personagem.Nome">
+                            <div class="card-body">
+                                <h5 class="card-title">@personagem.Nome</h5>
+                                <p class="card-text">@personagem.Descricao</p>
+                                <a href="@Url.Action("Details", "Personagem", new { id = personagem.Id })" class="btn btn-primary">Ver detalhes</a>
                             </div>
                         </div>
-
-                        index++;
-                    }
-
-                </div>
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-
+                    </div>
+                }
             </div>
         }
-     
+    </div>
 
-</head>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

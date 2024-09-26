@@ -62,6 +62,10 @@ namespace HavenGames.App.Controllers
         {
             return View();
         }
+        public IActionResult Curriculum()
+        {
+            return View();
+        }
 
         // POST: Jogos/Personagens/5
         [HttpPost, ActionName("CreateComment")]
