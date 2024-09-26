@@ -8,5 +8,6 @@ namespace HavenGames.Business.Services
 {
     internal class BaseService
     {
+
     }
 }
