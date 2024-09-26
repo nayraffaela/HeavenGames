@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HavenGames.Data.Repositories
 {
-    public class EventRepository : BaseRepository<Event>, IEventRepository
+    public class CommentRepository : BaseRepository<Comment>, ICommentRepository
     {
-        public EventRepository(AppDbContext db) : base(db)
+        public CommentRepository(AppDbContext db) : base(db)
         {
         }
     }

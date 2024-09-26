@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HavenGames.Business\HavenGames.Business.csproj" />
     <ProjectReference Include="..\HavenGames.Data\HavenGames.Data.csproj" />
   </ItemGroup>
 

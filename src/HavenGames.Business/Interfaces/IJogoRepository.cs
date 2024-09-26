@@ -2,8 +2,8 @@
 
 namespace HavenGames.Business.Interfaces
 {
-    public interface IEventRepository : IBaseRepository<Event>
-    { 
+    public interface IJogoRepository : IBaseRepository<Jogo>
+    {    
     }
 }
 
