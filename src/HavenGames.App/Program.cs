@@ -22,7 +22,6 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddAutoMapper(typeof(ConfigAutoMapper));
-builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 builder.Services.AddScoped<IEventRepository, EventRepository>();
 
 var app = builder.Build();

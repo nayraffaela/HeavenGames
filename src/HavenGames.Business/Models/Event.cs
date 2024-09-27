@@ -13,6 +13,5 @@ namespace HavenGames.Business.Models
         public string Description { get; set; }
         public  string Localization { get; set; }
         public DateTime Date { get; set; }
-        public IEnumerable<Ticket> Tickets { get; set; }
     }
 }

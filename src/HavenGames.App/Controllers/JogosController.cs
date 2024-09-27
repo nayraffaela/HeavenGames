@@ -65,72 +65,7 @@ namespace HavenGames.App.Controllers
         }
 
 
-        // GET: Jogos/Personagems/5
-        [HttpGet, ActionName("CreatePersonagem")]
-        public async Task<IActionResult> GetCreatePersonagem(Guid id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var jogo = await _context.Jogos
-                      .FirstOrDefaultAsync(m => m.Id == id);
-
-            if (jogo == null)
-            {
-                return NotFound();
-            }
-
-            return View(jogo);
-        }
-
-
-
-        // POST: Jogos/Personagens/5
-        [HttpPost, ActionName("CreatePersonagem")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreatePersonagem(Guid id, Personagem personagem)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    personagem.Id = Guid.NewGuid(); 
-
-                    var jogo = _context.Jogos.Include(t => t.Personagens)
-                        .FirstOrDefault(j => j.Id == id);
-
-                    if (jogo == null)
-                    {
-                        return NotFound();
-                    }
-
-                    jogo.Personagens.Add(personagem);
-
-
-                     _context.Add(personagem);
-                    _context.Update(jogo);
-
-                    _context.SaveChanges();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!JogoExists(personagem.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-
-                return RedirectToAction("Index");
-            }
-
-            return View(personagem);
-        }
+       
 
 
         // GET: Jogo/Create
@@ -246,6 +181,95 @@ namespace HavenGames.App.Controllers
         private bool JogoExists(Guid id)
         {
             return _context.Jogos.Any(e => e.Id == id);
+        }
+
+
+        // GET: Jogos/Personagems/5
+        [HttpGet, ActionName("CreatePersonagem")]
+        public async Task<IActionResult> GetCreatePersonagem(Guid id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var jogo = await _context.Jogos
+                      .FirstOrDefaultAsync(m => m.Id == id);
+
+            if (jogo == null)
+            {
+                return NotFound();
+            }
+
+            return View(jogo);
+        }
+
+
+
+        // POST: Jogos/Personagens/5
+        [HttpPost, ActionName("CreatePersonagem")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreatePersonagem(Guid id, Personagem personagem)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    personagem.Id = Guid.NewGuid();
+
+                    var jogo = _context.Jogos.Include(t => t.Personagens)
+                        .FirstOrDefault(j => j.Id == id);
+
+                    if (jogo == null)
+                    {
+                        return NotFound();
+                    }
+
+                    jogo.Personagens.Add(personagem);
+
+
+                    _context.Add(personagem);
+                    _context.Update(jogo);
+
+                    _context.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!JogoExists(personagem.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
+                return RedirectToAction("Index");
+            }
+
+            return View(personagem);
+        }
+
+
+
+        [HttpGet, ActionName("UpdatePersonagem")]
+        public async Task<IActionResult> GetUpdatePersonagem(Guid id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var jogo = await _context.Jogos
+                      .FirstOrDefaultAsync(m => m.Id == id);
+
+            if (jogo == null)
+            {
+                return NotFound();
+            }
+
+            return View(jogo);
         }
     }
 }

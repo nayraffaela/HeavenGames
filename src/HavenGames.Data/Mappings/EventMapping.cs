@@ -32,9 +32,7 @@ namespace HavenGames.Data.Mappings
             builder.Property(e => e.Date)
                     .IsRequired();
 
-            //Relacionamento 1 p/N
-            builder.HasMany(e => e.Tickets)
-               .WithOne(t => t.Event);
+        
 
             builder.ToTable("TB_EVENTS");
         }

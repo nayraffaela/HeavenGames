@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\TicketsController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Views\Home\Events.cshtml" />
     <Content Remove="Views\Home\Login.cshtml" />
     <Content Remove="wwwroot\css\AboutUs.cs" />
