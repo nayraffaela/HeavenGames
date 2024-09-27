@@ -49,6 +49,8 @@ h3 {
     word-spacing: 4px;
     color: black;
 }
+
+
 .card-body {
     box-shadow: 1px 1px 15px #52b69a;
 }
@@ -97,13 +99,13 @@ h3 {
     letter-spacing: 4px;
     word-spacing: 2px;
     font-weight: bold;
-    color: #22577a;
+    color:white;
     text-shadow: 1px 1px 15px #52b69a;
 }
 .date {
     font-family: Bebas Neue;
     letter-spacing: 4px;
-    color: #22577a;
+    color: white;
     text-shadow: 1px 1px 15px #52b69a;
 }
 .winner {
@@ -139,7 +141,7 @@ carousel-fade {
     color: white;
     border: none;
     cursor: pointer;
-    transform: translateY(-50%);
+    transform: translateY(-80%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -163,6 +165,10 @@ carousel-fade {
     bottom: 20px; 
 }
 
+.img-card {
+    width: 500px;
+    height: 300px;
+}
 
 .prev {
     left: 5;
@@ -222,7 +228,9 @@ carousel-fade {
 .img-carousel {
     filter: brightness(50%);
 }
-
+.box {
+    box-shadow: 1px 1px 10px #52b69a;
+}
 .textbox {
     color: #e9edc9;
 }

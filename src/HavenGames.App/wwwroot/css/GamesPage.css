@@ -1,33 +1,13 @@
-﻿h1 {
+﻿
+.title {
     font-family: Bebas Neue;
     letter-spacing: 2px;
     word-spacing: 4px;
     text-transform: uppercase;
 }
 
-h5 {
-    font-family: Bebas Neue;
-    letter-spacing: 2px;
-    word-spacing: 4px;
-    text-transform: uppercase;
-}
 
 
-h4 {
-    font-family: Bebas Neue;
-    letter-spacing: 2px;
-    word-spacing: 4px;
-    text-transform: uppercase;
-}
-
-p {
-    color: #000; /* Cor do texto do parágrafo */
-    line-height: 1.6;
-    font-family: Space Grotesk;
-    letter-spacing: 2px;
-    word-spacing: 4px;
-    text-align: justify;
-}
 
 .btn-glass {
     background: linear-gradient(145deg, #52b69a, #184e77);
@@ -53,7 +33,7 @@ p {
     width: 150px;
 }
 
-.btn-glass::before {
+    .btn-glass::before {
         content: '';
         position: absolute;
         top: -4px; /* Ajustado para a borda externa menor */
@@ -64,7 +44,7 @@ p {
         background: rgba(255, 255, 255, 0.1);
         z-index: -1;
         transition: all 0.3s ease;
-}
+    }
 
     .btn-glass:hover {
         background: linear-gradient(145deg, #52b69a, #76c893);
@@ -74,45 +54,21 @@ p {
         background-color: #0056b3;
     }
 
-.btn-glass:hover::before {
+    .btn-glass:hover::before {
             background: rgba(255, 255, 255, 0.2);
             transform: scale(1.05); /* Ajustado para uma escala de transformação mais sutil */
-}
+    }
 
-.btn-glass a {
+    .btn-glass a {
         color: white;
         text-decoration: none;
-}
+    }
 
-.control-label {
+.form-group {
+    color: #000; /* Cor do texto do parágrafo */
     line-height: 1.6;
     font-family: Space Grotesk;
     letter-spacing: 2px;
     word-spacing: 4px;
     text-align: justify;
-    
-}
-
-.col-sm-2 {
-    line-height: 1.6;
-    font-family: Space Grotesk;
-    letter-spacing: 2px;
-    word-spacing: 4px;
-    text-align: justify;
-    
-}
-
-col-sm-10 {
-    line-height: 1.6;
-    font-family: Space Grotesk;
-    letter-spacing: 2px;
-    word-spacing: 4px;
-    text-align: justify;
-}
-.row {
-    box-shadow: 2px 2px 5px #74c69d;
-    display: inline-block;
-    font-family: Space Grotesk;
-    text-align: justify;
-    text-transform: uppercase;
 }

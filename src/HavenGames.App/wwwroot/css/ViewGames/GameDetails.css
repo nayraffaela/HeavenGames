@@ -6,48 +6,30 @@
 }
 
 h4 {
-   
     font-family: Bebas Neue;
     letter-spacing: 2px;
     word-spacing: 4px;
     text-transform: none;
 }
 
-p {
-    color: #000; /* Cor do texto do parágrafo */
-    line-height: 1.6;
+.col-sm-4 {
     font-family: Space Grotesk;
     letter-spacing: 2px;
     word-spacing: 4px;
-    text-align: justify;
+    text-transform: none;
 }
 
-.game-container {
-    position: relative;
-    width: 200px;
-    height: 300px;
-    overflow: hidden;
-
+.col-sm-8 {
+    font-family: Space Grotesk;
+    letter-spacing: 2px;
+    word-spacing: 4px;
+    text-transform: none;
+    text-align:justify;
 }
 
-.details {
-    position: absolute;
-    bottom: -50%;
-    left: 0;
-    width: 100%;
-    background-color: #bbd0ff;
-    color: #000;
-    padding: 3px;
-    box-sizing: border-box;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease-in-out;
-}
-
-.game-container:hover .details {
-    bottom: 0;
-    opacity: 90%;
-    transform: translateY(0);
+.img-details{
+    width: 260px;
+    height: 100%;
 }
 
 .btn-glass {
@@ -57,7 +39,7 @@ p {
     backdrop-filter: blur(15px);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Diminuído para sombra mais sutil */
     color: #fff;
-    display: block;
+    
     font-size: 0.8rem; /* Diminuído para texto menor */
     font-weight: 400;
     font-family: Space Grotesk;
@@ -74,7 +56,7 @@ p {
     width: 150px;
 }
 
-.btn-glass::before {
+    .btn-glass::before {
         content: '';
         position: absolute;
         top: -4px; /* Ajustado para a borda externa menor */
@@ -85,7 +67,7 @@ p {
         background: rgba(255, 255, 255, 0.1);
         z-index: -1;
         transition: all 0.3s ease;
-}
+    }
 
     .btn-glass:hover {
         background: linear-gradient(145deg, #52b69a, #76c893);
@@ -95,21 +77,18 @@ p {
         background-color: #0056b3;
     }
 
-.btn-glass:hover::before {
-        background: rgba(255, 255, 255, 0.2);
-        transform: scale(1.05); /* Ajustado para uma escala de transformação mais sutil */
-}
+        .btn-glass:hover::before {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05); /* Ajustado para uma escala de transformação mais sutil */
+        }
 
-.btn-glass a {
+    .btn-glass a {
         color: white;
         text-decoration: none;
-}
+    }
 
 .btn-cad {
     float: right;
 }
-.img-index {
 
-    width: 100%; !important;
-    height: 270px; !important;
-}
+

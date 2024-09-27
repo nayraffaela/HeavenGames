@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Home\Comments.cshtml" />
     <Content Remove="Views\Home\Events.cshtml" />
     <Content Remove="Views\Home\Login.cshtml" />
     <Content Remove="wwwroot\css\AboutUs.cs" />
