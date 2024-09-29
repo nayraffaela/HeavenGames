@@ -1,11 +1,6 @@
 ﻿using HavenGames.Business.Models;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace HavenGames.Data.Mappings
 {
@@ -32,10 +27,10 @@ namespace HavenGames.Data.Mappings
             builder.Property(e => e.Date)
                     .IsRequired();
 
-        
+
 
             builder.ToTable("TB_EVENTS");
         }
     }
 }
-    
+

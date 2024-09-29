@@ -1,8 +1,8 @@
 ﻿
+using HavenGames.Business.Models;
+using HavenGames.Data.Contexts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using HavenGames.Data.Contexts;
-using HavenGames.Business.Models;
 
 
 namespace HavenGames.App.Controllers

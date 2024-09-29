@@ -3,7 +3,7 @@
 namespace HavenGames.Business.Interfaces
 {
     public interface IEventRepository : IBaseRepository<Event>
-    { 
+    {
     }
 }
 

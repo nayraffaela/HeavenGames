@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace HavenGames.Data.Mappings
 {
-    class CommentMapping: IEntityTypeConfiguration<Comment>
+    class CommentMapping : IEntityTypeConfiguration<Comment>
     {
         public void Configure(EntityTypeBuilder<Comment> builder)
         {

@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc.Razor;
-using Microsoft.EntityFrameworkCore.Storage;
 
 
 namespace HavenGames.app.Extensions
@@ -8,7 +7,7 @@ namespace HavenGames.app.Extensions
     {
         public static string FormataDocumento(this RazorPage page, int tipoPessoa, string documento)
         {
-            return tipoPessoa == 1? FormataCPF(documento) :FormataCNPJ(documento);
+            return tipoPessoa == 1 ? FormataCPF(documento) : FormataCNPJ(documento);
         }
         public static string FormataCNPJ(string CNPJ)
         {

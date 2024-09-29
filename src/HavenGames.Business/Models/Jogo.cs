@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace HavenGames.Business.Models
+﻿namespace HavenGames.Business.Models
 {
     public class Jogo : BaseEntity
     {

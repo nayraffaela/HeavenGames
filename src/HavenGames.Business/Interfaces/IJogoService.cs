@@ -7,9 +7,9 @@ namespace HavenGames.Business.Services
     {
         Task Adicionar(Jogo jogo);
 
-        Task Alterar (Jogo jog);
+        Task Alterar(Jogo jog);
 
-        Task Remover (Jogo jog);
+        Task Remover(Jogo jog);
 
-        }
+    }
 }

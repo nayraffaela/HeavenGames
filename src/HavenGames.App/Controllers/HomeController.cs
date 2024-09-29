@@ -5,7 +5,7 @@ using HavenGames.Data.Contexts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
-   
+
 namespace HavenGames.App.Controllers
 {
     public class HomeController : Controller
@@ -49,7 +49,7 @@ namespace HavenGames.App.Controllers
         {
             return View();
         }
-      
+
         public IActionResult Guide()
         {
             return View();

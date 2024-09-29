@@ -65,14 +65,14 @@ namespace HavenGames.App.Controllers
         }
 
 
-       
+
 
 
         // GET: Jogo/Create
         [HttpGet]
         public IActionResult Create()
         {
-            return View(); 
+            return View();
         }
 
         // POST: Jogos/Create
@@ -251,25 +251,111 @@ namespace HavenGames.App.Controllers
             return View(personagem);
         }
 
-
-
+        // GET: Jogos/UpdatePersonagem/5
         [HttpGet, ActionName("UpdatePersonagem")]
-        public async Task<IActionResult> GetUpdatePersonagem(Guid id)
+        public async Task<IActionResult> UpdatePersonagem(Guid jogoId, Guid personagemId)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
             var jogo = await _context.Jogos
-                      .FirstOrDefaultAsync(m => m.Id == id);
+                .Include(j => j.Personagens)
+                .FirstOrDefaultAsync(j => j.Id == jogoId);
 
             if (jogo == null)
             {
                 return NotFound();
             }
 
-            return View(jogo);
+            var personagem = jogo.Personagens.FirstOrDefault(p => p.Id == personagemId);
+            if (personagem == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["JogoId"] = jogoId;
+            return View("UpdatePersonagem", personagem);
         }
+
+
+        // POST: Jogos/UpdatePersonagem/5
+        [HttpPost, ActionName("UpdatePersonagem")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdatePersonagem(Guid jogoId, Personagem personagem)
+        {
+            if (ModelState.IsValid)
+            {
+                var jogo = await _context.Jogos
+                    .Include(j => j.Personagens)
+                    .FirstOrDefaultAsync(j => j.Id == jogoId);
+
+                if (jogo == null)
+                {
+                    return NotFound();
+                }
+
+                var existingPersonagem = jogo.Personagens.FirstOrDefault(p => p.Id == personagem.Id);
+                if (existingPersonagem == null)
+                {
+                    return NotFound();
+                }
+
+                existingPersonagem.Nome = personagem.Nome;
+                existingPersonagem.Descricao = personagem.Descricao;
+
+                _context.Update(existingPersonagem);
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Personagens), new { id = jogoId });
+            }
+
+            return View("EditPersonagem", personagem);
+        }
+
+
+        // GET: Jogos/DeletePersonagem/5
+        [HttpGet, ActionName("DeletePersonagem")]
+        public async Task<IActionResult> DeletePersonagem(Guid jogoId, Guid personagemId)
+        {
+            var jogo = await _context.Jogos
+                .Include(j => j.Personagens)
+                .FirstOrDefaultAsync(j => j.Id == jogoId);
+
+            if (jogo == null)
+            {
+                return NotFound();
+            }
+
+            var personagem = jogo.Personagens.FirstOrDefault(p => p.Id == personagemId);
+            if (personagem == null)
+            {
+                return NotFound();
+            }
+
+            return View(personagem);
+        }
+
+        // POST: Jogos/DeletePersonagem/5
+        [HttpPost, ActionName("DeletePersonagem")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeletePersonagemConfirmed(Guid jogoId, Guid personagemId)
+        {
+            var jogo = await _context.Jogos
+                .Include(j => j.Personagens)
+                .FirstOrDefaultAsync(j => j.Id == jogoId);
+
+            if (jogo == null)
+            {
+                return NotFound();
+            }
+
+            var personagem = jogo.Personagens.FirstOrDefault(p => p.Id == personagemId);
+            if (personagem != null)
+            {
+                jogo.Personagens.Remove(personagem);
+                _context.Update(jogo);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction(nameof(Personagens), jogo);
+        }
+
     }
 }

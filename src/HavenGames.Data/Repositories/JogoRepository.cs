@@ -1,7 +1,6 @@
 ﻿using HavenGames.Business.Interfaces;
 using HavenGames.Business.Models;
 using HavenGames.Data.Contexts;
-using Microsoft.EntityFrameworkCore;
 
 namespace HavenGames.Data.Repositories
 {
@@ -11,8 +10,8 @@ namespace HavenGames.Data.Repositories
         {
         }
 
-       
-        
+
+
     }
 }
 

@@ -8,13 +8,13 @@ namespace HavenGames.Business.Notification
     {
         private List<Notificacao> _notificacoes;
 
-        public Notificador ()
+        public Notificador()
         {
-            _notificacoes = new List<Notificacao> ();
+            _notificacoes = new List<Notificacao>();
         }
         public void Handle(Notificacao notificacao)
         {
-            _notificacoes.Add (notificacao);
+            _notificacoes.Add(notificacao);
         }
 
         public List<Notificacao> ObterNotificacoes()
@@ -24,7 +24,7 @@ namespace HavenGames.Business.Notification
 
         public bool TemNotificacao()
         {
-            return _notificacoes.Any ();
+            return _notificacoes.Any();
         }
     }
 }

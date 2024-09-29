@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace HavenGames.Data.Mappings
 {
-    public class CharacterMapping: IEntityTypeConfiguration<Personagem>
+    public class CharacterMapping : IEntityTypeConfiguration<Personagem>
     {
         public void Configure(EntityTypeBuilder<Personagem> builder)
         {
@@ -24,8 +24,8 @@ namespace HavenGames.Data.Mappings
                 .HasColumnType("varchar(500)");
 
             builder.ToTable("TB_PERSONAGENS");
-               
+
         }
     }
-        
+
 }

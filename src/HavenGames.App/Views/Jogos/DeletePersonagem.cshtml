@@ -1,0 +1,14 @@
+﻿@model HavenGames.Business.Models.Personagem
+
+@{
+    ViewData["Title"] = "Excluir Personagem";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>Tem certeza que deseja excluir o personagem <strong>@Model.Nome</strong>?</p>
+
+<form asp-action="DeletePersonagem" asp-route-jogoId="@Model.Jogo.Id" asp-route-personagemId="@Model.Id" method="post">
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a asp-action="Personagens" asp-route-id="@Model.Jogo.Id" class="btn btn-secondary">Cancelar</a>
+</form>

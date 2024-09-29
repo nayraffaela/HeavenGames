@@ -11,10 +11,10 @@ namespace HavenGames.app.Extensions
         {
             _notificador = notificador;
         }
-        public async Task <IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync()
 
         {
-            var notificacoes  = await Task.FromResult(_notificador.ObterNotificacoes());
+            var notificacoes = await Task.FromResult(_notificador.ObterNotificacoes());
             notificacoes.ForEach(v => ViewData.ModelState.AddModelError(string.Empty, v.Mensagem));
             return View();
         }

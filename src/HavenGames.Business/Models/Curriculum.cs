@@ -35,6 +35,6 @@ namespace HavenGames.Business.Models
         [Display(Name = "Vaga deve ser escolhida)")]
         public Vaga Vaga { get; set; }
 
-        
+
     }
 }

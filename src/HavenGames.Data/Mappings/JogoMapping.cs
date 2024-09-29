@@ -1,11 +1,10 @@
 ﻿using HavenGames.Business.Models;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Emit;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace HavenGames.Data.Mappings
 {
-    public class JogoMapping: IEntityTypeConfiguration<Jogo>
+    public class JogoMapping : IEntityTypeConfiguration<Jogo>
     {
         public void Configure(EntityTypeBuilder<Jogo> builder)
         {
@@ -34,7 +33,7 @@ namespace HavenGames.Data.Mappings
             builder
                  .HasMany(j => j.Personagens)
                  .WithOne(p => p.Jogo);
-          
+
             builder.ToTable("TB_JOGOS");
 
         }

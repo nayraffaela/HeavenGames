@@ -3,7 +3,6 @@
 
 @{
     ViewData["Title"] = "Personagens";
-    var index = 0;
 }
 
 <!DOCTYPE html>
@@ -38,6 +37,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">@personagem.Nome</h5>
                                 <p class="card-text">@personagem.Descricao</p>
+                                <a class="btn btn-secondary" asp-action="UpdatePersonagem" asp-route-jogoId="@Model.Id" asp-route-personagemId="@personagem.Id">Editar</a>
+                                <a class="btn btn-danger" asp-action="DeletePersonagem" asp-route-jogoId="@Model.Id" asp-route-personagemId="@personagem.Id" onclick="return confirm('Tem certeza que deseja excluir este personagem?');">Excluir</a>
                             </div>
                         </div>
                     </div>

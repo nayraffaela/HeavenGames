@@ -27,7 +27,7 @@ namespace HavenGames.Business.Validation
             RuleFor(c => c.Jogo)
              .NotNull()
              .WithMessage("O campo {PropertyName} precisa ser fornecido");
-             
+
 
         }
     }

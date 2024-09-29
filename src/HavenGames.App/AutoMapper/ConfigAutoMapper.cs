@@ -4,7 +4,7 @@ using HavenGames.Business.Models;
 
 namespace HavenGames.App.AutoMapper
 {
-    public class ConfigAutoMapper: Profile 
+    public class ConfigAutoMapper : Profile
 
     {
         public ConfigAutoMapper()

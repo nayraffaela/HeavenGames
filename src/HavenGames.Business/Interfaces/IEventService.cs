@@ -7,9 +7,9 @@ namespace HavenGames.Business.Services
     {
         Task Adicionar(Event evento);
 
-        Task Alterar (Event evento);
+        Task Alterar(Event evento);
 
-        Task Remover (Event evento);
+        Task Remover(Event evento);
 
-        }
+    }
 }

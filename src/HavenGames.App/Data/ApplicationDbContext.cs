@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using HavenGames.App.ViewModels;
 
 namespace HavenGames.App.Data
 {
