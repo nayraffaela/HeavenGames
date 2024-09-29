@@ -4,9 +4,9 @@ using HavenGames.Business.Models;
 
 namespace HavenGames.Business.Validation
 {
-    public class CategoriaValidation : AbstractValidator<Personagem>
+    public class PersonagemValidation : AbstractValidator<Personagem>
     {
-        public CategoriaValidation()
+        public PersonagemValidation()
         {
             RuleFor(c => c.Nome)
                 .NotEmpty()

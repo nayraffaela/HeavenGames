@@ -1,38 +1,36 @@
 ﻿
+using HavenGames.Business.Interfaces;
 using HavenGames.Business.Models;
-using HavenGames.Data.Contexts;
+using HavenGames.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using static HavenGames.App.ViewModels.PersonagemViewModel;
 
 namespace HavenGames.App.Controllers
 {
     public class JogosController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IJogoRepository _jogoRepository;
+        private readonly IJogoService _jogoService;
 
-        public JogosController(AppDbContext context)
+        public JogosController(IJogoRepository jogoRepository, IJogoService jogoService)
         {
-            _context = context;
+            _jogoRepository = jogoRepository;
+            _jogoService = jogoService;
         }
 
         // GET: Jogos
         public async Task<IActionResult> Index()
         {
-            var t = await _context.Jogos.ToListAsync();
+            var jogos = await _jogoRepository.ObterTodos();
 
-            return View(t);
+            return View(jogos);
         }
 
         // GET: Jogos/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> Details(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var jogo = await _context.Jogos
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var jogo = await _jogoRepository.ObterPorId(id);
 
             if (jogo == null)
             {
@@ -44,29 +42,14 @@ namespace HavenGames.App.Controllers
 
         // GET: Jogos/Personagens/5
         [HttpGet, ActionName("Personagens")]
-        public async Task<IActionResult> Personagens(Guid? id)
+        public async Task<IActionResult> Personagens(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            var jogo = await _jogoRepository.ObterJogoComPersonagens(id);
 
-            var jogo = await _context.Jogos.Include(t => t.Personagens)
-                .FirstOrDefaultAsync(m => m.Id == id);
-
-            if (jogo == null)
-            {
-                return NotFound();
-            }
-
-            jogo.Personagens = jogo.Personagens ?? new List<Personagem>();
+            jogo.Personagens = jogo?.Personagens ?? new List<Personagem>();
 
             return View(jogo);
         }
-
-
-
-
 
         // GET: Jogo/Create
         [HttpGet]
@@ -82,9 +65,8 @@ namespace HavenGames.App.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(jogo);
+                await _jogoService.Adicionar(jogo);
 
-                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
@@ -93,21 +75,10 @@ namespace HavenGames.App.Controllers
 
         // GET: Jogos/Edit/5
         [HttpGet]
-        public async Task<IActionResult> Edit(Guid? id)
+        public async Task<IActionResult> Edit(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            var jogo = await _jogoRepository.ObterPorId(id);
 
-            var jogo = await _context.Jogos
-             .Include(j => j.Personagens)
-             .FirstOrDefaultAsync(j => j.Id == id);
-
-            if (jogo == null)
-            {
-                return NotFound();
-            }
             return View(jogo);
         }
 
@@ -116,29 +87,10 @@ namespace HavenGames.App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, [Bind("Id,Nome,Plataforma,Genero,Imagem, Descricao")] Jogo jogo)
         {
-            if (id != jogo.Id)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(jogo);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!JogoExists(jogo.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                await _jogoService.Alterar(jogo);
+
                 return RedirectToAction(nameof(Index));
             }
 
@@ -146,15 +98,10 @@ namespace HavenGames.App.Controllers
         }
 
         // GET: Jogos/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        public async Task<IActionResult> Delete(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            var jogo = await _jogoRepository.ObterPorId(id);
 
-            var jogo = await _context.Jogos
-                .FirstOrDefaultAsync(m => m.Id == id);
             if (jogo == null)
             {
                 return NotFound();
@@ -168,33 +115,21 @@ namespace HavenGames.App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var jogo = await _context.Jogos.FindAsync(id);
+            var jogo = await _jogoRepository.ObterPorId(id);
+
             if (jogo != null)
             {
-                _context.Jogos.Remove(jogo);
+              await _jogoService.Remover(jogo);
             }
 
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
-        private bool JogoExists(Guid id)
-        {
-            return _context.Jogos.Any(e => e.Id == id);
-        }
-
 
         // GET: Jogos/Personagems/5
         [HttpGet, ActionName("CreatePersonagem")]
         public async Task<IActionResult> GetCreatePersonagem(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var jogo = await _context.Jogos
-                      .FirstOrDefaultAsync(m => m.Id == id);
+            var jogo = await _jogoRepository.ObterPorId(id);
 
             if (jogo == null)
             {
@@ -213,37 +148,16 @@ namespace HavenGames.App.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
+                personagem.Id = Guid.NewGuid();
+
+                var jogo = await _jogoRepository.ObterJogoComPersonagens(id);
+
+                if (jogo == null)
                 {
-                    personagem.Id = Guid.NewGuid();
-
-                    var jogo = _context.Jogos.Include(t => t.Personagens)
-                        .FirstOrDefault(j => j.Id == id);
-
-                    if (jogo == null)
-                    {
-                        return NotFound();
-                    }
-
-                    jogo.Personagens.Add(personagem);
-
-
-                    _context.Add(personagem);
-                    _context.Update(jogo);
-
-                    _context.SaveChanges();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!JogoExists(personagem.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+
+               await _jogoService.AdicionarPersonagem(jogo, personagem);
 
                 return RedirectToAction("Index");
             }
@@ -255,9 +169,7 @@ namespace HavenGames.App.Controllers
         [HttpGet, ActionName("UpdatePersonagem")]
         public async Task<IActionResult> UpdatePersonagem(Guid jogoId, Guid personagemId)
         {
-            var jogo = await _context.Jogos
-                .Include(j => j.Personagens)
-                .FirstOrDefaultAsync(j => j.Id == jogoId);
+            var jogo = await _jogoRepository.ObterJogoComPersonagens(jogoId);
 
             if (jogo == null)
             {
@@ -265,6 +177,7 @@ namespace HavenGames.App.Controllers
             }
 
             var personagem = jogo.Personagens.FirstOrDefault(p => p.Id == personagemId);
+
             if (personagem == null)
             {
                 return NotFound();
@@ -282,9 +195,7 @@ namespace HavenGames.App.Controllers
         {
             if (ModelState.IsValid)
             {
-                var jogo = await _context.Jogos
-                    .Include(j => j.Personagens)
-                    .FirstOrDefaultAsync(j => j.Id == jogoId);
+                var jogo = await _jogoRepository.ObterJogoComPersonagens(jogoId);
 
                 if (jogo == null)
                 {
@@ -292,6 +203,7 @@ namespace HavenGames.App.Controllers
                 }
 
                 var existingPersonagem = jogo.Personagens.FirstOrDefault(p => p.Id == personagem.Id);
+
                 if (existingPersonagem == null)
                 {
                     return NotFound();
@@ -300,10 +212,9 @@ namespace HavenGames.App.Controllers
                 existingPersonagem.Nome = personagem.Nome;
                 existingPersonagem.Descricao = personagem.Descricao;
 
-                _context.Update(existingPersonagem);
-                await _context.SaveChangesAsync();
+                await _jogoService.AlterarPersonagem(existingPersonagem);
 
-                return RedirectToAction(nameof(Personagens), new { id = jogoId });
+                return RedirectToAction(nameof(Personagens), jogo);
             }
 
             return View("EditPersonagem", personagem);
@@ -314,9 +225,7 @@ namespace HavenGames.App.Controllers
         [HttpGet, ActionName("DeletePersonagem")]
         public async Task<IActionResult> DeletePersonagem(Guid jogoId, Guid personagemId)
         {
-            var jogo = await _context.Jogos
-                .Include(j => j.Personagens)
-                .FirstOrDefaultAsync(j => j.Id == jogoId);
+            var jogo = await _jogoRepository.ObterJogoComPersonagens(jogoId);
 
             if (jogo == null)
             {
@@ -337,9 +246,7 @@ namespace HavenGames.App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeletePersonagemConfirmed(Guid jogoId, Guid personagemId)
         {
-            var jogo = await _context.Jogos
-                .Include(j => j.Personagens)
-                .FirstOrDefaultAsync(j => j.Id == jogoId);
+            var jogo = await _jogoRepository.ObterJogoComPersonagens(jogoId);
 
             if (jogo == null)
             {
@@ -349,9 +256,10 @@ namespace HavenGames.App.Controllers
             var personagem = jogo.Personagens.FirstOrDefault(p => p.Id == personagemId);
             if (personagem != null)
             {
-                jogo.Personagens.Remove(personagem);
-                _context.Update(jogo);
-                await _context.SaveChangesAsync();
+
+                await _jogoService.RemoverPersonagem(jogo, personagem);
+              
+
             }
 
             return RedirectToAction(nameof(Personagens), jogo);

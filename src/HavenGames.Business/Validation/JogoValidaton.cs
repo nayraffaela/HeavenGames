@@ -4,9 +4,9 @@ using HavenGames.Business.Models;
 
 namespace HavenGames.Business.Validation
 {
-    public class ProdutoValidation : AbstractValidator<Jogo>
+    public class JogoValidation : AbstractValidator<Jogo>
     {
-        public ProdutoValidation()
+        public JogoValidation()
         {
             RuleFor(p => p.Nome)
         .NotEmpty()

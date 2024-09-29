@@ -1,6 +1,8 @@
 using HavenGames.App.AutoMapper;
 using HavenGames.App.Data;
 using HavenGames.Business.Interfaces;
+using HavenGames.Business.Notification;
+using HavenGames.Business.Services;
 using HavenGames.Data.Contexts;
 using HavenGames.Data.Repositories;
 using Microsoft.AspNetCore.Identity;
@@ -23,6 +25,12 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddAutoMapper(typeof(ConfigAutoMapper));
 builder.Services.AddScoped<IEventRepository, EventRepository>();
+builder.Services.AddScoped<IJogoRepository, JogoRepository>();
+builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+builder.Services.AddScoped<IJogoService, JogoService>();
+builder.Services.AddScoped<ICommentService, CommentService>();
+builder.Services.AddScoped<IEventService, EventService>();
+builder.Services.AddScoped<INotificador, Notificador>();
 
 var app = builder.Build();
 
