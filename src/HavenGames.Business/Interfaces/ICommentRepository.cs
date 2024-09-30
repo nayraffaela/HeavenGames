@@ -4,6 +4,7 @@ namespace HavenGames.Business.Interfaces
 {
     public interface ICommentRepository : IBaseRepository<Comment>
     {
+
     }
 }
 

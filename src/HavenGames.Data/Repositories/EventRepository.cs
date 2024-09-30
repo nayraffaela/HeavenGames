@@ -8,7 +8,10 @@ namespace HavenGames.Data.Repositories
     {
         public EventRepository(AppDbContext db) : base(db)
         {
+
         }
+
+        
     }
 }
 
