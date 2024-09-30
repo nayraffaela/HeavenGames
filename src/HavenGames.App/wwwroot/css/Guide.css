@@ -4,9 +4,10 @@ h1 {
 }
 p {
     font-family: Space Grotesk;
+    font-size: 1.2rem;
 }
 .card-img-top{
-   height: 126px;
+   height: 200px;
 }
 .card-body {
     box-shadow: 1px 1px 15px #52b69a;
@@ -15,7 +16,7 @@ p {
 }
 .card-title {
     font-family: Bebas Neue;
-    font-weight: 800px;
+    font-weight: bold;
 }
 .btn-glass {
     background: linear-gradient(145deg, #52b69a, #184e77);

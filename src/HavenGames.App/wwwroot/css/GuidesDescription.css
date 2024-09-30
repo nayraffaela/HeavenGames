@@ -5,13 +5,15 @@ h1 {
 
 p {
     font-family: Space Grotesk;
+    font-size: 1.2rem;
 }
 
 h2 {
-    font-family: Space Grotesk;
+    font-family: Bebas Neue;
 }
 ul {
     font-family: Space Grotesk;
+    font-size: 1.2rem;
 }
 
 .btn-glass {
@@ -88,3 +90,8 @@ ul {
     h3 {
         font-size: 1.25rem; /* Ajusta o tamanho da fonte para h3 */
     }
+
+.buttons{
+        display:flex;
+        justify-content:space-between;
+}

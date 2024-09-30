@@ -1,7 +1,15 @@
 ﻿@{
     ViewData["Title"] = "The Elder Scrolls V: Skyrim";
 }
-<a asp-area="" asp-controller="Home" asp-action="Guide"> Voltar </a>
+<link rel="stylesheet" href="~/css/GuidesDescription.css" asp-append-version="true" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+<div class="buttons">
+    <a class="btn-glass" asp-area="" asp-controller="Home" asp-action="Guide"> Voltar </a>
+    <a class="btn-glass" asp-area="" asp-controller="Home" asp-action="Index"> Página Inicial </a>
+
+</div>
+<br />
 <h1>Guia Completo: The Elder Scrolls V: Skyrim</h1>
 
 <p><strong>The Elder Scrolls V: Skyrim</strong> é um RPG de ação e aventura em mundo aberto desenvolvido pela Bethesda. O jogo se passa na província de Skyrim e oferece uma vasta gama de missões e exploração.</p>
@@ -36,4 +44,3 @@
 
 <h2>Recursos Adicionais</h2>
 <p>Consulte fóruns e tutoriais online para estratégias avançadas e dicas adicionais.</p>
-<a asp-area="" asp-controller="Home" asp-action="Guide"> Voltar </a>

@@ -1,8 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Assassin's Creed";
 }
-<a asp-area="" asp-controller="Home" asp-action="Guide"> Voltar </a>
+<link rel="stylesheet" href="~/css/GuidesDescription.css" asp-append-version="true" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
+<div class="buttons">
+    <a class="btn-glass" asp-area="" asp-controller="Home" asp-action="Guide"> Voltar </a>
+    <a class="btn-glass" asp-area="" asp-controller="Home" asp-action="Index"> Página Inicial </a>
+
+</div>
+<br />
 <h1>Guia Completo: Assassin's Creed</h1>
 
 <p><strong>Assassin's Creed</strong> é uma série de jogos de ação e aventura desenvolvida pela Ubisoft. Os jogos seguem a história dos Assassinos, uma ordem secreta que luta contra os Templários em diferentes períodos históricos.</p>
@@ -37,4 +44,3 @@
 
 <h2>Recursos Adicionais</h2>
 <p>Para mais detalhes, consulte os tutoriais disponíveis dentro do jogo e a comunidade online.</p>
-<a asp-area="" asp-controller="Home" asp-action="Guide"> Voltar </a>

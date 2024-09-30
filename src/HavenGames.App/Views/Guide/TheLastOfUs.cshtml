@@ -1,7 +1,16 @@
 ﻿@{
     ViewData["Title"] = "The Last of Us";
 }
-<a asp-area="" asp-controller="Home" asp-action="Guide"> Voltar </a>
+
+<link rel="stylesheet" href="~/css/GuidesDescription.css" asp-append-version="true" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+<div class="buttons">
+    <a class="btn-glass" asp-area="" asp-controller="Home" asp-action="Guide"> Voltar </a>
+    <a class="btn-glass" asp-area="" asp-controller="Home" asp-action="Index"> Página Inicial </a>
+
+</div>
+<br />
 <h1>Guia Completo: The Last of Us</h1>
 
 <p><strong>The Last of Us</strong> é um jogo de ação e aventura pós-apocalíptico desenvolvido pela Naughty Dog. A história segue Joel e Ellie em uma jornada para sobreviver em um mundo devastado por uma pandemia de fungos.</p>
@@ -36,4 +45,3 @@
 
 <h2>Recursos Adicionais</h2>
 <p>Para mais dicas e estratégias, consulte tutoriais online e discussões da comunidade.</p>
-<a asp-area="" asp-controller="Home" asp-action="Guide"> Voltar </a>
