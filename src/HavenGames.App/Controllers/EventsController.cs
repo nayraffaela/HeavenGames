@@ -1,5 +1,7 @@
 ﻿
+using HavenGames.Business.Interfaces;
 using HavenGames.Business.Models;
+using HavenGames.Business.Services;
 using HavenGames.Data.Contexts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,29 +11,27 @@ namespace HavenGames.App.Controllers
 {
     public class EventsController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IEventRepository _eventRepository;
+        private readonly IEventService _eventService;
 
-        public EventsController(AppDbContext context)
+        public EventsController(IEventRepository eventRepository, IEventService eventService)
         {
-            _context = context;
+            _eventRepository = eventRepository;
+            _eventService = eventService;
         }
 
+        
         // GET: Events
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Events.ToListAsync());
+            return View(await _eventRepository.ObterTodos());
         }
 
         // GET: Events/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> Details(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var eventViewModel = await _context.Events
-                .FirstOrDefaultAsync(m => m.Id == id);
+           
+            var eventViewModel = await _eventRepository.ObterPorId(id);
             if (eventViewModel == null)
             {
                 return NotFound();
@@ -55,22 +55,17 @@ namespace HavenGames.App.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(createdEvent);
-                await _context.SaveChangesAsync();
+                await _eventService.Adicionar(createdEvent);
                 return RedirectToAction(nameof(Index));
             }
             return View(createdEvent);
         }
 
         // GET: Events/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        public async Task<IActionResult> Edit(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var eventFromDb = await _context.Events.FindAsync(id);
+         
+            var eventFromDb = await _eventRepository.ObterPorId(id);
             if (eventFromDb == null)
             {
                 return NotFound();
@@ -94,12 +89,12 @@ namespace HavenGames.App.Controllers
             {
                 try
                 {
-                    _context.Update(editedEvent);
-                    await _context.SaveChangesAsync();
+                   await _eventService.Alterar(editedEvent);
+                   
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EventExists(editedEvent.Id))
+                    if (!await EventExistsAsync(editedEvent.Id))
                     {
                         return NotFound();
                     }
@@ -114,15 +109,11 @@ namespace HavenGames.App.Controllers
         }
 
         // GET: Events/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        public async Task<IActionResult> Delete(Guid id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            
 
-            var eventViewModel = await _context.Events
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var eventViewModel = await _eventRepository.ObterPorId(id);
             if (eventViewModel == null)
             {
                 return NotFound();
@@ -134,105 +125,24 @@ namespace HavenGames.App.Controllers
         // POST: Events/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var eventViewModel = await _context.Events.FindAsync(id);
+            var eventViewModel = await _eventRepository.ObterPorId(id);
             if (eventViewModel != null)
             {
-                _context.Events.Remove(eventViewModel);
+                await _eventService.Remover(eventViewModel);
             }
 
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool EventExists(Guid id)
+        private async Task<bool> EventExistsAsync(Guid id)
         {
-            return _context.Events.Any(e => e.Id == id);
+            var evento = await _eventRepository.ObterPorId(id);
+            return evento != null;
         }
 
-        //[HttpGet, ActionName("Tickets")]
-        //public async Task<IActionResult> Tickets(Guid? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    var jogo = await _context.Events.Include(t => t.Tickets)
-        // .FirstOrDefaultAsync(m => m.Id == id);
-        //    if (jogo == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    jogo.Tickets = jogo.Tickets ?? new List<Ticket>();
-
-        //    return View(jogo);
-        //}
-
-        //// GET: Jogos/Personagems/5
-        //[HttpGet, ActionName("CreateTicket")]
-        //public async Task<IActionResult> GetCreateTicket(Guid id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var jogo = await _context.Events
-        //              .FirstOrDefaultAsync(m => m.Id == id);
-
-        //    if (jogo == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(event);
-        //}
-
-        //// POST: Jogos/Personagens/5
-        //[HttpPost, ActionName("CreateTickets")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> CreateTickets(Guid id, Ticket ticket)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            ticket.Id = Guid.NewGuid();
-
-        //            var jogo = _context.Jogos.Include(t => t.Personagens)
-        //                .FirstOrDefault(j => j.Id == id);
-
-        //            if (jogo == null)
-        //            {
-        //                return NotFound();
-        //            }
-
-        //            jogo.Personagens.Add(ticket);
-
-
-        //            _context.Add(ticket);
-        //            _context.Update(jogo);
-
-        //            _context.SaveChanges();
-        //        }
-        //        catch (DbUpdateConcurrencyException)
-        //        {
-        //            if (!EventExists(ticket.Id))
-        //            {
-        //                return NotFound();
-        //            }
-        //            else
-        //            {
-        //                throw;
-        //            }
-        //        }
-        //        return RedirectToAction("Personagens");
-        //    }
-
-        //    return View(ticket);
-        //}
+    
 
     }
 }
