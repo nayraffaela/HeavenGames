@@ -3,7 +3,6 @@
 }
 
 <!DOCTYPE html>
-<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,49 +10,53 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/Contact.css" asp-append-version="true" />
 </head>
+<body>
+    <header>
 
-<div class="container">
-    <div class="row ">
-        <div class="col-sm card-box">
-            <h5 class="card-title">Queremos te ouvir! Entre em contato utilizando o formulário abaixo:</h5>
-            <form>
-                <div class="form-group">
-                    <label for="name">Nome:</label>
-                    <input type="text" class="form-control" id="name" placeholder="Seu nome" required>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm card-box">
+                    <h5 class="card-title">Queremos te ouvir! Entre em contato utilizando o formulário abaixo:</h5>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nome:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="review">E-mail:</label>
+                            <input type="text" class="form-control" id="email" placeholder="Seu e-mail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" class="input-padrao" required placeholder="(xx) xxxxx-xxxx">
+                            <label for="telefone">Whatsapp</label>
+                            <input type="tel" id="telefone" class="input-padrao" required placeholder="(xx) xxxxx-xxxx">
+                        </div>
+                        <div class="form-group">
+                            <label for="review">Mensagem:</label>
+                            <textarea class="form-control" id="review" rows="4" placeholder="Sua mensagem aqui" required></textarea>
+                        </div>
+                        <div class="btn-esp">
+                            <a class="btn-glass" asp-area="" asp-controller="" asp-action="Index">Enviar</a><br />
+                        </div>
+                    </form>
+                    <br />
+                    <hr />
+                    <h5 class="card-title">Se preferir nos encontre nas redes sociais abaixo, vamos adorar te conhecer:</h5>
+
+                    <p><strong> E-mail:</strong> contato@havengames.com.br</p><br />
+                    <p><strong> Facebook:</strong> facebook.com/havengames</p><br />
+                    <p><strong> Twitter:</strong> twitter.com/havengames</p><br />
+                    <p><strong> Instagram:</strong> instagram.com/havengames</p><br /><br />
+                    <p><strong> Horário de Atendimento:</strong> segunda a Sexta-feira: 9h00 às 18h00</p><br />
                 </div>
-                <div class="form-group">
-                    <label for="review">E-mail:</label>
-                    <input type="text" class="form-control" id="email" placeholder="Seu e-mail" required>
-                </div>
-                <div class="form-group">
-                    <label for="telefone">Telefone</label>
-                    <input type="tel" id="telefone" class="input-padrao" required placeholder="(xx) xxxxx-xxxx">
-                    <label for="telefone">Whatsapp</label>
-                    <input type="tel" id="telefone" class="input-padrao" required placeholder="(xx) xxxxx-xxxx">
-                </div>
-                <div class="form-group">
-                    <label for="review">Mensagem:</label>
-                    <textarea class="form-control" id="review" rows="4" placeholder="Sua mensagem aqui" required></textarea>
-                </div>
-                <div class="btn-esp">
-                    <a class="btn-glass" asp-area="" asp-controller="" asp-action="Index">Enviar</a><br />
-                </div>
-            </form>
+            </div>
         </div>
+    </header>
+</body>
 
-        <div class="col-sm card-box">
-            <h5 class="card-title">Se preferir nos encontre nas redes sociais abaixo, vamos adorar te conhecer:</h5>
 
-            <p><strong> E-mail:</strong> contato@havengames.com.br</p><br />
-            <p><strong> Facebook:</strong> facebook.com/havengames</p><br />
-            <p><strong> Twitter:</strong> twitter.com/havengames</p><br />
-            <p><strong> Instagram:</strong> instagram.com/havengames</p><br /><br />
-            <p><strong> Horário de Atendimento:</strong> segunda a Sexta-feira: 9h00 às 18h00</p><br />
-            <p><strong> Sábado e Domingo:</strong>  Fechado</p><br />
-        </div>
-    </div>
-</div>
-</html>
 
 
 

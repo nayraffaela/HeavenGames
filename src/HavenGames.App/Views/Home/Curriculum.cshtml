@@ -4,83 +4,86 @@
 @{
 }
 @model HavenGames.App.ViewModels.CurriculumViewModel
+<head>
+    <link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+<body>
+    <header>
 
-<link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-
-<div class="container">
-    <div class="row ">
-        <div class="col-sm card-box">
-            <h6 class="card-title">Queremos você em nosso time! Preencha as informações abaixo para se cadastrar em uma de nossas vagas disponiveis:</h6>
-            <form>
-                <div class="form-group">
-                    <label for="name">Nome:</label>
-                    <input type="text" class="form-control" id="name" placeholder="Qual seu nome?" required>
-                </div>
-                <div class="form-group">
-                    <label for="name">Nome Social:</label>
-                    <input type="text" class="form-control" id="name" placeholder="Como gostaria de ser chamado?" required>
-                </div>
-                @Html.LabelFor(model => model.DataNascimento, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.DataNascimento, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.DataNascimento, "", new { @class = "text-danger" })
-                    </div> 
-                <div class="form-group">
-                    <label for="name">Sexo:</label>
-                    <input type="text" class="form-control" id="name" placeholder="Se se sentir confortável escreva aqui" required>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.CPF, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.CPF, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.CPF, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="review">E-mail:</label>
-                    <input type="text" class="form-control" id="email" placeholder="Seu e-mail" required>
-                </div>
-                <div class="form-group">
-                    <label for="telefone">Telefone</label>
-                    <input type="tel" id="telefone" class="input-padrao" required placeholder="(xx) xxxxx-xxxx">
-                    <label for="telefone">Whatsapp</label>
-                    <input type="tel" id="telefone" class="input-padrao" required placeholder="(xx) xxxxx-xxxx">
-                </div>
-                <div class="form-group">
-                    <label for="telefone">Escolaridade:</label><br />
-                    <input type="radio" value="1" asp-for="Escolaridade" checked />Fundamental<br />
-                    <input type="radio" value="2" asp-for="Escolaridade" /> Médio<br />
-                    <input type="radio" value="2" asp-for="Escolaridade" /> Técnico<br />
-                    <input type="radio" value="2" asp-for="Escolaridade" /> Graducão<br />
-                    <input type="radio" value="2" asp-for="Escolaridade" /> Pos-Gradução<br />
-                    <input type="radio" value="2" asp-for="Escolaridade" /> Mestrado<br />
-                    <input type="radio" value="2" asp-for="Escolaridade" /> Doutorado
-                    <span asp-validation-for="Escolaridade" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label for="telefone">Informe a condição abaixo:</label><br />
-                    <input type="radio" value="1" asp-for="Status" /> Cursando<br />
-                    <input type="radio" value="2" asp-for="Status" /> Incompleto<br />
-                    <input type="radio" value="2" asp-for="Status" /> Completo
-                    <span asp-validation-for="Status" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label for="telefone">Para qual vaga deseja aplicar:</label><br />
-                    <input type="radio" value="1" asp-for="Vaga" /> Estágio<br />
-                    <input type="radio" value="2" asp-for="Vaga" /> Trainee<br />
-                    <input type="radio" value="2" asp-for="Vaga" /> Dev BackEnd<br />
-                    <input type="radio" value="2" asp-for="Vaga" /> Dev FrontEnd<br />
-                    <input type="radio" value="2" asp-for="Vaga" /> Dev FullStack<br />
-                    <input type="radio" value="2" asp-for="Vaga" /> UxDesing<br />
-                    <input type="radio" value="2" asp-for="Vaga" /> Administração geral<br />
-                    <input type="radio" value="2" asp-for="Vaga" /> Recursos Humanos
-                    <span asp-validation-for="Status" class="text-danger"></span>
+        <div class="container">
+            <div class="row ">
+                <div class="col-sm card-box">
+                    <h6 class="card-title">Queremos você em nosso time! Preencha as informações abaixo para se cadastrar em uma de nossas vagas disponiveis:</h6>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nome:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Qual seu nome?" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Nome Social:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Como gostaria de ser chamado?" required>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DataNascimento, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.DataNascimento, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DataNascimento, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Sexo:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Se se sentir confortável escreva aqui" required>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CPF, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.CPF, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CPF, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="review">E-mail:</label>
+                            <input type="text" class="form-control" id="email" placeholder="Seu e-mail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" class="input-padrao" required placeholder="(xx) xxxxx-xxxx">
+                            <label for="telefone">Whatsapp</label>
+                            <input type="tel" id="telefone" class="input-padrao" required placeholder="(xx) xxxxx-xxxx">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Escolaridade:</label><br />
+                            <input type="radio" value="1" asp-for="Escolaridade" checked />Fundamental<br />
+                            <input type="radio" value="2" asp-for="Escolaridade" /> Médio<br />
+                            <input type="radio" value="2" asp-for="Escolaridade" /> Técnico<br />
+                            <input type="radio" value="2" asp-for="Escolaridade" /> Graducão<br />
+                            <input type="radio" value="2" asp-for="Escolaridade" /> Pos-Gradução<br />
+                            <input type="radio" value="2" asp-for="Escolaridade" /> Mestrado<br />
+                            <input type="radio" value="2" asp-for="Escolaridade" /> Doutorado
+                            <span asp-validation-for="Escolaridade" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Informe a condição abaixo:</label><br />
+                            <input type="radio" value="1" asp-for="Status" /> Cursando<br />
+                            <input type="radio" value="2" asp-for="Status" /> Incompleto<br />
+                            <input type="radio" value="2" asp-for="Status" /> Completo
+                            <span asp-validation-for="Status" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Para qual vaga deseja aplicar:</label><br />
+                            <input type="radio" value="1" asp-for="Vaga" /> Estágio<br />
+                            <input type="radio" value="2" asp-for="Vaga" /> Trainee<br />
+                            <input type="radio" value="2" asp-for="Vaga" /> Dev BackEnd<br />
+                            <input type="radio" value="2" asp-for="Vaga" /> Dev FrontEnd<br />
+                            <input type="radio" value="2" asp-for="Vaga" /> Dev FullStack<br />
+                            <input type="radio" value="2" asp-for="Vaga" /> UxDesing<br />
+                            <input type="radio" value="2" asp-for="Vaga" /> Administração geral<br />
+                            <input type="radio" value="2" asp-for="Vaga" /> Recursos Humanos
+                            <span asp-validation-for="Status" class="text-danger"></span>
+                        </div>
+                        <br />
+                        <div class="btn-esp">
+                            <a class="btn-glass" asp-area="" asp-controller="" asp-action="Index">Enviar</a><br />
+                        </div>
+                    </form>
                 </div>
                 <br />
-                <div class="btn-esp">
-                    <a class="btn-glass" asp-area="" asp-controller="" asp-action="Index">Enviar</a><br />
-                </div>
-            </form>
-        </div>
-        <br />
+    </header>
+</body>

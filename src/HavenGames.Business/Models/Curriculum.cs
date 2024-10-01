@@ -12,7 +12,7 @@ namespace HavenGames.Business.Models
         [Required]
         public string NomeSocial { get; set; }
         [Required]
-        [Display(Name = "Data de nascimento deve ser informada")]
+        [Display(Name = "Data de Nascimento")]
         public DateTime DataNascimento { get; set; }
 
         public string Sexo { get; set; }

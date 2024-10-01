@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/css/ViewEvent/IndexEvent.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/IndexEvent.css" asp-append-version="true" />
 </head>
 <body>
     <div class="container mt-5">
@@ -29,9 +29,12 @@
                         <div class="card-body">
                             <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
                             <p class="card-text">Endereço: @Html.DisplayFor(modelItem => item.Localization)</p>
+                            <h6 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h6>
+                            <p class="card-text">Descrição: @Html.DisplayFor(modelItem => item.Description)</p>
                             <div class="row d-flex justify-content-between">
                                 <button class="btn-glass" style="width: 140px;"><a asp-action="Edit" asp-route-id="@item.Id">Editar</a></button>
                                 <button class="btn-glass" style="width: 140px;"><a asp-action="Delete" asp-route-id="@item.Id">Excluir</a></button>
+
                            </div>
                         </div>
                     </div>

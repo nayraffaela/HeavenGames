@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\css\ViewHome\**" />
+    <Content Remove="wwwroot\css\ViewHome\**" />
+    <EmbeddedResource Remove="wwwroot\css\ViewHome\**" />
+    <None Remove="wwwroot\css\ViewHome\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Controllers\TicketsController.cs" />
   </ItemGroup>
 
@@ -15,6 +22,7 @@
     <Content Remove="Views\Home\Comments.cshtml" />
     <Content Remove="Views\Home\Events.cshtml" />
     <Content Remove="Views\Home\Login.cshtml" />
+    <Content Remove="Views\Home\Resenhas.cshtml" />
     <Content Remove="wwwroot\css\AboutUs.cs" />
     <Content Remove="wwwroot\css\Inicio.css" />
   </ItemGroup>

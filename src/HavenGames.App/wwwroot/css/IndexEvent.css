@@ -1,16 +1,36 @@
-﻿h1 {
+﻿@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem; /* Ajusta o tamanho da fonte para telas menores */
+    }
+
+    h4 {
+        font-size: 1.25rem; /* Ajusta o tamanho da fonte para telas menores */
+    }
+
+    .btn-cab {
+        font-size: 0.875rem; /* Ajusta o tamanho da fonte para botões */
+    }
+
+    .card-title {
+        font-size: 1rem; /* Ajusta o tamanho da fonte para o título do cartão */
+    }
+
+    h3 {
+        font-size: 1.25rem; /* Ajusta o tamanho da fonte para h3 */
+    }
+}
+
+h1 {
     font-family: Bebas Neue;
-    letter-spacing: 2px;
-    word-spacing: 4px;
-    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: black;
 }
 
 h4 {
-   
-    font-family: Bebas Neue;
-    letter-spacing: 2px;
+    font-family: Space Grotesk;
+    letter-spacing: 4px;
     word-spacing: 4px;
-    text-transform: none;
+    color: black;
 }
 
 p {
@@ -19,36 +39,28 @@ p {
     font-family: Space Grotesk;
     letter-spacing: 2px;
     word-spacing: 4px;
-    text-align: justify;
+    text-align:center;
 }
 
-.game-container {
-    position: relative;
-    width: 200px;
-    height: 300px;
-    overflow: hidden;
-
+.col-sem-margem{
+    padding-left:100px;
+    padding-right:100px;
+    margin-bottom:100px;
 }
 
-.details {
-    position: absolute;
-    bottom: -50%;
-    left: 0;
-    width: 100%;
-    background-color: #bbd0ff;
-    color: #000;
-    padding: 6px;
-    box-sizing: border-box;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease-in-out;
+
+.img-event {
+    width: 292px;
+    height: 240px;
 }
 
-.game-container:hover .details {
-    bottom: 0;
-    opacity: 90%;
-    transform: translateY(0);
+.card-body, .img-event {
+    width: 292px;
+    box-shadow: 1px 1px 10px #52b69a;
 }
+
+
+
 
 .btn-glass {
     background: linear-gradient(145deg, #52b69a, #184e77);
@@ -71,10 +83,10 @@ p {
     transition: all 0.3s ease;
     text-align: center;
     text-decoration: none;
-    width: 150px;
+    width: 200px;
 }
 
-.btn-glass::before {
+    .btn-glass::before {
         content: '';
         position: absolute;
         top: -4px; /* Ajustado para a borda externa menor */
@@ -85,7 +97,7 @@ p {
         background: rgba(255, 255, 255, 0.1);
         z-index: -1;
         transition: all 0.3s ease;
-}
+    }
 
     .btn-glass:hover {
         background: linear-gradient(145deg, #52b69a, #76c893);
@@ -95,21 +107,12 @@ p {
         background-color: #0056b3;
     }
 
-.btn-glass:hover::before {
-        background: rgba(255, 255, 255, 0.2);
-        transform: scale(1.05); /* Ajustado para uma escala de transformação mais sutil */
-}
+        .btn-glass:hover::before {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05); /* Ajustado para uma escala de transformação mais sutil */
+        }
 
-.btn-glass a {
+    .btn-glass a {
         color: white;
         text-decoration: none;
-}
-
-.btn-cad {
-    float: right;
-}
-.img-index {
-
-    width: 200px; !important;
-    height: 300px; !important;
-}
+    }

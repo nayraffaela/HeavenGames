@@ -3,8 +3,17 @@
 @{
     ViewData["Title"] = "Create";
 }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/ViewEvent/CreateEvent.css" asp-append-version="true" />
+</head>
 
-<h1>Create</h1>
+<h1>CADASTRAR NOVO EVENTO</h1>
 
 <h4>EventViewModel</h4>
 <hr />
@@ -49,5 +58,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
