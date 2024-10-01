@@ -8,6 +8,7 @@ namespace HavenGames.Data.Repositories
     {
         public CommentRepository(AppDbContext db) : base(db)
         {
+
         }
     }
 }

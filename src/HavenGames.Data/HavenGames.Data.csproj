@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Remove="Class1.cs" />
     <Compile Remove="Mappings\GameMapping.cs" />
+    <Compile Remove="Repositories\HomeRepository.cs" />
   </ItemGroup>
 
   <ItemGroup>
