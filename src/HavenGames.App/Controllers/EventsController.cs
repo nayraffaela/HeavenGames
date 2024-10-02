@@ -112,13 +112,13 @@ namespace HavenGames.App.Controllers
         {
             
 
-            var eventViewModel = await _eventRepository.ObterPorId(id);
-            if (eventViewModel == null)
+            var evento = await _eventRepository.ObterPorId(id);
+            if (evento == null)
             {
                 return NotFound();
             }
 
-            return View(eventViewModel);
+            return View(evento);
         }
 
         // POST: Events/Delete/5
@@ -126,10 +126,11 @@ namespace HavenGames.App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var eventViewModel = await _eventRepository.ObterPorId(id);
-            if (eventViewModel != null)
+            var evento = await _eventRepository.ObterPorId(id);
+
+            if (evento != null)
             {
-                await _eventService.Remover(eventViewModel);
+                await _eventService.Remover(evento);
             }
 
             return RedirectToAction(nameof(Index));

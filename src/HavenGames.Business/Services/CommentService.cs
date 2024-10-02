@@ -1,25 +1,28 @@
 ﻿using HavenGames.Business.Interfaces;
 using HavenGames.Business.Models;
+using HavenGames.Business.Validation;
 
 namespace HavenGames.Business.Services
 {
     public class CommentService : BaseService, ICommentService
     {
-        private readonly ICommentService _commentService;
+        private readonly ICommentRepository _commentRepository;
 
-        public CommentService(INotificador notificador) : base(notificador)
+        public CommentService(ICommentRepository commentRepository, 
+                                INotificador notificador) : base(notificador)
         {
-
+            _commentRepository = commentRepository;
         }
 
-        public Task Adicionar(Comment comment)
+        public async Task Adicionar(Comment comment)
         {
-            throw new NotImplementedException();
+            if (!ExecutarValidacao(new CommentValidation(), comment)) return;
+            await _commentRepository.Adicionar(comment);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _commentRepository.Dispose();
         }
     }
 

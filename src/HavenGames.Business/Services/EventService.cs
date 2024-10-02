@@ -1,27 +1,39 @@
-﻿using HavenGames.Business.Models;
+﻿using HavenGames.Business.Interfaces;
+using HavenGames.Business.Models;
+using HavenGames.Business.Validation;
 
 namespace HavenGames.Business.Services
 {
-    public class EventService : IEventService
+    public class EventService : BaseService, IEventService
     {
-        public Task Adicionar(Event evento)
+        private readonly IEventRepository _eventRepository;
+        public EventService(IEventRepository eventrepository, INotificador notificador) : base(notificador)
         {
-            throw new NotImplementedException();
+            _eventRepository = eventrepository;
         }
 
-        public Task Alterar(Event evento)
+        public async Task Adicionar(Event evento)
         {
-            throw new NotImplementedException();
+            if (!ExecutarValidacao(new EventValidation(), evento)) return;
+
+
+            await _eventRepository.Adicionar(evento);
+        }
+
+        public async Task Alterar(Event evento)
+        {
+            if (!ExecutarValidacao(new EventValidation(), evento)) return;
+            await _eventRepository.Alterar(evento);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _eventRepository.Dispose();
         }
 
-        public Task Remover(Event evento)
+        public async Task Remover(Event evento)
         {
-            throw new NotImplementedException();
+            await _eventRepository.Remover(evento.Id);
         }
     }
 }
