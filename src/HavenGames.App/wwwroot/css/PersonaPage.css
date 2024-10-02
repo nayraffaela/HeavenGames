@@ -52,11 +52,16 @@ p {
 
 .card-img-top{
 
-    width: 305px;
-    height: 200px;
+    width: 310px;
+    height: 300px;
 
 }
 
+/*.card-body {
+    width: 310px;
+    height: 300px;
+}
+*/
 
 
 .btn-glass {

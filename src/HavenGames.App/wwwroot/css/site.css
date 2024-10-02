@@ -5,6 +5,7 @@
 }
 
 body {
+    background: url("~/imgs/Background/BGPhoto01.PNG") repeat;
     margin-bottom: 60px;
     background-color: #ffffff;
     color: #000000;
