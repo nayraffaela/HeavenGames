@@ -3,8 +3,6 @@ using HavenGames.Business.Interfaces;
 using HavenGames.Business.Models;
 using HavenGames.Business.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using static HavenGames.App.ViewModels.PersonagemViewModel;
 
 namespace HavenGames.App.Controllers
 {
@@ -115,7 +113,7 @@ namespace HavenGames.App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var jogo = await _jogoRepository.ObterPorId(id);
+            var jogo = await _jogoRepository.ObterJogoComPersonagens(id);
 
             if (jogo != null)
             {

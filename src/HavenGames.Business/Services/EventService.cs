@@ -33,7 +33,7 @@ namespace HavenGames.Business.Services
 
         public async Task Remover(Event evento)
         {
-            await _eventRepository.Remover(evento.Id);
+            await _eventRepository.Remover(evento);
         }
     }
 }

@@ -29,9 +29,9 @@ namespace HavenGames.Data.Repositories
             await SaveChanges();
         }
 
-        public async Task Remover(Guid id)
+        public async Task Remover(TEntity entity)
         {
-            Db.Remove(new TEntity { Id = id });
+            Db.Remove(entity);
             await SaveChanges();
         }
 

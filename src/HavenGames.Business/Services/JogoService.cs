@@ -48,7 +48,15 @@ namespace HavenGames.Business.Services
 
         public async Task Remover(Jogo jogo)
         {
-           await _jogoRepository.Remover(jogo.Id);
+            if (jogo.Personagens.Any())
+            {
+                foreach (var item in jogo.Personagens)
+                {
+                   _jogoRepository.Remover(item);
+                }
+            }
+
+           await _jogoRepository.Remover(jogo);
         }
 
         public async Task RemoverPersonagem(Jogo jogo, Personagem personagem)

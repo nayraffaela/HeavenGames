@@ -24,10 +24,16 @@ namespace HavenGames.Data.Repositories
 
         public async Task<Jogo> ObterJogoComPersonagens(Guid jogoId)
         {
-            var jogo = await Db.Jogos.Include(t => t.Personagens)
-                  .FirstOrDefaultAsync(m => m.Id == jogoId);
+            var jogo = await Db.Jogos
+                .Include(t => t.Personagens)
+                  .SingleOrDefaultAsync(m => m.Id == jogoId);
 
             return jogo;
+        }
+
+        public void Remover(Personagem personagem)
+        {
+            Db.Remove(personagem);
         }
     }
 }

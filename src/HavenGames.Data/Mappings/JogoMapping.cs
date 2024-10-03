@@ -32,7 +32,9 @@ namespace HavenGames.Data.Mappings
 
             builder
                  .HasMany(j => j.Personagens)
-                 .WithOne(p => p.Jogo);
+                 .WithOne(p => p.Jogo)
+                 .HasForeignKey(p => p.JogoId)
+                 .OnDelete(DeleteBehavior.ClientCascade);
 
             builder.ToTable("TB_JOGOS");
 

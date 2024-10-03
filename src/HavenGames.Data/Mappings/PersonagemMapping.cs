@@ -23,8 +23,13 @@ namespace HavenGames.Data.Mappings
                 .IsRequired()
                 .HasColumnType("varchar(500)");
 
-            builder.ToTable("TB_PERSONAGENS");
+            builder
+             .HasOne(j => j.Jogo)
+             .WithMany(p => p.Personagens)
+             .HasForeignKey(p => p.JogoId)
+             .OnDelete(DeleteBehavior.ClientCascade);
 
+            builder.ToTable("TB_PERSONAGENS");
         }
     }
 

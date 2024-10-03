@@ -7,7 +7,7 @@ namespace HavenGames.Business.Interfaces
     {
         Task Adicionar(TEntity entity);
         Task Alterar(TEntity entity);
-        Task Remover(Guid id);
+        Task Remover(TEntity entity);
         Task<TEntity> ObterPorId(Guid id);
         Task<IEnumerable<TEntity>> ObterTodos();
         Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate);
