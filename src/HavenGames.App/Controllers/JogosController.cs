@@ -157,7 +157,7 @@ namespace HavenGames.App.Controllers
 
                await _jogoService.AdicionarPersonagem(jogo, personagem);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Personagens", jogo);
             }
 
             return View(personagem);
