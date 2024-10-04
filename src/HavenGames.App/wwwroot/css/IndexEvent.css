@@ -42,16 +42,9 @@ p {
     text-align:center;
 }
 
-.col-sem-margem{
-    padding-left:100px;
-    padding-right:100px;
-    margin-bottom:100px;
-}
-
-
 .img-event {
-    width: 292px;
-    height: 240px;
+    width: 400%;
+    height: 180px;
 }
 
 .card-body, .img-event {
@@ -59,7 +52,10 @@ p {
     box-shadow: 1px 1px 10px #52b69a;
 }
 
-
+.card-title{
+    display:flex;
+    justify-content:center;
+}
 
 
 .btn-glass {

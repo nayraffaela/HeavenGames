@@ -4,11 +4,23 @@
     ViewData["Title"] = "Excluir Personagem";
 }
 
-<h2>@ViewData["Title"]</h2>
+<h1>@ViewData["Title"]</h1>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/GamesPage.css" asp-append-version="true" />
+</head>
+<body>
 
-<p>Tem certeza que deseja excluir o personagem <strong>@Model.Nome</strong>?</p>
+    <h6>Tem certeza que deseja excluir o personagem <strong>@Model.Nome</strong>?</h6>
 
-<form asp-action="DeletePersonagem" asp-route-jogoId="@Model.Jogo.Id" asp-route-personagemId="@Model.Id" method="post">
-    <button type="submit" class="btn btn-danger">Excluir</button>
-    <a asp-action="Personagens" asp-route-id="@Model.Jogo.Id" class="btn btn-secondary">Cancelar</a>
-</form>
+    <form asp-action="DeletePersonagem" asp-route-jogoId="@Model.Jogo.Id" asp-route-personagemId="@Model.Id" method="post">
+        <button type="submit" class="btn-glass btn-danger">Excluir</button>
+        <a asp-action="Personagens" asp-route-id="@Model.Jogo.Id" class="btn-glass btn-secondary">Cancelar</a>
+    </form>
+</body>
+</html>

@@ -9,13 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/css/ViewGames/GameDetails.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/GameDetails.css" asp-append-version="true" />
 </head>
 <body>
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <h1>JOGO</h1>
+                <h1>JOGO - @Model.Nome</h1>
                 <hr />
                 <dl class="row">
                     <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Nome) </dt>

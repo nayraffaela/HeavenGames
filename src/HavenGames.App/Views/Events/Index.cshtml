@@ -23,13 +23,12 @@
 
             @foreach (var item in Model)
             {
-                <div class="col-md-4 mb-4 col-sem-margem">
+                <div class="col-md-4 mb-4">
                     <div class="card border-0" style="width: 21rem;">
                         <img class="img-event" src="@Html.DisplayFor(modelItem => item.Imagem)" alt="Card Image">
                         <div class="card-body">
                             <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
                             <p class="card-text">Endereço: @Html.DisplayFor(modelItem => item.Localization)</p>
-                            <h6 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h6>
                             <p class="card-text">Descrição: @Html.DisplayFor(modelItem => item.Description)</p>
                             <div class="row d-flex justify-content-between">
                                 <button class="btn-glass" style="width: 140px;"><a asp-action="Edit" asp-route-id="@item.Id">Editar</a></button>

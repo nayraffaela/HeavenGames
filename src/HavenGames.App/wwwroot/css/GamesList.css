@@ -71,7 +71,7 @@ p {
     transition: all 0.3s ease;
     text-align: center;
     text-decoration: none;
-    width: 150px;
+    min-width: 50px
 }
 
 .btn-glass::before {

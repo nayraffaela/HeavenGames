@@ -14,52 +14,35 @@
     <link rel="stylesheet" href="~/css/GamesPage.css" asp-append-version="true" />
 </head>
 <body>
-    <h3 class="title">Excluir</h3>
-
-    <h5 class="title">Deseja excluir? Após a confirmação a ação não poderá ser desfeita</h5>
+    <h1>EXCLUIR - @Model.Nome</h1>
+    <hr />
+    <strong class="atention">ATENÇÃO!</strong>
+    <h6 class="title">Deseja excluir @Model.Nome? Após a confirmação a ação não poderá ser desfeita.</h6>
     <br />
     <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <dl class="row">
+                        <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Nome) </dt>
+                        <dd class="col-sm-8"> @Html.DisplayFor(model => model.Nome) </dd>
+                        <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Plataforma) </dt>
+                        <dd class="col-sm-8"> @Html.DisplayFor(model => model.Plataforma) </dd>
+                        <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Genero) </dt>
+                        <dd class="col-sm-8"> @Html.DisplayFor(model => model.Genero) </dd>
+                        <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Descricao) </dt>
+                        <dd class="col-sm-8"> @Html.DisplayFor(model => model.Descricao) </dd>
+                    </dl>
+                </div>
+                <div class="col-md-4">
+                    <img class="img-details img-fluid" src="@Model.Imagem" alt="Imagem do Jogo" />
+                </div>
 
-        <dl class="row form-group">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Nome)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Nome)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Plataforma)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Plataforma)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Genero)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Genero)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Descricao)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Descricao)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Imagem)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Imagem)
-            </dd>
-        </dl>
-
-        <form asp-action="Delete">
-            <input type="hidden" asp-for="Id" />
-            <input type="submit" value="Excluir" class="btn-glass btn-danger" />
-            <a asp-action="Index" class="btn-glass btn-outline-primary">Voltar a Lista</a>
-        </form>
-    </div>
-
-
+            <div class="mt-4 col-md-8">
+                <a asp-action="Delete" class="btn-glass btn-outline-primary" asp-route-id="@Model?.Id">Excluir</a>
+            </div>
+            <div class="mt-4 col-md-4">
+                <a asp-action="Index" class="btn-glass btn-outline-primary">Voltar a lista</a>
+            </div>
 </body>
 </html>
