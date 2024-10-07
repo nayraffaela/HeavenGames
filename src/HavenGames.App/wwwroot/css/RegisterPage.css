@@ -40,6 +40,12 @@ p {
     text-align: justify;
 }
 
+body {
+    background-image: url('../imgs/background/BGPhoto06.PNG');
+    /*background-repeat: no-repeat;*/
+    
+}
+
 .btn-glass {
     background: linear-gradient(145deg, #52b69a, #184e77);
     border: 2px solid #b5e48c;
@@ -114,3 +120,5 @@ p {
     border: 2px solid #52b69a;
     box-shadow: 1px 1px 15px #52b69a;
 }
+
+

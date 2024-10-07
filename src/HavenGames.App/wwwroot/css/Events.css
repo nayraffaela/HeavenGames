@@ -33,6 +33,11 @@ h3 {
     font-weight: 800px;
 }
 
+
+body {
+    background-image: url('../imgs/background/BGPhoto07.PNG');
+    /*background-repeat: no-repeat;*/
+}
 .btn-glass {
     background: linear-gradient(145deg, #52b69a, #184e77);
     border: 2px solid #b5e48c;

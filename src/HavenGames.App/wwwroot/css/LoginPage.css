@@ -49,6 +49,11 @@ p {
     text-align: justify;
 }
 
+body {
+    background-image: url('../imgs/background/BGPhoto07.PNG');
+    /*background-repeat: no-repeat;*/
+}
+
 .btn-glass {
     background: linear-gradient(145deg, #52b69a, #184e77);
     border: 2px solid #b5e48c;
@@ -131,10 +136,9 @@ p {
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    will-change: opacity, transform;
-    pointer-events: none;
     cursor: pointer;
 }
+
 .boxing {
     height: 150%;
 }

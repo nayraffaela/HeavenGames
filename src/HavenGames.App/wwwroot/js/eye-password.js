@@ -1,12 +1,12 @@
-﻿
+﻿document.getElementById('togglePassword').addEventListener('click', function () {
+    var passwordInput = document.getElementById('password');
+    var eyeIcon = document.getElementById('eyeIcon');
 
-document.getElementById('togglePassword'.addEventListener('click', function (e)){
-    const passwordField = document.getElementById('password');
-    const eyeIcon = document.getElementById('togglePassword');
-    const type = passwordField.getElementById('type') === 'password' ? 'text' : 'password';
-    passwordField.setAttribute('type', type);
-
-    eyeIcon.textContent = type === 'password' ? '\u{1F441}' : '\u{1F441}';
-
-}
-    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        eyeIcon.src = '/imgs/eye.png'; // Caminho para o ícone de olho aberto
+    } else {
+        passwordInput.type = 'password';
+        eyeIcon.src = '/imgs/eyeclose.png'; // Caminho para o ícone de olho fechado
+    }
+});

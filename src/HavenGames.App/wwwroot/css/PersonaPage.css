@@ -29,6 +29,10 @@ p {
     text-align: justify;
 }
 
+body {
+    
+    background-image: url('../imgs/background/BGPhoto04.PNG');
+}
 
 .textbox {
     color: #e9edc9;
@@ -56,13 +60,6 @@ p {
     height: 300px;
 
 }
-
-/*.card-body {
-    width: 310px;
-    height: 300px;
-}
-*/
-
 
 .btn-glass {
     background: linear-gradient(145deg, #52b69a, #184e77);
