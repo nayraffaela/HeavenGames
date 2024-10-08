@@ -84,6 +84,10 @@ namespace HavenGames.App.Controllers
         {
             return View();
         }
+        public IActionResult Comment()
+        {
+            return View();
+        }
 
     }
 }

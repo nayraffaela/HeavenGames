@@ -12,7 +12,7 @@ h1 {
     text-transform: uppercase;
 
 }
-h2 {
+h2, h3{
     font-family: Bebas Neue;
     letter-spacing: 2px;
     word-spacing: 2px;
@@ -50,7 +50,7 @@ p {
 }
 
 body {
-    background-image: url('../imgs/background/BGPhoto07.PNG');
+    background-image: url('../imgs/background/BGPhoto10.PNG');
     /*background-repeat: no-repeat;*/
 }
 
@@ -143,6 +143,11 @@ body {
     height: 150%;
 }
 
+.description-personal{
+
+    display:flex;
+    justify-content: center;
+}
 
 
 

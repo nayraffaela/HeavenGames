@@ -1,0 +1,36 @@
+﻿@page
+@model PersonalDataModel
+@{
+    ViewData["Title"] = "Dados Pessoais";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/LoginPage.css" asp-append-version="true" />
+</head>
+<body>
+
+    <h3>@ViewData["Title"]</h3>
+
+            <p class="description-personal">Sua conta contém os dados pessoais que você nos forneceu. Nesta página você pode baixar ou excluir estes dados.</p>
+            <p class="description-personal">
+                <strong>Excluindo estes dados sua conta será deletada de forma permanente, e esta ação não poderá ser desfeita.</strong>
+            </p>
+
+            <form id="download-data" asp-page="DownloadPersonalData" method="post">
+                <button class="btn-glass btn-primary" type="submit">Baixar</button>
+            </form>
+            <p>
+                <a id="delete" asp-page="DeletePersonalData" class="btn-glass btn-danger">Excluir</a>
+            </p>
+</body>
+</html>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

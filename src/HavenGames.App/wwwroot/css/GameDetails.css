@@ -32,6 +32,14 @@ h4 {
     height: 100%;
 }
 
+body {
+    background-image: url('../imgs/background/BGPhoto10.PNG');
+    /*background-repeat: no-repeat;*/
+}
+/*.description-jogo{
+    background-color:aliceblue;
+}*/
+
 .btn-glass {
     background: linear-gradient(145deg, #52b69a, #184e77);
     border: 2px solid #b5e48c;
@@ -39,7 +47,6 @@ h4 {
     backdrop-filter: blur(15px);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Diminuído para sombra mais sutil */
     color: #fff;
-    
     font-size: 0.8rem; /* Diminuído para texto menor */
     font-weight: 400;
     font-family: Space Grotesk;

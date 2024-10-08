@@ -42,6 +42,11 @@ p {
     text-align:center;
 }
 
+body {
+    background-image: url('../imgs/background/BGPhoto10.PNG');
+    /*background-repeat: no-repeat;*/
+}
+
 .img-event {
     width: 400%;
     height: 180px;
