@@ -38,11 +38,23 @@
                     <img class="img-details img-fluid" src="@Model.Imagem" alt="Imagem do Jogo" />
                 </div>
 
-            <div class="mt-4 col-md-8">
+                <form asp-action="Delete">
+                    <div class="container-btn">
+                        <div class="left"><input type="submit" value="Excluir" class="btn-glass btn-danger" /></div>
+                        <div class="right"><a asp-action="Index" class="btn-glass btn-outline-primary">Voltar a Lista</a></div>
+                    </div>
+
+                    <input type="hidden" asp-for="Id" />
+                </form>
+
+
+
+
+         @*    <div class="mt-4 col-md-8">
                 <a asp-action="Delete" class="btn-glass btn-outline-primary" asp-route-id="@Model?.Id">Excluir</a>
             </div>
             <div class="mt-4 col-md-4">
                 <a asp-action="Index" class="btn-glass btn-outline-primary">Voltar a lista</a>
-            </div>
+            </div> *@
 </body>
 </html>

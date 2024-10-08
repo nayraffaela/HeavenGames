@@ -48,13 +48,13 @@ namespace HavenGames.Business.Services
 
         public async Task Remover(Jogo jogo)
         {
-            if (jogo.Personagens.Any())
-            {
-                foreach (var item in jogo.Personagens)
-                {
-                   _jogoRepository.Remover(item);
-                }
-            }
+            //if (jogo.Personagens.Any())
+            //{
+            //    foreach (var item in jogo.Personagens)
+            //    {
+            //       _jogoRepository.Remover(item);
+            //    }
+            //}
 
            await _jogoRepository.Remover(jogo);
         }

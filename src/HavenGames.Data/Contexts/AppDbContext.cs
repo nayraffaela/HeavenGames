@@ -54,10 +54,11 @@ namespace HavenGames.Data.Contexts
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
 
-            foreach (var relatioship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
-            {
-                relatioship.DeleteBehavior = DeleteBehavior.ClientSetNull;
-            }
+            //foreach (var relatioship in modelBuilder.Model.GetEntityTypes()
+            //    .SelectMany(e => e.GetForeignKeys()))
+            //{
+            //    relatioship.DeleteBehavior = DeleteBehavior.ClientSetNull;
+            //}
 
             base.OnModelCreating(modelBuilder);
         }
