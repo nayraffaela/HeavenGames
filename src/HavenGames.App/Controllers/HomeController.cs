@@ -84,9 +84,14 @@ namespace HavenGames.App.Controllers
         {
             return View();
         }
-        public IActionResult Comment()
+        public async Task<IActionResult> Comment()
         {
-            var comments = _commentService.ObterTodos();
+            var comments = await _commentService.ObterTodos(); 
+            var viewModel = new HomeViewModel
+            {
+                Comments = comments
+            };
+
             return View(comments);
         }
     }
