@@ -86,8 +86,8 @@ namespace HavenGames.App.Controllers
         }
         public IActionResult Comment()
         {
-            return View();
+            var comments = _commentService.ObterTodos();
+            return View(comments);
         }
-
     }
 }

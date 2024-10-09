@@ -19,6 +19,10 @@ namespace HavenGames.Business.Services
             if (!ExecutarValidacao(new CommentValidation(), comment)) return;
             await _commentRepository.Adicionar(comment);
         }
+        public async Task<IEnumerable<Comment>> ObterTodos() 
+        {
+            return await _commentRepository.ObterTodos();
+        }
 
         public void Dispose()
         {

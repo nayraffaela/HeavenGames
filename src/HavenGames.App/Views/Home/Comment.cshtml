@@ -1,5 +1,14 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<HavenGames.Business.Models.Comment>
+
+<h2>Comentários</h2>
+
+<ul>
+    @foreach (var comentario in Model)
+    {
+        <li>
+            <p><strong>@comentario.Nome:</strong> @comentario.Descricao</p>
+            <p><em>@comentario.Inclusao</em></p>
+        </li>
+    }
+</ul>
+
