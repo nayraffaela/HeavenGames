@@ -19,6 +19,11 @@ h6 {
     text-transform: uppercase;
 }
 
+body {
+    background-image: url('../imgs/background/BGPhoto10.PNG');
+    /*background-repeat: no-repeat;*/
+}
+
 .atention {
     color: orangered;
     font-family: Bebas Neue;

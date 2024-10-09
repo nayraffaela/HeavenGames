@@ -76,10 +76,10 @@ namespace HavenGames.App.Controllers
         {
             return View();
         }
-        public IActionResult Resenhas()
-        {
-            return View();
-        }
+        //public IActionResult Resenhas()
+        //{
+        //    return View();
+        //}
         public IActionResult Curriculum()
         {
             return View();
