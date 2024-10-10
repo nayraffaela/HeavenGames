@@ -176,13 +176,17 @@ li {
     
 }
 .carousel-caption {
-    background: rgba(0, 0, 0, 0.1); /* Fundo semitransparente para o texto */
-    color: #fff; /* Cor do texto da legenda */
-    bottom: 10px; /* Ajuste a posição da legenda conforme necessário */
+    background: rgba(0, 0, 0, 0.1); 
+    color: #fff;
+    bottom: 10px; 
 }
 .textbox{
     color: antiquewhite;
 }
 .name {
     color: antiquewhite;
+}
+
+carousel-back {
+    background-image: url('../imgs/background/BGPhoto10.PNG');
 }
