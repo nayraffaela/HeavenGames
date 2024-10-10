@@ -3,11 +3,13 @@ using HavenGames.App.ViewModels;
 using HavenGames.Business.Interfaces;
 using HavenGames.Business.Models;
 using HavenGames.Business.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace HavenGames.App.Controllers
 {
+  
     public class HomeController : Controller
     {
         private readonly ICommentRepository _commentRepository;

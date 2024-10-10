@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HavenGames.App.Controllers
 {
+    [Authorize]
     public class GuideController : Controller
     {
         public IActionResult AssassinCreed()

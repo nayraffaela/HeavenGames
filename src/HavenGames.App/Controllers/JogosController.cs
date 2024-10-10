@@ -2,10 +2,12 @@
 using HavenGames.Business.Interfaces;
 using HavenGames.Business.Models;
 using HavenGames.Business.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HavenGames.App.Controllers
 {
+    [Authorize]
     public class JogosController : Controller
     {
         private readonly IJogoRepository _jogoRepository;

@@ -2,12 +2,14 @@
 using HavenGames.Business.Interfaces;
 using HavenGames.Business.Models;
 using HavenGames.Business.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace HavenGames.App.Controllers
+
 {
+    [Authorize]
     public class EventsController : Controller
     {
         private readonly IEventRepository _eventRepository;
