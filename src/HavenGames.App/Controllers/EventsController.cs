@@ -1,4 +1,5 @@
 ﻿
+using HavenGames.app.Extensions;
 using HavenGames.Business.Interfaces;
 using HavenGames.Business.Models;
 using HavenGames.Business.Services;
@@ -9,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace HavenGames.App.Controllers
 
 {
-    [Authorize]
+  
     public class EventsController : Controller
     {
         private readonly IEventRepository _eventRepository;
@@ -21,8 +22,8 @@ namespace HavenGames.App.Controllers
             _eventService = eventService;
         }
 
+
         
-        // GET: Events
         public async Task<IActionResult> Index()
         {
             return View(await _eventRepository.ObterTodos());
@@ -48,8 +49,6 @@ namespace HavenGames.App.Controllers
         }
 
         // POST: Events/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Description,Imagem,Localization,Date")] Event createdEvent)
@@ -75,8 +74,6 @@ namespace HavenGames.App.Controllers
         }
 
         // POST: Events/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,Description,Imagem,Localization,Date")] Event editedEvent)
