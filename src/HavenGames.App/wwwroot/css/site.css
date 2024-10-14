@@ -4,6 +4,11 @@
     }
 }
 
+.dark-mode {
+    background-color: #121212; 
+    color: #ffffff; 
+}
+
 body {
     background: url("~/imgs/Background/BGPhoto01.PNG") repeat;
     margin-bottom: 60px;

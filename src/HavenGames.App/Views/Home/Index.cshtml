@@ -8,6 +8,15 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
 
+@if (ViewContext.RouteData.Values["action"].ToString() == "Index" && ViewContext.RouteData.Values["controller"].ToString() == "Home")
+{
+    <div class="social-icons">
+        <a href="https://facebook.com" target="_blank" class="text-dark me-3"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" target="_blank" class="text-dark me-3"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank" class="text-dark me-3"><i class="fab fa-instagram"></i></a>
+        <a href="https://whatsapp.com" target="_blank" class="text-dark"><i class="fab fa-whatsapp"></i></a>
+    </div>
+}
 
 <div class="container text-center">
     <h1 class="display-4">Bem-Vindo</h1>
