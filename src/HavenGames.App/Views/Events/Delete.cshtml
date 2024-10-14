@@ -4,48 +4,47 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/GamesPage.css" asp-append-version="true" />
+</head>
+<body>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>EventViewModel</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Localization)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Localization)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Imagem)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Imagem)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
-</div>
+    <h1>Excluir @Model.Name</h1>
+
+    <h3>Você tem certeza que deseja excluir este evento?</h3>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <dl class="row">
+                        <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Name)</dt>
+                        <dd class="col-sm-8"> @Html.DisplayFor(model => model.Name) </dd>
+                        <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Description)</dt>
+                        <dd class="col-sm-8"> @Html.DisplayFor(model => model.Description)</dd>
+                        <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Localization)</dt>
+                        <dd class="col-sm-8"> @Html.DisplayFor(model => model.Localization)</dd>
+                        <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Date)</dt>
+                        <dd class="col-sm-8"> @Html.DisplayFor(model => model.Date)</dd>
+                    </dl>
+                </div>
+                <div class="col-md-4">
+                    <img class="img-details img-fluid" src="@Model.Imagem" alt="Imagem do Jogo" />
+                </div>
+
+                <form asp-action="Delete">
+                    <div class="container-btn">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Excluir" class="btn-glass btn-danger" />
+                        <a asp-action="Index" class="btn-glass btn-danger">Voltar a Lista</a>
+                    </div>
+                </form>
+            </div>
+</body>
+</html>
+

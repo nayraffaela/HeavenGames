@@ -16,6 +16,11 @@ ul {
     font-size: 1.2rem;
 }
 
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
 .btn-glass {
     background: linear-gradient(145deg, #52b69a, #184e77);
     border: 2px solid #b5e48c;
@@ -91,7 +96,3 @@ ul {
         font-size: 1.25rem; /* Ajusta o tamanho da fonte para h3 */
     }
 
-.buttons{
-        display:flex;
-        justify-content:space-between;
-}
