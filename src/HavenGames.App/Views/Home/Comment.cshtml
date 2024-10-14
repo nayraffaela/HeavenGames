@@ -8,7 +8,10 @@
         <li>
             <p><strong>@comentario.Nome:</strong> @comentario.Descricao</p>
             <p><em>@comentario.Inclusao</em></p>
+            <form asp-action="DeleteComment" method="post" onsubmit="return confirm('Tem certeza que deseja excluir este comentário?');">
+                <input type="hidden" name="id" value="@comentario.Id" />
+                <button type="submit" class="btn-glass btn">Excluir</button>
+            </form>
         </li>
     }
 </ul>
-

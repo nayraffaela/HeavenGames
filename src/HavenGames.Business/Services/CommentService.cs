@@ -29,6 +29,11 @@ namespace HavenGames.Business.Services
         {
             _commentRepository.Dispose();
         }
+
+        public async Task<bool> DeleteComment(int id)
+        {
+            return await _commentRepository.DeleteComment(id);
+        }
     }
 
 

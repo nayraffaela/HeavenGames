@@ -1,28 +1,35 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{
-}
 @model HavenGames.App.ViewModels.CurriculumViewModel
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicar para Vaga</title>
     <link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
     <header>
-
         <div class="container">
-            <div class="row ">
+            <div class="row">
                 <div class="col-sm card-box">
-                    <h6 class="card-title">Queremos você em nosso time! Preencha as informações abaixo para se cadastrar em uma de nossas vagas disponiveis:</h6>
-                    <form>
+                    <h6 class="card-title">Queremos você em nosso time! Preencha as informações abaixo para se cadastrar em uma de nossas vagas disponíveis:</h6>
+                    <form id="applicationForm" asp-action="SubmitApplication" method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="name">Nome:</label>
-                            <input type="text" class="form-control" id="name" placeholder="Qual seu nome?" required>
+                            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
-                            <label for="name">Nome Social:</label>
-                            <input type="text" class="form-control" id="name" placeholder="Como gostaria de ser chamado?" required>
+                            @Html.LabelFor(model => model.NomeSocial, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.NomeSocial, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NomeSocial, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.DataNascimento, htmlAttributes: new { @class = "control-label" })
@@ -30,8 +37,9 @@
                             @Html.ValidationMessageFor(model => model.DataNascimento, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
-                            <label for="name">Sexo:</label>
-                            <input type="text" class="form-control" id="name" placeholder="Se se sentir confortável escreva aqui" required>
+                            @Html.LabelFor(model => model.Sexo, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Sexo, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.CPF, htmlAttributes: new { @class = "control-label" })
@@ -39,51 +47,73 @@
                             @Html.ValidationMessageFor(model => model.CPF, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
-                            <label for="review">E-mail:</label>
-                            <input type="text" class="form-control" id="email" placeholder="Seu e-mail" required>
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
-                            <label for="telefone">Telefone</label>
-                            <input type="tel" id="telefone" class="input-padrao" required placeholder="(xx) xxxxx-xxxx">
-                            <label for="telefone">Whatsapp</label>
-                            <input type="tel" id="telefone" class="input-padrao" required placeholder="(xx) xxxxx-xxxx">
+                            @Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "control-label" })
+                            @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
-                            <label for="telefone">Escolaridade:</label><br />
-                            <input type="radio" value="1" asp-for="Escolaridade" checked />Fundamental<br />
-                            <input type="radio" value="2" asp-for="Escolaridade" /> Médio<br />
-                            <input type="radio" value="2" asp-for="Escolaridade" /> Técnico<br />
-                            <input type="radio" value="2" asp-for="Escolaridade" /> Graducão<br />
-                            <input type="radio" value="2" asp-for="Escolaridade" /> Pos-Gradução<br />
-                            <input type="radio" value="2" asp-for="Escolaridade" /> Mestrado<br />
-                            <input type="radio" value="2" asp-for="Escolaridade" /> Doutorado
+                            <label for="Escolaridade">Escolaridade:</label><br />
+                            @Html.RadioButtonFor(model => model.Escolaridade, "1") Fundamental<br />
+                            @Html.RadioButtonFor(model => model.Escolaridade, "2") Médio<br />
+                            @Html.RadioButtonFor(model => model.Escolaridade, "3") Técnico<br />
+                            @Html.RadioButtonFor(model => model.Escolaridade, "4") Graduação<br />
+                            @Html.RadioButtonFor(model => model.Escolaridade, "5") Pós-Graduação<br />
+                            @Html.RadioButtonFor(model => model.Escolaridade, "6") Mestrado<br />
+                            @Html.RadioButtonFor(model => model.Escolaridade, "7") Doutorado<br />
                             <span asp-validation-for="Escolaridade" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label for="telefone">Informe a condição abaixo:</label><br />
-                            <input type="radio" value="1" asp-for="Status" /> Cursando<br />
-                            <input type="radio" value="2" asp-for="Status" /> Incompleto<br />
-                            <input type="radio" value="2" asp-for="Status" /> Completo
+                            <label for="Status">Informe a condição abaixo:</label><br />
+                            @Html.RadioButtonFor(model => model.Status, "1") Cursando<br />
+                            @Html.RadioButtonFor(model => model.Status, "2") Incompleto<br />
+                            @Html.RadioButtonFor(model => model.Status, "3") Completo<br />
                             <span asp-validation-for="Status" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label for="telefone">Para qual vaga deseja aplicar:</label><br />
-                            <input type="radio" value="1" asp-for="Vaga" /> Estágio<br />
-                            <input type="radio" value="2" asp-for="Vaga" /> Trainee<br />
-                            <input type="radio" value="2" asp-for="Vaga" /> Dev BackEnd<br />
-                            <input type="radio" value="2" asp-for="Vaga" /> Dev FrontEnd<br />
-                            <input type="radio" value="2" asp-for="Vaga" /> Dev FullStack<br />
-                            <input type="radio" value="2" asp-for="Vaga" /> UxDesing<br />
-                            <input type="radio" value="2" asp-for="Vaga" /> Administração geral<br />
-                            <input type="radio" value="2" asp-for="Vaga" /> Recursos Humanos
-                            <span asp-validation-for="Status" class="text-danger"></span>
+                            <label for="Vaga">Para qual vaga deseja aplicar:</label><br />
+                            @Html.RadioButtonFor(model => model.Vaga, "1") Estágio<br />
+                            @Html.RadioButtonFor(model => model.Vaga, "2") Trainee<br />
+                            @Html.RadioButtonFor(model => model.Vaga, "3") Dev BackEnd<br />
+                            @Html.RadioButtonFor(model => model.Vaga, "4") Dev FrontEnd<br />
+                            @Html.RadioButtonFor(model => model.Vaga, "5") Dev FullStack<br />
+                            @Html.RadioButtonFor(model => model.Vaga, "6") UX Design<br />
+                            @Html.RadioButtonFor(model => model.Vaga, "7") Administração Geral<br />
+                            @Html.RadioButtonFor(model => model.Vaga, "8") Recursos Humanos<br />
+                            <span asp-validation-for="Vaga" class="text-danger"></span>
                         </div>
-                        <br />
-                        <div class="btn-esp">
-                            <a class="btn-glass" asp-area="" asp-controller="" asp-action="Index">Enviar</a><br />
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn-glass btn-primary">Enviar</button>
                         </div>
                     </form>
                 </div>
-                <br />
+            </div>
+        </div>
     </header>
+
+    <script>
+        $(document).ready(function () {
+            $('#applicationForm').on('submit', function (event) {
+                event.preventDefault();
+                $.ajax({
+                    type: $(this).attr('method'),
+                    url: $(this).attr('action'),
+                    data: new FormData(this),
+                    contentType: false,
+                    processData: false,
+                    success: function () {
+                        alert("Sua aplicação para a vaga foi enviada com sucesso!");
+                    },
+                    error: function () {
+                        alert("Houve um erro ao enviar sua aplicação. Por favor, tente novamente.");
+                    }
+                });
+            });
+        });
+    </script>
 </body>
+</html>

@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HavenGames.App.Controllers
 {
-    [Authorize]
     public class JogosController : Controller
     {
         private readonly IJogoRepository _jogoRepository;
@@ -40,16 +39,7 @@ namespace HavenGames.App.Controllers
             return View(jogo);
         }
 
-        // GET: Jogos/Personagens/5
-        [HttpGet, ActionName("Personagens")]
-        public async Task<IActionResult> Personagens(Guid id)
-        {
-            var jogo = await _jogoRepository.ObterJogoComPersonagens(id);
 
-            jogo.Personagens = jogo?.Personagens ?? new List<Personagem>();
-
-            return View(jogo);
-        }
 
         // GET: Jogo/Create
         [HttpGet]
@@ -119,10 +109,21 @@ namespace HavenGames.App.Controllers
 
             if (jogo != null)
             {
-              await _jogoService.Remover(jogo);
+                await _jogoService.Remover(jogo);
             }
 
             return RedirectToAction(nameof(Index));
+        }
+
+        // GET: Jogos/Personagens/5
+        [HttpGet, ActionName("Personagens")]
+        public async Task<IActionResult> Personagens(Guid id)
+        {
+            var jogo = await _jogoRepository.ObterJogoComPersonagens(id);
+
+            jogo.Personagens = jogo?.Personagens ?? new List<Personagem>();
+
+            return View(jogo);
         }
 
         // GET: Jogos/Personagems/5
@@ -157,7 +158,7 @@ namespace HavenGames.App.Controllers
                     return NotFound();
                 }
 
-               await _jogoService.AdicionarPersonagem(jogo, personagem);
+                await _jogoService.AdicionarPersonagem(jogo, personagem);
 
                 return RedirectToAction("Personagens", jogo);
             }
@@ -258,7 +259,7 @@ namespace HavenGames.App.Controllers
             {
 
                 await _jogoService.RemoverPersonagem(jogo, personagem);
-              
+
 
             }
 

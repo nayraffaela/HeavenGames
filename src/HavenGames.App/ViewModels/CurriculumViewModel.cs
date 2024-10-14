@@ -1,41 +1,56 @@
 ﻿using HavenGames.Business.Enums;
+using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace HavenGames.App.ViewModels
 {
     public class CurriculumViewModel
     {
-        [Required]
-        [Display(Name = "Nome deve ser informado")]
+        [Required(ErrorMessage = "Nome deve ser informado")]
+        [Display(Name = "Nome")]
         public string Nome { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Nome Social deve ser informado")]
+        [Display(Name = "Nome Social")]
         public string NomeSocial { get; set; }
-        [Required]
-        [Display(Name = "Data de nascimento deve ser informada")]
+
+        [Required(ErrorMessage = "Data de nascimento deve ser informada")]
+        [Display(Name = "Data de Nascimento")]
+        [DataType(DataType.Date)]
         public DateTime DataNascimento { get; set; }
 
+        [Display(Name = "Sexo")]
         public string Sexo { get; set; }
-        [Required]
-        [Display(Name = "CPF deve ser informado")]
+
+        [Required(ErrorMessage = "CPF deve ser informado")]
+        [Display(Name = "CPF")]
+        [RegularExpression(@"\d{3}\.\d{3}\.\d{3}-\d{2}", ErrorMessage = "CPF deve estar no formato XXX.XXX.XXX-XX")]
         public string CPF { get; set; }
-        [Required]
-        [Display(Name = "E-mail deve ser informado")]
+
+        [Required(ErrorMessage = "E-mail deve ser informado")]
+        [Display(Name = "E-mail")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        [Required]
-        [Display(Name = "Telefone deve ser informado")]
+
+        [Required(ErrorMessage = "Telefone deve ser informado")]
+        [Display(Name = "Telefone")]
+        [DataType(DataType.PhoneNumber)]
         public int Telefone { get; set; }
-        [Required]
-        [Display(Name = "Escolaridade deve ser preenchida")]
+
+        [Required(ErrorMessage = "Escolaridade deve ser preenchida")]
+        [Display(Name = "Escolaridade")]
         public Escolaridade Escolaridade { get; set; }
-        [Required]
-        [Display(Name = "Escolha uma opção)")]
+
+        [Required(ErrorMessage = "Escolha uma opção")]
+        [Display(Name = "Status")]
         public Status Status { get; set; }
-        [Required]
-        [Display(Name = "Vaga deve ser escolhida)")]
+
+        [Required(ErrorMessage = "Vaga deve ser escolhida")]
+        [Display(Name = "Vaga")]
         public Vaga Vaga { get; set; }
 
-        [Required]
-        [Display(Name = "Currículo (PDF ou Word)")]
-        public IFormFile CurriculoArquivo { get; set; }
+      
+        
     }
 }
