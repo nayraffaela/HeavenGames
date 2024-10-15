@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="pt-br" >
+<html lang="pt-br">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,34 +12,39 @@
     <header>
         <nav class="magic-navbar">
             <img src="~/imgs/HavenGames1.PNG" alt="Logo" />
-            <div class="hamburger" id="hamburger">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <ul class="magic-menu" id="magicMenu">
-                <li><a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="AboutUs">Sobre nós</a></li>
-                <li><a asp-area="" asp-controller="Jogos" asp-action="Index">Jogos</a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="Guide">Guias e Dicas</a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="Comment">Comentários</a></li>
-                <li><a asp-area="" asp-controller="Events" asp-action="Index">Eventos</a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contato</a></li>
-                <li><a asp-area="" asp-controller="Home" asp-action="Privacy">Políticas</a></li>
-                <div class="btn-group">
-                    <button type="button" class="btn-menu dropdown-toggle text-uppercase fs-3" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                        <i class="fas fa-gamepad" aria-hidden="true"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-lg-end w-100 rounded-5 fs-4 text-uppercase">
-                        <li><partial name="_LoginPartial" /></li>
-                    </ul>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  box-shadow mb-3">
+                <div class="hamburger" id="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
                 </div>
-                <li class="nav-item">
-                    <button id="darkModeToggle" class="btn btn-link text-dark" title="Alternar Modo Escuro">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </li>
-            </ul>
+                <ul class="magic-menu" id="magicMenu">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="AboutUs">Sobre nós</a></li>
+                    <li><a asp-area="" asp-controller="Jogos" asp-action="Index">Jogos</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Guide">Guias e Dicas</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Comment">Comentários</a></li>
+                    <li><a asp-area="" asp-controller="Events" asp-action="Index">Eventos</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contato</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Privacy">Políticas</a></li>
+
+                    <div class="btn-group">
+                        <button type="button" class="btn-menu dropdown-toggle text-uppercase fs-3" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                            <i class="fas fa-gamepad" aria-hidden="true"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-lg-end w-100 fs-4 text-uppercase">
+                            <li><partial name="_LoginPartial" /></li>
+                        </ul>
+                    </div>
+                    <li class="nav-item">
+                        <button id="darkModeToggle" class="btn btn-link text-dark" title="Alternar Modo Escuro">
+                            <i class="fas fa-moon"></i>
+                        </button>
+
+
+                    </li>
+                </ul>
+            </nav>
         </nav>
     </header>
 
@@ -55,10 +60,9 @@
         </div>
     </footer>
 
-    <a href="~/lib/jquery/dist/jquery.min.map">~/lib/jquery/dist/jquery.min.map</a>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 

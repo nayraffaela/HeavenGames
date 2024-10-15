@@ -1,9 +1,9 @@
 ﻿<script>
     document.addEventListener('DOMContentLoaded', function() {
         const hamburger = document.getElementById('hamburger');
-    const magicMenu = document.querySelector('.magic-menu'); // Use querySelector para selecionar pela classe
+    const magicMenu = document.querySelector('.magic-menu'); 
 
-    if (hamburger && magicMenu) { // Verifica se os elementos existem
+    if (hamburger && magicMenu) { 
         hamburger.addEventListener('click', function () {
             magicMenu.classList.toggle('active');
         });

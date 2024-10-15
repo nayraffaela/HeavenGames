@@ -92,7 +92,7 @@ html {
 
 
 .mainwrapper{
-margin: 50px;
+    margin: 50px;
 }
 
 .magic-menu a {
@@ -150,7 +150,4 @@ margin: 50px;
 .btn-menu {
     border: none;
     background-color: #ffff;
-}
-.dropdown-menu{
-    border:none;
 }

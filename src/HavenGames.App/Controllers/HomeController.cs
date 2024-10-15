@@ -23,6 +23,7 @@ namespace HavenGames.App.Controllers
             _commentService = commentService;
         }
 
+        
         public async Task<IActionResult> IndexAsync()
         {
 

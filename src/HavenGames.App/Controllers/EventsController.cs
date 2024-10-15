@@ -22,14 +22,15 @@ namespace HavenGames.App.Controllers
             _eventService = eventService;
         }
 
-
         
+       
         public async Task<IActionResult> Index()
         {
             return View(await _eventRepository.ObterTodos());
         }
 
         // GET: Events/Details/5
+        
         public async Task<IActionResult> Details(Guid id)
         {
            
@@ -43,12 +44,15 @@ namespace HavenGames.App.Controllers
         }
 
         // GET: Events/Create
+        
         public IActionResult Create()
         {
             return View();
         }
 
+
         // POST: Events/Create
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Description,Imagem,Localization,Date")] Event createdEvent)
@@ -62,6 +66,7 @@ namespace HavenGames.App.Controllers
         }
 
         // GET: Events/Edit/5
+        
         public async Task<IActionResult> Edit(Guid id)
         {
          
@@ -74,6 +79,7 @@ namespace HavenGames.App.Controllers
         }
 
         // POST: Events/Edit/5
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,Description,Imagem,Localization,Date")] Event editedEvent)
@@ -107,6 +113,7 @@ namespace HavenGames.App.Controllers
         }
 
         // GET: Events/Delete/5
+        
         public async Task<IActionResult> Delete(Guid id)
         {
             
@@ -121,6 +128,7 @@ namespace HavenGames.App.Controllers
         }
 
         // POST: Events/Delete/5
+        
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)

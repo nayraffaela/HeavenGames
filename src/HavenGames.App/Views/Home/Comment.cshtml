@@ -1,5 +1,20 @@
 ﻿@model IEnumerable<HavenGames.Business.Models.Comment>
 
+@{
+    ViewData["Title"] = "Comentários";
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/AboutUs.css" asp-append-version="true" />
+</head>
+<body>
+
 <h2>Comentários</h2>
 
 <ul>
@@ -11,7 +26,11 @@
             <form asp-action="DeleteComment" method="post" onsubmit="return confirm('Tem certeza que deseja excluir este comentário?');">
                 <input type="hidden" name="id" value="@comentario.Id" />
                 <button type="submit" class="btn-glass btn">Excluir</button>
+                <br />
+                <hr />
             </form>
         </li>
     }
 </ul>
+</body>
+</html>

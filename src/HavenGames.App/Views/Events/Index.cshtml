@@ -4,6 +4,7 @@
     ViewData["Title"] = "EVENTOS ÉPICOS";
 }
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -16,8 +17,12 @@
 <body>
     <div class="container mt-5">
         <h1>EVENTOS ÉPICOS</h1>
+
+        <vc:Summary></vc:Summary>
         <p>
-            <a asp-action="Create" supress-by-claim-name="Events" supress-by-claim-value="C" class="btn-glass btn-cad">CADASTRAR NOVO </a>
+            
+            <a supress-by-claim-name="Events" supress-by-claim-value="C" asp-action="Create" class="btn-glass btn-cad">CADASTRAR NOVO</a>
+
             <br />
         </p>
         <div class="row">

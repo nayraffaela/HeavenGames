@@ -5,26 +5,27 @@ namespace HavenGames.App.Controllers
 {
     public class GuideController : Controller
     {
+        [Route("pagina-dicas-jogo")]
         public IActionResult AssassinCreed()
         {
             return View();
         }
-
+        
         public IActionResult GTAV()
         {
             return View();
         }
-
+        
         public IActionResult RedDead()
         {
             return View();
         }
-
+        
         public IActionResult TheElder()
         {
             return View();
         }
-
+        
         public IActionResult TheLastOfUs()
         {
             return View();
