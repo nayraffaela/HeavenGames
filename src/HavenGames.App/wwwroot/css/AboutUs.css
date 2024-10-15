@@ -1,40 +1,59 @@
-﻿body {
-    background-color: #f8f9fa; /* Cor de fundo leve */
+﻿.grid {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 6rem 5rem auto 5rem;
+    grid-template-columns: 20% auto 20%;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-rows: 6rem 6rem 6rem auto 6rem 6rem;
+        grid-template-columns: 1fr;
+    }
+
+    aside, main {
+        grid-column: 1 / 4;
+    }
+}
+
+body {
+    background-color: #f8f9fa;
     font-family: Space Grotesk;
 }
 
 h2 {
-    color: #343a40; /* Cor escura para o título */
+    color: #343a40;
     margin-bottom: 20px;
 }
+
 h3 {
     font-family: Bebas Neue;
-    letter-spacing: 2px; 
+    letter-spacing: 2px;
     word-spacing: 4px;
 }
 
 h5 {
-    color: #000; /* Cor preta para o subtítulo */
+    color: #000;
     margin-bottom: 20px;
     font-family: Space Grotesk;
     letter-spacing: 2px;
     word-spacing: 4px;
-    
 }
 
 h4 {
-    color: #000; /* Cor preta para os subtítulos das seções */
+    color: #000;
     margin-top: 20px;
     margin-bottom: 10px;
 }
 
 p {
-    color: #000; /* Cor do texto do parágrafo */
+    color: #000;
     line-height: 1.6;
     font-family: Space Grotesk;
     letter-spacing: 2px;
     word-spacing: 4px;
-    text-align:justify;
+    text-align: justify;
 }
 
 ul {
@@ -46,30 +65,30 @@ li {
     font-family: Space Grotesk;
     letter-spacing: 2px;
     word-spacing: 4px;
-    text-align:justify;
+    text-align: justify;
 }
 
 .outer-box {
-    border: 2px solid #000; /* Cor da borda da caixa grande */
+    border: 2px solid #000;
     padding: 20px;
     border-radius: 5px;
-    background-color: #fff; /* Cor de fundo branca */
-    box-shadow: 1px 1px 15px #52b69a; /* Adiciona sombra */
+    background-color: #fff;
+    box-shadow: 1px 1px 15px #52b69a;
 }
 
 .inner-box {
-    width: 100%; /* Ajuste o valor conforme necessário */
-    height: auto; /* Ajusta a altura conforme necessário */
-    border: 2px solid #000; /* Se necessário */
+    width: 100%;
+    height: auto;
+    border: 2px solid #000;
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 5px;
-    background-color: #000; /* Cor de fundo preta */
+    background-color: #000;
 }
 
     .inner-box img {
-        width: 100px; /* Ajuste o valor conforme necessário */
-        height: auto; /* Mantém a proporção da imagem */
+        width: 100px;
+        height: auto;
         border-radius: 4px;
     }
 
@@ -83,27 +102,25 @@ li {
     word-spacing: 4px;
 }
 
-/* Ajusta o tamanho e a sombra das caixas de cartões */
 .card {
-    box-shadow: 1px 1px 15px #52b69a; /* Adiciona sombra aos cartões */
-    border: 2px solid #000; /* Borda preta para os cartões */
-    border-radius: 5px; /* Bordas arredondadas */
-    background-color: #fff; /* Cor de fundo branca */
-    margin-bottom: 20px; /* Espaçamento inferior */
+    box-shadow: 1px 1px 15px #52b69a;
+    border: 2px solid #000;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-bottom: 20px;
     flex: 1;
-    width: 100%; /* Faz com que os cartões usem a largura total da coluna */
+    width: 100%;
     max-width: 350px;
 }
 
-    /* Ajusta o estilo da imagem dentro do cartão */
     .card img {
-        width: 100px; /* Imagem ocupa a largura total do cartão */
-        height: auto; /* Mantém a proporção da imagem */
-        border-radius: 5px 5px 0 0; /* Bordas arredondadas no topo da imagem */
+        width: 100px;
+        height: auto;
+        border-radius: 5px 5px 0 0;
     }
 
     .card p {
-        padding: 10px; /* Adiciona espaçamento interno no parágrafo dentro do cartão */
+        padding: 10px;
     }
 
 .col-md-4 {
@@ -115,7 +132,7 @@ li {
 .outer-box {
     flex: 1;
     width: 100%;
-    max-width: none; /* Remove o tamanho máximo para a caixa externa */
+    max-width: none;
     font-family: Space Grotesk;
     letter-spacing: 2px;
     word-spacing: 4px;
@@ -124,21 +141,21 @@ li {
 .btn-glass {
     background: linear-gradient(145deg, #52b69a, #184e77);
     border: 2px solid #b5e48c;
-    border-radius: 6px; /* Diminuído para bordas mais suaves */
+    border-radius: 6px;
     color: #fff;
-    font-size: 0.8rem; /* Diminuído para texto menor */
+    font-size: 0.8rem;
     font-weight: 400;
-    padding: 0.4rem 0.8rem; /* Diminuído para menos espaçamento interno */
+    padding: 0.4rem 0.8rem;
     text-transform: uppercase;
     transition: all 0.3s ease;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Diminuído para sombra mais sutil */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     position: relative;
     letter-spacing: 1px;
     text-decoration: none;
     overflow: hidden;
     backdrop-filter: blur(15px);
     text-align: center;
-    width: 150px; /* Largura fixa, ajuste conforme necessário */
+    width: 150px;
     max-width: 100%;
     margin: 0 auto;
     font-family: Space Grotesk;
@@ -147,11 +164,11 @@ li {
     .btn-glass::before {
         content: '';
         position: absolute;
-        top: -4px; /* Ajustado para a borda externa menor */
-        left: -4px; /* Ajustado para a borda externa menor */
-        width: calc(100% + 8px); /* Ajustado para a borda externa menor */
-        height: calc(100% + 8px); /* Ajustado para a borda externa menor */
-        border-radius: 8px; /* Diminuído para combinar com o border-radius do botão */
+        top: -4px;
+        left: -4px;
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        border-radius: 8px;
         background: rgba(255, 255, 255, 0.1);
         z-index: -1;
         transition: all 0.3s ease;
@@ -160,29 +177,31 @@ li {
     .btn-glass:hover {
         background: linear-gradient(145deg, #52b69a, #76c893);
         border-color: #d9ed92;
-        transform: scale(1.03); /* Diminuído para uma escala de transformação mais sutil */
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Ajustado para uma sombra mais sutil */
+        transform: scale(1.03);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     }
 
         .btn-glass:hover::before {
             background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05); /* Ajustado para uma escala de transformação mais sutil */
+            transform: scale(1.05);
         }
 
-.equipe{
-    display:flex;
-    justify-content:center;
-    text-transform:uppercase;
-    
+.equipe {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
 }
+
 .carousel-caption {
-    background: rgba(0, 0, 0, 0.1); 
+    background: rgba(0, 0, 0, 0.1);
     color: #fff;
-    bottom: 10px; 
+    bottom: 10px;
 }
-.textbox{
+
+.textbox {
     color: antiquewhite;
 }
+
 .name {
     color: antiquewhite;
 }

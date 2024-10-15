@@ -18,7 +18,7 @@
 
     <hr />
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <form asp-action="Edit">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="Id" />
@@ -47,19 +47,21 @@
                     <input asp-for="Imagem" class="form-control" />
                     <span asp-validation-for="Imagem" class="text-danger"></span>
                 </div>
-                <div class="col-md-4">
-                    <img class="img-details img-fluid" src="@Model.Imagem" alt="Imagem do Jogo" />
-                </div>
-
                 <div class="form-group">
                     <input type="submit" value="Salvar" class="btn-glass btn-primary" />
                 </div>
             </form>
         </div>
+        <div class="col-md-6">
+            <img class="img-details img-fluid" src="@Model.Imagem" alt="Imagem do Evento" />
+        </div>
     </div>
     <div>
-        <a asp-action="Index" class="btn-glass ">Voltar </a>
+        <a asp-action="Index" class="btn-glass">Voltar</a>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
 

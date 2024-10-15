@@ -1,28 +1,19 @@
-﻿@media (max-width: 768px) {
-    h1 {
-        font-size: 1.5rem; /* Ajusta o tamanho da fonte para telas menores */
+﻿.grid {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 6rem 5rem auto 5rem;
+    grid-template-columns: 20% auto 20%;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-rows: 6rem 6rem 6rem auto 6rem 6rem;
+        grid-template-columns: 1fr;
     }
 
-    h4 {
-        font-size: 1.25rem; /* Ajusta o tamanho da fonte para telas menores */
-    }
-
-    .btn-cab {
-        font-size: 0.875rem; /* Ajusta o tamanho da fonte para botões */
-    }
-
-    .card-title {
-        font-size: 1rem; /* Ajusta o tamanho da fonte para o título do cartão */
-    }
-
-    h3 {
-        font-size: 1.25rem; /* Ajusta o tamanho da fonte para h3 */
-    }
-
-    .carousel-control {
-        width: 1.5rem;
-        height: 1.5rem;
-        font-size: 1.25rem;
+    aside, main {
+        grid-column: 1 / 4;
     }
 }
 

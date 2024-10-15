@@ -1,6 +1,19 @@
-﻿@media (min-width: 768px) {
-    html {
-        font-size: 16px;
+﻿.grid {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 6rem 5rem auto 5rem;
+    grid-template-columns: 20% auto 20%;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-rows: 6rem 6rem 6rem auto 6rem 6rem;
+        grid-template-columns: 1fr;
+    }
+
+    aside, main {
+        grid-column: 1 / 4;
     }
 }
 

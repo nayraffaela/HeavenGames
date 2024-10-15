@@ -1,12 +1,54 @@
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+    .hamburger .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #000;
+        transition: all 0.3s;
+    }
+
+@media (max-width: 768px) {
+    .magic-navbar {
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    .magic-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+        .magic-menu.active {
+            display: flex;
+        }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .magic-menu li {
+        margin: 10px 0;
+        text-align: center;
     }
 }
 
 .dark-mode {
-    background-color: #121212; 
-    color: #ffffff; 
+    background-color: #121212;
+    color: #ffffff;
 }
 
 body {

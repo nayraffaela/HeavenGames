@@ -1,4 +1,24 @@
-﻿h1 {
+﻿.grid {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 6rem 5rem auto 5rem;
+    grid-template-columns: 20% auto 20%;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-rows: 6rem 6rem 6rem auto 6rem 6rem;
+        grid-template-columns: 1fr;
+    }
+
+    aside, main {
+        grid-column: 1 / 4;
+    }
+}
+
+
+h1 {
     font-family: Bebas Neue;
     letter-spacing: 2px;
     word-spacing: 4px;
@@ -33,11 +53,6 @@ body {
     
     background-image: url('../imgs/background/BGPhoto10.PNG');
 }
-
-/*.card-body {
-    width: 310px;
-    height: 300px;
-}*/
 
 .textbox {
     color: #e9edc9;
