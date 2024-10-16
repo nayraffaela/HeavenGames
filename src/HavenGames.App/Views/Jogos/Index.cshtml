@@ -18,8 +18,7 @@
 
     <p>
 
-        <a asp-action="Create" class="btn-glass btn-cad">Cadastrar jogo</a><br />
-
+        <a supress-by-claim-name="Jogo" supress-by-claim-value="C" asp-action="Create" class="btn-glass btn-cad">CADASTRAR JOGO</a><br />
 
         <div class="container mt-5">
             <div class="row">
@@ -27,24 +26,19 @@
                 {
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
                         <div class="game-container">
-                        @* <div class="card"> *@
                             <img src="@Html.DisplayFor(modelItem => item.Imagem)" class="img-index" alt="Card Image">
-                            @* <div class="game-container"> *@
                                 <div class="details">
                                 <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.Nome)</strong></h5>
                                     <p class="card-text">Plataforma: @Html.DisplayFor(modelItem => item.Plataforma)</p>
                                     <p class="card-text">Gênero: @Html.DisplayFor(modelItem => item.Genero)</p>
 
-                                    <button class="btn-glass"><a asp-action="Edit" asp-route-id="@item.Id">Editar</a></button>
-                                    <button class="btn-glass"><a asp-action="Details" asp-route-id="@item.Id">Detalhes</a></button>
-                                    <button class="btn-glass"><a asp-action="Delete" asp-route-id="@item.Id">Excluir</a></button>
-                                    <button class="btn-glass"><a asp-action="Personagens" asp-route-id="@item.Id">Personagens</a></button>
-
+                                <a supress-by-claim-name="Jogo" supress-by-claim-value="U" asp-action="Edit" asp-route-id="@item.Id" class="btn-glass btn">Editar</a>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn-glass">Detalhes</a>
+                                <a supress-by-claim-name="Jogo" supress-by-claim-value="D" asp-action="Delete" asp-route-id="@item.Id" class="btn-glass btn">Excluir</a>
+                                <a asp-action="Personagens" asp-route-id="@item.Id" class="btn-glass">Personagens</a>
                                 </div>
                             </div>
-                        @* </div> *@
                     </div>
-
                 }
             </div>
 </head>

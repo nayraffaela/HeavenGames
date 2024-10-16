@@ -58,7 +58,7 @@ namespace HavenGames.App.Controllers
                 TempData["ErrorMessage"] = "Erro ao adicionar o comentário.";
             }
 
-            return RedirectToAction("IndexAsync");
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -75,7 +75,7 @@ namespace HavenGames.App.Controllers
             
             TempData["SuccessMessage"] = "Comentário excluído com sucesso.";
             
-            return RedirectToAction("Index");
+            return RedirectToAction("Comment");
         }
 
         public async Task<IActionResult> Comment()

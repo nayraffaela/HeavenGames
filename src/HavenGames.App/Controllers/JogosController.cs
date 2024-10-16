@@ -212,6 +212,7 @@ namespace HavenGames.App.Controllers
 
                 existingPersonagem.Nome = personagem.Nome;
                 existingPersonagem.Descricao = personagem.Descricao;
+                existingPersonagem.Imagem = personagem.Imagem;
 
                 await _jogoService.AlterarPersonagem(existingPersonagem);
 

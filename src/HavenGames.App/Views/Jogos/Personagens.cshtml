@@ -20,7 +20,7 @@
         <br />
         <div>
             <p>
-                <a class="btn-glass btn-primary" asp-action="CreatePersonagem" asp-route-id="@Model.Id">Novo personagem</a>
+                <a supress-by-claim-name="Jogo" supress-by-claim-value="C" asp-action="CreatePersonagem" asp-route-id="@Model.Id" class="btn-glass btn-primary">Novo personagem</a>
                 <a class="btn-glass btn-primary" asp-action="Index" asp-route-id="@Model.Id">Voltar aos jogos</a>
             </p>
         </div>
@@ -40,8 +40,8 @@
                             <div class="card-body w-310 h-300">
                                 <h5 class="card-title">@personagem.Nome</h5>
                                 <p class="card-text">@personagem.Descricao</p>
-                                <a class="btn-glass btn-secondary" asp-action="UpdatePersonagem" asp-route-jogoId="@Model.Id" asp-route-personagemId="@personagem.Id">Editar</a>
-                                <a class="btn-glass btn-danger" asp-action="DeletePersonagem" asp-route-jogoId="@Model.Id" asp-route-personagemId="@personagem.Id" onclick="return confirm('Tem certeza que deseja excluir este personagem?');">Excluir</a>
+                                <a supress-by-claim-name="Jogo" supress-by-claim-value="U" asp-action="UpdatePersonagem" asp-route-jogoId="@Model.Id" asp-route-personagemId="@personagem.Id" class="btn-glass btn-secondary">Editar</a>
+                                <a supress-by-claim-name="Jogo" supress-by-claim-value="D" asp-action="DeletePersonagem" asp-route-jogoId="@Model.Id" asp-route-personagemId="@personagem.Id" class="btn-glass btn-danger" onclick="return confirm('Tem certeza que deseja excluir este personagem?');">Excluir</a>
                             </div>
                         </div>
                     </div>

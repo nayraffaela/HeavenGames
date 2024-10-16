@@ -4,7 +4,6 @@
     ViewData["Title"] = "EVENTOS ÉPICOS";
 }
 
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -17,7 +16,6 @@
 <body>
     <div class="container mt-5">
         <h1>EVENTOS ÉPICOS</h1>
-
         <p> 
             <a supress-by-claim-name="Events" supress-by-claim-value="C" asp-action="Create" class="btn-glass btn-cad">CADASTRAR NOVO</a>
             <br />
@@ -34,9 +32,8 @@
                             <p class="card-text">Endereço: @Html.DisplayFor(modelItem => item.Localization)</p>
                             <p class="card-text">Descrição: @Html.DisplayFor(modelItem => item.Description)</p>
                             <div class="row d-flex justify-content-between">
-                                <button class="btn-glass" style="width: 140px;"><a asp-action="Edit" asp-route-id="@item.Id">Editar</a></button>
-                                <button class="btn-glass" style="width: 140px;"><a asp-action="Delete" asp-route-id="@item.Id">Excluir</a></button>
-
+                                <a supress-by-claim-name="Events" supress-by-claim-value="U" asp-action="Edit" asp-route-id="@item.Id" class="btn-glass" style="width: 140px;">Editar</a>
+                                <a supress-by-claim-name="Events" supress-by-claim-value="D" asp-action="Delete" asp-route-id="@item.Id" class="btn-glass" style="width: 140px;">Excluir</a>
                            </div>
                         </div>
                     </div>

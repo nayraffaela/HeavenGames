@@ -15,22 +15,22 @@
 </head>
 <body>
 
-<h2>Comentários</h2>
+    <h2>Comentários</h2>
 
-<ul>
-    @foreach (var comentario in Model)
-    {
-        <li>
-            <p><strong>@comentario.Nome:</strong> @comentario.Descricao</p>
-            <p><em>@comentario.Inclusao</em></p>
-            <form asp-action="DeleteComment" method="post" onsubmit="return confirm('Tem certeza que deseja excluir este comentário?');">
-                <input type="hidden" name="id" value="@comentario.Id" />
-                <button type="submit" class="btn-glass btn">Excluir</button>
-                <br />
-                <hr />
-            </form>
-        </li>
-    }
-</ul>
+    <ul>
+        @foreach (var comentario in Model)
+        {
+            <li>
+                <p><strong>@comentario.Nome:</strong> @comentario.Descricao</p>
+                <p><em>@comentario.Inclusao</em></p>
+                <form asp-action="DeleteComment" method="post" onsubmit="return confirm('Tem certeza que deseja excluir este comentário?');">
+                    <input type="hidden" name="id" value="@comentario.Id" />
+                    <a supress-by-claim-name="Home" supress-by-claim-value="D" asp-action="Delete" class="btn-glass btn">EXCLUIR</a>
+                    <br />
+                    <hr />
+                </form>
+            </li>
+        }
+    </ul>
 </body>
 </html>
