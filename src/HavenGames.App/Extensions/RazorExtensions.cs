@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Razor;
 
 
-namespace HavenGames.app.Extensions
+namespace HavenGames.App.Extensions
 {
     public static class RazorExtensions
     {

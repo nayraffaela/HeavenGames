@@ -1,6 +1,4 @@
-﻿using HavenGames.Business.Models;
-
-namespace HavenGames.App.ViewModels
+﻿namespace HavenGames.App.ViewModels
 {
     public class JogoViewModel
     {

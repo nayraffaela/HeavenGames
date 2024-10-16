@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace HavenGames.app.Extensions
+namespace HavenGames.App.Extensions
 {
     [HtmlTargetElement("*", Attributes = "disable-by-claim-name")]
     [HtmlTargetElement("*", Attributes = "disable-by-claim-value")]

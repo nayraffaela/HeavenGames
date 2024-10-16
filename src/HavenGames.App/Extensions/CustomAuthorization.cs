@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Security.Claims;
 
-namespace HavenGames.app.Extensions
+namespace HavenGames.App.Extensions
 {
     public class CustomAuthorization
     {

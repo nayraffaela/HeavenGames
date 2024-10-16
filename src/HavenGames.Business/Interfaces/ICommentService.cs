@@ -6,6 +6,6 @@ namespace HavenGames.Business.Services
     {
         Task Adicionar(Comment comment);
         Task<IEnumerable<Comment>> ObterTodos();
-        Task<bool> DeleteComment(int id); 
+        Task DeleteComment(Comment comment); 
     }
 }

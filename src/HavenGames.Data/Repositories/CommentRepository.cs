@@ -10,11 +10,6 @@ namespace HavenGames.Data.Repositories
         {
 
         }
-
-        public Task<bool> DeleteComment(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
 

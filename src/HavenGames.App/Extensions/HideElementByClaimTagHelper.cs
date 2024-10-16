@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace HavenGames.app.Extensions
+namespace HavenGames.App.Extensions
 {
 
     [HtmlTargetElement("*", Attributes = "supress-by-claim-name")]
     [HtmlTargetElement("*", Attributes = "supress-by-claim-value")]
-    public class HiddenElementByClaimTagHelper : TagHelper
+    public class HideElementByClaimTagHelper : TagHelper
     {
         private readonly IHttpContextAccessor _contextAccessor;
 
-        public HiddenElementByClaimTagHelper(IHttpContextAccessor contextAccessor)
+        public HideElementByClaimTagHelper(IHttpContextAccessor contextAccessor)
         {
             _contextAccessor = contextAccessor;
         }

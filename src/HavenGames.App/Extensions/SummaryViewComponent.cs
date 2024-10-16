@@ -1,7 +1,7 @@
 ﻿using HavenGames.Business.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HavenGames.app.Extensions
+namespace HavenGames.App.Extensions
 {
     public class SummaryViewComponent : ViewComponent
     {
