@@ -24,7 +24,7 @@ h1 {
 }
 
 p {
-    color: #000; /* Cor do texto do parágrafo */
+    color: #000; 
     line-height: 1.6;
     font-family: Space Grotesk;
     letter-spacing: 2px;
@@ -36,7 +36,7 @@ p {
 }
 
 h2 {
-    color: #343a40; /* Cor escura para o título */
+    color: #343a40; 
     margin-bottom: 20px;
     font-family: Bebas Neue;
     letter-spacing: 2px;
@@ -51,12 +51,12 @@ h2 {
 }
 
 .card {
-    box-shadow: 1px 1px 15px #52b69a; /* Adiciona sombra aos cartões */
-    border: 1px solid #000; /* Borda preta para os cartões */
-    border-radius: 5px; /* Bordas arredondadas */
-    background-color: #fff; /* Cor de fundo branca */
-    margin-bottom: 20px; /* Espaçamento inferior */
+    box-shadow: 1px 1px 15px #52b69a; 
+    border: 1px solid #000; 
+    border-radius: 5px; 
+    background-color: #fff; 
+    margin-bottom: 20px; 
     flex: 1;
-    width: 100%; /* Faz com que os cartões usem a largura total da coluna */
+    width: 100%; 
     
 }

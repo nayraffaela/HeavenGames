@@ -18,12 +18,12 @@
 }
 
 body {
-    background-color: #f8f9fa; /* Cor de fundo leve */
+    background-color: #f8f9fa;
     font-family: Space Grotesk;
 }
 
 h2 {
-    color: #343a40; /* Cor escura para o título */
+    color: #343a40;
     margin-bottom: 20px;
 }
 
@@ -34,7 +34,7 @@ h3 {
 }
 
 h5 {
-    color: #000; /* Cor preta para o subtítulo */
+    color: #000;
     margin-bottom: 20px;
     font-family: Space Grotesk;
     letter-spacing: 2px;
@@ -43,7 +43,7 @@ h5 {
 }
 
 p {
-    color: #000; /* Cor do texto do parágrafo */
+    color: #000;
     line-height: 1.6;
     font-family: Space Grotesk;
     letter-spacing: 2px;
@@ -54,21 +54,21 @@ p {
 .btn-glass {
     background: linear-gradient(145deg, #52b69a, #184e77);
     border: 2px solid #b5e48c;
-    border-radius: 6px; /* Diminuído para bordas mais suaves */
+    border-radius: 6px;
     color: #fff;
-    font-size: 0.8rem; /* Diminuído para texto menor */
+    font-size: 0.8rem;
     font-weight: 400;
-    padding: 0.4rem 0.8rem; /* Diminuído para menos espaçamento interno */
+    padding: 0.4rem 0.8rem;
     text-transform: uppercase;
     transition: all 0.3s ease;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Diminuído para sombra mais sutil */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     position: relative;
     letter-spacing: 1px;
     text-decoration: none;
     overflow: hidden;
     backdrop-filter: blur(15px);
     text-align: center;
-    width: 150px; /* Largura fixa, ajuste conforme necessário */
+    width: 150px;
     max-width: 100%;
     margin: 0 auto;
     font-family: Space Grotesk;
@@ -77,11 +77,11 @@ p {
     .btn-glass::before {
         content: '';
         position: absolute;
-        top: -4px; /* Ajustado para a borda externa menor */
-        left: -4px; /* Ajustado para a borda externa menor */
-        width: calc(100% + 8px); /* Ajustado para a borda externa menor */
-        height: calc(100% + 8px); /* Ajustado para a borda externa menor */
-        border-radius: 8px; /* Diminuído para combinar com o border-radius do botão */
+        top: -4px;
+        left: -4px;
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        border-radius: 8px;
         background: rgba(255, 255, 255, 0.1);
         z-index: -1;
         transition: all 0.3s ease;
@@ -90,16 +90,17 @@ p {
     .btn-glass:hover {
         background: linear-gradient(145deg, #52b69a, #76c893);
         border-color: #d9ed92;
-        transform: scale(1.03); /* Diminuído para uma escala de transformação mais sutil */
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Ajustado para uma sombra mais sutil */
+        transform: scale(1.03);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     }
 
         .btn-glass:hover::before {
             background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05); /* Ajustado para uma escala de transformação mais sutil */
+            transform: scale(1.05);
         }
-.form-group{
-    display:flex;
+
+.form-group {
+    display: flex;
     justify-content: space-between;
     width: 100%;
 }
@@ -109,6 +110,4 @@ p {
     flex-direction: column;
     align-items: center;
     box-shadow: 1px 1px 10px #52b69a;
-    
 }
-
