@@ -110,8 +110,17 @@ namespace HavenGames.App.Controllers
         {
             return View();
         }
-
         public IActionResult FAQ()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult Newsletter()
         {
             return View();
         }
