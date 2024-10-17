@@ -17,7 +17,9 @@
   <ItemGroup>
     <Compile Remove="Controllers\TicketsController.cs" />
     <Compile Remove="Views\Home\Contact.cshtml.cs" />
+    <Compile Remove="Views\Home\Contato.cshtml.cs" />
     <Compile Remove="Views\Home\FAQ.cshtml.cs" />
+    <Compile Remove="Views\Home\Newsletter.cshtml.cs" />
   </ItemGroup>
 
   <ItemGroup>
