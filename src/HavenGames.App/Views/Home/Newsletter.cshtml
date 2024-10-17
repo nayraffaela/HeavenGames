@@ -34,5 +34,11 @@
     <br />
     <a class="btn-glass" asp-area="" asp-controller="Home" asp-action="">Inscrever-se</a>
 </form>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="success-message">@TempData["SuccessMessage"]</div>
+    }
+
 </body>
 </html>

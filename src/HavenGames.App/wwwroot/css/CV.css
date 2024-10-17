@@ -1,0 +1,106 @@
+﻿body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.card-box {
+    margin: 0 auto;
+}
+
+.card-title {
+    font-size: 20px;
+    color: #ff4d00;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    input[type="date"]:focus {
+        border-color: #ff4d00;
+        outline: none;
+    }
+
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+    transition: border-color 0.3s;
+}
+
+    textarea:focus {
+        border-color: #ff4d00;
+        outline: none;
+    }
+
+.radio-label {
+    margin-right: 20px;
+}
+
+.btn-glass {
+    background: rgba(255, 77, 0, 0.2);
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #fff;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+    .btn-glass:hover {
+        background: rgba(255, 77, 0, 0.5);
+    }
+
+.text-danger {
+    font-size: 0.9em;
+    color: red;
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 18px;
+    }
+
+    .btn-glass {
+        width: 100%;
+    }
+}
