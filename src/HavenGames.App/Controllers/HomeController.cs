@@ -98,11 +98,6 @@ namespace HavenGames.App.Controllers
             return View();
         }
 
-        public IActionResult Contact()
-        {
-            return View();
-        }
-
         public IActionResult Guide()
         {
             return View();
@@ -112,6 +107,11 @@ namespace HavenGames.App.Controllers
             return View();
         }
         public IActionResult Curriculum()
+        {
+            return View();
+        }
+
+        public IActionResult FAQ()
         {
             return View();
         }

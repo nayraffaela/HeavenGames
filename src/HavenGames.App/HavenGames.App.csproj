@@ -16,14 +16,18 @@
 
   <ItemGroup>
     <Compile Remove="Controllers\TicketsController.cs" />
+    <Compile Remove="Views\Home\Contact.cshtml.cs" />
+    <Compile Remove="Views\Home\FAQ.cshtml.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="Views\Home\Comments.cshtml" />
+    <Content Remove="Views\Home\Contact.cshtml" />
     <Content Remove="Views\Home\Events.cshtml" />
     <Content Remove="Views\Home\Login.cshtml" />
     <Content Remove="Views\Home\Resenhas.cshtml" />
     <Content Remove="wwwroot\css\AboutUs.cs" />
+    <Content Remove="wwwroot\css\Contact.css" />
     <Content Remove="wwwroot\css\Events.css" />
     <Content Remove="wwwroot\css\Inicio.css" />
     <Content Remove="wwwroot\css\Resenhas.css" />

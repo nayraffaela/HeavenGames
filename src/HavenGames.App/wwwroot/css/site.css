@@ -28,8 +28,9 @@
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: #ffff;
+        background-color: #fff;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 10;
     }
 
         .magic-menu.active {
@@ -71,27 +72,26 @@ html {
     padding: 0;
 }
 
-.magic-menu li {
-    font-family: Bebas Neue;
-    position: relative;
-    margin: 0 15px;
-}
+    .magic-menu li {
+        font-family: Bebas Neue;
+        position: relative;
+        margin: 0 15px;
+    }
+
 .magic-navbar {
     font-family: Bebas Neue;
-    background-color: #ffff;
+    background-color: #fff;
     border-color: #76c893;
-    color: #000000;
+    color: #000;
     justify-content: center;
     display: flex;
     padding: 1rem;
     border-radius: 5px;
     height: 50px;
     width: 100%;
-    padding: 5px;
 }
 
-
-.mainwrapper{
+.mainwrapper {
     margin: 50px;
 }
 
@@ -117,37 +117,40 @@ html {
         transform-origin: bottom right;
         transition: transform 0.3s;
     }
+
     .magic-menu a:hover {
         color: #00a896;
         transform: translateY(-3px);
     }
 
-.magic-menu a:hover::after {
-      transform: scaleX(1);
-      transform-origin: bottom left;
-}
+        .magic-menu a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
 
 .form-control {
     font-family: Space Grotesk;
 }
+
 .fas {
     font-family: Space Grotesk;
 }
 
 .footer {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #fff;
+    color: #000;
 }
 
-.nav-link{
+.nav-link {
     display: grid;
-    grid-template-columns:minmax(100px, 1fr)
+    grid-template-columns: minmax(100px, 1fr);
 }
 
 .fas:hover {
     color: #028090;
 }
+
 .btn-menu {
     border: none;
-    background-color: #ffff;
+    background-color: #fff;
 }

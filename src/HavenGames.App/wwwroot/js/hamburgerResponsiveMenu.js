@@ -1,13 +1,8 @@
-﻿<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const hamburger = document.getElementById('hamburger');
-    const magicMenu = document.querySelector('.magic-menu'); 
+﻿document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.getElementById('hamburger');
+    const magicMenu = document.getElementById('magicMenu');
 
-    if (hamburger && magicMenu) { 
-        hamburger.addEventListener('click', function () {
-            magicMenu.classList.toggle('active');
-        });
-        }
+    hamburger.addEventListener('click', function () {
+        magicMenu.classList.toggle('active');
     });
-</script>
-
+});

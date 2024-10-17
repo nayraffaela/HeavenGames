@@ -24,9 +24,17 @@
 }
 
     .social-icons a {
-        font-size: 24px; 
-        color: inherit; 
+        font-size: 24px;
+        color: inherit;
+        transition: color 0.3s ease, transform 0.3s ease;
     }
+
+        .social-icons a:hover i {
+            color: #0e7e6c;
+            transform: scale(1.2);
+        }
+
+
 
 
 h1 {

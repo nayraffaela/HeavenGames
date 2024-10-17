@@ -17,7 +17,6 @@
     }
 }
 
-
 h1 {
     font-family: Bebas Neue;
     letter-spacing: 2px;
@@ -32,7 +31,6 @@ h5 {
     text-transform: uppercase;
 }
 
-
 h3 {
     font-family: Bebas Neue;
     letter-spacing: 2px;
@@ -41,7 +39,7 @@ h3 {
 }
 
 p {
-    color: #000; 
+    color: #000;
     line-height: 1.6;
     font-family: Space Grotesk;
     letter-spacing: 2px;
@@ -50,7 +48,6 @@ p {
 }
 
 body {
-    
     background-image: url('../imgs/background/BGPhoto10.PNG');
 }
 
@@ -74,11 +71,10 @@ body {
     text-shadow: 1px 1px 15px #52b69a;
 }
 
-.card-img-top{
-
-    width: 305px;
-    height: 300px;
-
+.card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .btn-glass {
@@ -127,5 +123,4 @@ body {
 
 .card-box {
     box-shadow: 1px 1px 15px #52b69a;
-  
 }
