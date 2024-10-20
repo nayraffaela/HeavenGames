@@ -1,8 +1,9 @@
 ﻿
+using AutoMapper;
+using HavenGames.App.ViewModels;
 using HavenGames.Business.Interfaces;
 using HavenGames.Business.Models;
 using HavenGames.Business.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HavenGames.App.Controllers
@@ -11,11 +12,16 @@ namespace HavenGames.App.Controllers
     {
         private readonly IJogoRepository _jogoRepository;
         private readonly IJogoService _jogoService;
+        private readonly IMapper _mapper;
 
-        public JogosController(IJogoRepository jogoRepository, IJogoService jogoService)
+        public JogosController(IJogoRepository jogoRepository, 
+                                IJogoService jogoService,
+                                IMapper mapper)
         {
             _jogoRepository = jogoRepository;
             _jogoService = jogoService;
+            _mapper = mapper;
+
         }
 
         // GET: Jogos
@@ -51,53 +57,55 @@ namespace HavenGames.App.Controllers
         // POST: Jogos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Plataforma,Genero,Imagem, Descricao")] Jogo jogo)
+        public async Task<IActionResult> Create(JogoViewModel jogoViewModel)
         {
-            if (ModelState.IsValid)
-            {
-                await _jogoService.Adicionar(jogo);
+            if (ModelState.IsValid) return View(jogoViewModel);
+            
+            await _jogoService.Adicionar(_mapper.Map<Jogo>(jogoViewModel));
 
-                return RedirectToAction(nameof(Index));
-            }
+            //addnotificador e msg tempdata
+            return RedirectToAction(nameof(Index));
 
-            return View(jogo);
         }
 
         // GET: Jogos/Edit/5
         [HttpGet]
         public async Task<IActionResult> Edit(Guid id)
         {
-            var jogo = await _jogoRepository.ObterPorId(id);
+            var jogoViewModel = await ObterJogoPersonagens(id);
+           
+            if (jogoViewModel == null) return NotFound();
 
-            return View(jogo);
+            return View(jogoViewModel);
         }
 
         // POST: Jogos/Edit/5
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Nome,Plataforma,Genero,Imagem, Descricao")] Jogo jogo)
+        public async Task<IActionResult> Edit(Guid id, JogoViewModel jogoViewModel)
         {
-            if (ModelState.IsValid)
-            {
-                await _jogoService.Alterar(jogo);
+            if (id != jogoViewModel.Id) return NotFound();
+            
+            if (!ModelState.IsValid) return View(jogoViewModel);
+            
+            var jogo = _mapper.Map<Jogo>(jogoViewModel);
+            
+            await _jogoService.Alterar(jogo);
 
-                return RedirectToAction(nameof(Index));
-            }
+            return RedirectToAction(nameof(Index));
+            
 
-            return View(jogo);
+            
         }
 
         // GET: Jogos/Delete/5
         public async Task<IActionResult> Delete(Guid id)
         {
-            var jogo = await _jogoRepository.ObterPorId(id);
+            var jogoViewModel = await ObterJogoPersonagens(id);
 
-            if (jogo == null)
-            {
-                return NotFound();
-            }
-
-            return View(jogo);
+            if (jogoViewModel == null) return NotFound();
+            
+            return View(jogoViewModel);
         }
 
         // POST: Jogos/Delete/5
@@ -105,13 +113,12 @@ namespace HavenGames.App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var jogo = await _jogoRepository.ObterJogoComPersonagens(id);
+            var jogoViewModel = await ObterJogoPersonagens(id);
 
-            if (jogo != null)
-            {
-                await _jogoService.Remover(id);
-            }
-
+            if (jogoViewModel == null) return NotFound();
+            
+            await _jogoService.Remover(id);
+            
             return RedirectToAction(nameof(Index));
         }
 
@@ -119,10 +126,7 @@ namespace HavenGames.App.Controllers
         [HttpGet, ActionName("Personagens")]
         public async Task<IActionResult> Personagens(Guid id)
         {
-            var jogo = await _jogoRepository.ObterJogoComPersonagens(id);
-
-            jogo.Personagens = jogo?.Personagens ?? new List<Personagem>();
-
+            var jogo = await ObterJogoPersonagens(id);
             return View(jogo);
         }
 
@@ -130,14 +134,14 @@ namespace HavenGames.App.Controllers
         [HttpGet, ActionName("CreatePersonagem")]
         public async Task<IActionResult> GetCreatePersonagem(Guid id)
         {
-            var jogo = await _jogoRepository.ObterPorId(id);
+            var jogoViewModel = await ObterJogoPersonagens(id);
 
-            if (jogo == null)
-            {
-                return NotFound();
-            }
+            if (jogoViewModel == null) return NotFound();
 
-            return View(jogo);
+            var personagemViewModel = new PersonagemViewModel() { };
+            personagemViewModel.Jogo = jogoViewModel;
+
+            return View(personagemViewModel);
         }
 
 
@@ -145,39 +149,30 @@ namespace HavenGames.App.Controllers
         // POST: Jogos/Personagens/5
         [HttpPost, ActionName("CreatePersonagem")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreatePersonagem(Guid id, Personagem personagem)
+        public async Task<IActionResult> CreatePersonagem(Guid jogoId, PersonagemViewModel personagemViewModel)
         {
-            if (ModelState.IsValid)
-            {
-                personagem.Id = Guid.NewGuid();
+            if (ModelState.IsValid) return View(personagemViewModel);
 
-                var jogo = await _jogoRepository.ObterJogoComPersonagens(id);
+            var personagem = _mapper.Map<Personagem>(personagemViewModel);
+            personagem.Id = Guid.NewGuid();
 
-                if (jogo == null)
-                {
-                    return NotFound();
-                }
+            var jogo = await _jogoRepository.ObterJogoComPersonagens(jogoId);
 
-                await _jogoService.AdicionarPersonagem(jogo, personagem);
+            await _jogoService.AdicionarPersonagem(jogo, personagem);
 
-                return RedirectToAction("Personagens", jogo);
-            }
+            return RedirectToAction("Personagens", jogo);
 
-            return View(personagem);
         }
 
         // GET: Jogos/UpdatePersonagem/5
         [HttpGet, ActionName("UpdatePersonagem")]
         public async Task<IActionResult> UpdatePersonagem(Guid jogoId, Guid personagemId)
         {
-            var jogo = await _jogoRepository.ObterJogoComPersonagens(jogoId);
+            var jogoViewModel = await ObterJogoPersonagens(jogoId);
 
-            if (jogo == null)
-            {
-                return NotFound();
-            }
+            if (jogoViewModel == null) return NotFound();
 
-            var personagem = jogo.Personagens.FirstOrDefault(p => p.Id == personagemId);
+            var personagem = jogoViewModel.Personagens.FirstOrDefault(p => p.Id == personagemId);
 
             if (personagem == null)
             {
@@ -265,6 +260,17 @@ namespace HavenGames.App.Controllers
             }
 
             return RedirectToAction(nameof(Personagens), jogo);
+
+        }
+
+        private async Task<JogoViewModel> ObterJogo(Guid id)
+        {
+            return _mapper.Map<JogoViewModel>(await _jogoRepository.ObterPorId(id));
+        }
+
+        private async Task<JogoViewModel> ObterJogoPersonagens(Guid id)
+        {
+            return _mapper.Map<JogoViewModel>(await _jogoRepository.ObterJogoComPersonagens(id));
         }
 
     }

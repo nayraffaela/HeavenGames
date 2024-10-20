@@ -18,7 +18,7 @@
 
     <p>
 
-        <a supress-by-claim-name="Jogo" supress-by-claim-value="C" asp-action="Create" class="btn-glass btn-cad">CADASTRAR JOGO</a><br />
+        <a supress-by-claim-name="Jogos" supress-by-claim-value="C" asp-action="Create" class="btn-glass btn-cad">CADASTRAR JOGO</a><br />
 
         <div class="container mt-5">
             <div class="row">
@@ -32,9 +32,9 @@
                                     <p class="card-text">Plataforma: @Html.DisplayFor(modelItem => item.Plataforma)</p>
                                     <p class="card-text">Gênero: @Html.DisplayFor(modelItem => item.Genero)</p>
 
-                                <a supress-by-claim-name="Jogo" supress-by-claim-value="U" asp-action="Edit" asp-route-id="@item.Id" class="btn-glass btn">Editar</a>
+                                <a supress-by-claim-name="Jogos" supress-by-claim-value="U" asp-action="Edit" asp-route-id="@item.Id" class="btn-glass btn">Editar</a>
                                 <a asp-action="Details" asp-route-id="@item.Id" class="btn-glass">Detalhes</a>
-                                <a supress-by-claim-name="Jogo" supress-by-claim-value="D" asp-action="Delete" asp-route-id="@item.Id" class="btn-glass btn">Excluir</a>
+                                <a supress-by-claim-name="Jogos" supress-by-claim-value="D" asp-action="Delete" asp-route-id="@item.Id" class="btn-glass btn">Excluir</a>
                                 <a asp-action="Personagens" asp-route-id="@item.Id" class="btn-glass">Personagens</a>
                                 </div>
                             </div>

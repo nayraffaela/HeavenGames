@@ -1,4 +1,4 @@
-﻿@model HavenGames.Business.Models.Jogo
+﻿@model HavenGames.App.ViewModels.PersonagemViewModel
 
 @{
     ViewData["Title"] = "Create Personagem";
@@ -19,6 +19,8 @@
 <div class="row" style="width: 80%;">
     <div>
         <form asp-action="CreatePersonagem">
+           <input type="hidden" asp-for="Id" />
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Nome" class="control-label"></label>
@@ -41,8 +43,8 @@
             <br />
 
             <div class="form-group">
-                    <input type="submit" value="Cadastrar" asp-action="CreatePersonagem" class="btn-glass btn-outline-primary" asp-route-id="@Model.Id" />
-                    <a asp-action="Personagens" class="btn-glass btn-outline-primary" asp-route-id="@Model.Id">Voltar a Lista</a>
+                    <input type="submit" value="Cadastrar" asp-action="CreatePersonagem" class="btn-glass btn-outline-primary" asp-route-jogoId="@Model.Jogo.Id" />
+                    <a asp-action="Personagens" class="btn-glass btn-outline-primary" asp-route-jogoId="@Model.Jogo.Id">Voltar a Lista</a>
             </div>
         </form>
     </div>
