@@ -1,141 +1,106 @@
-﻿
+﻿using AutoMapper;
+using HavenGames.App.ViewModels;
 using HavenGames.Business.Interfaces;
 using HavenGames.Business.Models;
 using HavenGames.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace HavenGames.App.Controllers
-
 {
-
     public class EventsController : Controller
     {
         private readonly IEventRepository _eventRepository;
         private readonly IEventService _eventService;
+        private readonly IMapper _mapper;
 
-        public EventsController(IEventRepository eventRepository, IEventService eventService)
+        public EventsController(IEventRepository eventRepository, IEventService eventService, IMapper mapper)
         {
             _eventRepository = eventRepository;
             _eventService = eventService;
+            _mapper = mapper;
         }
 
-        
-       
         public async Task<IActionResult> Index()
         {
-            return View(await _eventRepository.ObterTodos());
+            var events = await _eventRepository.ObterTodos();
+            var eventViewModels = _mapper.Map<IEnumerable<EventViewModel>>(events);
+            return View(eventViewModels);
         }
 
-        // GET: Events/Details/5
-        
-        public async Task<IActionResult> Details(Guid id)
-        {
-           
-            var eventViewModel = await _eventRepository.ObterPorId(id);
-            if (eventViewModel == null)
-            {
-                return NotFound();
-            }
 
-            return View(eventViewModel);
-        }
-
-        // GET: Events/Create
-        
         public IActionResult Create()
         {
             return View();
         }
 
-
-        // POST: Events/Create
-        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,Imagem,Localization,Date")] Event createdEvent)
+        public async Task<IActionResult> Create(EventViewModel eventViewModel)
         {
             if (ModelState.IsValid)
             {
-                await _eventService.Adicionar(createdEvent);
+                var evento = _mapper.Map<Event>(eventViewModel);
+                await _eventService.Adicionar(evento);
                 return RedirectToAction(nameof(Index));
             }
-            return View(createdEvent);
+            return View(eventViewModel);
         }
 
-        // GET: Events/Edit/5
-        
         public async Task<IActionResult> Edit(Guid id)
         {
-         
-            var eventFromDb = await _eventRepository.ObterPorId(id);
-            if (eventFromDb == null)
-            {
-                return NotFound();
-            }
-            return View(eventFromDb);
-        }
-
-        // POST: Events/Edit/5
-        
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,Description,Imagem,Localization,Date")] Event editedEvent)
-        {
-            if (id != editedEvent.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                   await _eventService.Alterar(editedEvent);
-                   
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!await EventExistsAsync(editedEvent.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(editedEvent);
-        }
-
-        // GET: Events/Delete/5
-        
-        public async Task<IActionResult> Delete(Guid id)
-        {
-            
-
             var evento = await _eventRepository.ObterPorId(id);
             if (evento == null)
             {
                 return NotFound();
             }
 
-            return View(evento);
+            var eventViewModel = _mapper.Map<EventViewModel>(evento);
+            return View(eventViewModel);
         }
 
-        // POST: Events/Delete/5
-        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(Guid id, EventViewModel eventViewModel)
+        {
+            if (id != eventViewModel.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+
+                var evento = _mapper.Map<Event>(eventViewModel);
+                await _eventService.Alterar(evento);
+
+
+                return RedirectToAction(nameof(Index));
+            }
+            return View(eventViewModel);
+        }
+
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var evento = await _eventRepository.ObterPorId(id);
+            if (evento == null)
+            {
+                return NotFound();
+            }
+
+            var eventViewModel = _mapper.Map<EventViewModel>(evento);
+            return View(eventViewModel);
+        }
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var evento = await _eventRepository.ObterPorId(id);
-
-            if (evento != null)
+            var eventoExiste = await EventExistsAsync(id);
+            if (eventoExiste)
             {
-                await _eventService.Remover(evento);
+                await _eventService.Remover(id);
             }
 
             return RedirectToAction(nameof(Index));
@@ -143,11 +108,8 @@ namespace HavenGames.App.Controllers
 
         private async Task<bool> EventExistsAsync(Guid id)
         {
-            var evento = await _eventRepository.ObterPorId(id);
-            return evento != null;
+            var evento = await _eventRepository.Buscar(e => e.Id == id);
+            return evento.FirstOrDefault() != null;
         }
-
-    
-
     }
 }

@@ -32,7 +32,7 @@ namespace HavenGames.Business.Services
 
         public async Task DeleteComment(Comment comment)
         {
-          await _commentRepository.Remover(comment);
+          await _commentRepository.Remover(comment.Id);
         }
     }
 

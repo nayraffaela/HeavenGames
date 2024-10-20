@@ -109,7 +109,7 @@ namespace HavenGames.App.Controllers
 
             if (jogo != null)
             {
-                await _jogoService.Remover(jogo);
+                await _jogoService.Remover(id);
             }
 
             return RedirectToAction(nameof(Index));

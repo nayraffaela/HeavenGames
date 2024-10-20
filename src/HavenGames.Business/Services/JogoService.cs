@@ -46,17 +46,9 @@ namespace HavenGames.Business.Services
             _jogoRepository.Dispose();
         }
 
-        public async Task Remover(Jogo jogo)
+        public async Task Remover(Guid id)
         {
-            //if (jogo.Personagens.Any())
-            //{
-            //    foreach (var item in jogo.Personagens)
-            //    {
-            //       _jogoRepository.Remover(item);
-            //    }
-            //}
-
-           await _jogoRepository.Remover(jogo);
+           await _jogoRepository.Remover(id);
         }
 
         public async Task RemoverPersonagem(Jogo jogo, Personagem personagem)
