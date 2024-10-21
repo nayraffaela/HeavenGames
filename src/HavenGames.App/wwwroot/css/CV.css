@@ -1,12 +1,26 @@
-﻿body {
-    font-family: 'Arial', sans-serif;
+﻿@media (max-width: 600px) {
+    header {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 18px;
+    }
+
+    .btn-glass {
+        width: 100%;
+    }
+}
+
+body {
+    font-family: Space Grotesk;
     background-color: #f0f4f8;
     color: #333;
     margin: 0;
     padding: 20px;
 }
 
-header {
+.conteiner-cv {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -20,14 +34,16 @@ header {
 }
 
 .card-title {
+    font-family: Space Grotesk;
     font-size: 20px;
-    color: #ff4d00;
+    color: black;
     text-align: center;
     margin-bottom: 20px;
 }
 
 .form-group {
     margin-bottom: 15px;
+    font-family: Space Grotesk;
 }
 
 label {
@@ -72,35 +88,56 @@ textarea {
 }
 
 .btn-glass {
-    background: rgba(255, 77, 0, 0.2);
-    border: none;
-    border-radius: 5px;
-    padding: 12px 20px;
-    font-size: 16px;
+    background: linear-gradient(145deg, #52b69a, #184e77);
+    border: 2px solid #b5e48c;
+    border-radius: 6px;
     color: #fff;
-    transition: background 0.3s;
-    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 400;
+    padding: 0.4rem 0.8rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+    letter-spacing: 1px;
+    text-decoration: none;
+    overflow: hidden;
+    backdrop-filter: blur(15px);
+    text-align: center;
+    width: 150px;
+    max-width: 100%;
+    margin: 0 auto;
+    font-family: Space Grotesk;
 }
 
-    .btn-glass:hover {
-        background: rgba(255, 77, 0, 0.5);
+    .btn-glass::before {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        z-index: -1;
+        transition: all 0.3s ease;
     }
+
+    .btn-glass:hover {
+        background: linear-gradient(145deg, #52b69a, #76c893);
+        border-color: #d9ed92;
+        transform: scale(1.03);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+        .btn-glass:hover::before {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
 
 .text-danger {
     font-size: 0.9em;
     color: red;
 }
 
-@media (max-width: 600px) {
-    header {
-        padding: 20px;
-    }
 
-    .card-title {
-        font-size: 18px;
-    }
-
-    .btn-glass {
-        width: 100%;
-    }
-}
