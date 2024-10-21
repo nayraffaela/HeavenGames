@@ -1,3 +1,4 @@
+using AutoMapper;
 using HavenGames.App.Models;
 using HavenGames.App.ViewModels;
 using HavenGames.Business.Interfaces;
@@ -14,13 +15,15 @@ namespace HavenGames.App.Controllers
     {
         private readonly ICommentRepository _commentRepository;
         private readonly ICommentService _commentService;
+        private readonly IMapper _mapper;
 
-
-        public HomeController(ICommentRepository commentRepository, ICommentService commentService)
+        public HomeController(ICommentRepository commentRepository,
+            ICommentService commentService, IMapper mapper)
 
         {
             _commentRepository = commentRepository;
             _commentService = commentService;
+            _mapper = mapper;
         }
 
         
@@ -45,12 +48,15 @@ namespace HavenGames.App.Controllers
         // POST: Jogos/Personagens/5
         [HttpPost, ActionName("CreateComment")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateComment(Comment comment)
+        public async Task<IActionResult> CreateComment(CommentViewModel commentViewModel)
         {
             if (ModelState.IsValid)
             {
+                var comment = _mapper.Map<Comment>(commentViewModel);
                 comment.Id = Guid.NewGuid();
+
                 await _commentService.Adicionar(comment);
+
                 TempData["SuccessMessage"] = "Comentário adicionado com sucesso.";
             }
             else
@@ -66,12 +72,9 @@ namespace HavenGames.App.Controllers
         {
             var comment = await _commentRepository.ObterPorId(id);
 
-            if (comment == null)
-            {
-                return NotFound();
-            }
-
-           await _commentService.DeleteComment(comment);
+            if (comment == null) return NotFound();
+            
+            await _commentService.DeleteComment(comment);
             
             TempData["SuccessMessage"] = "Comentário excluído com sucesso.";
             

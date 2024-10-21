@@ -31,9 +31,9 @@ namespace HavenGames.Business.Services
             _eventRepository.Dispose();
         }
 
-        public async Task Remover(Event evento)
+        public async Task Remover(Guid id)
         {
-            await _eventRepository.Remover(evento);
+            await _eventRepository.Remover(id);
         }
     }
 }
