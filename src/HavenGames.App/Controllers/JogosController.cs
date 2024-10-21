@@ -168,53 +168,33 @@ namespace HavenGames.App.Controllers
         [HttpGet, ActionName("UpdatePersonagem")]
         public async Task<IActionResult> UpdatePersonagem(Guid jogoId, Guid personagemId)
         {
-            var jogoViewModel = await ObterJogoPersonagens(jogoId);
+            var personagem = await BuscarPersonagemJogo(jogoId, personagemId);
 
-            if (jogoViewModel == null) return NotFound();
-
-            var personagem = jogoViewModel.Personagens.FirstOrDefault(p => p.Id == personagemId);
-
-            if (personagem == null)
-            {
-                return NotFound();
-            }
+            if (personagem == null) return NotFound();
 
             ViewData["JogoId"] = jogoId;
-            return View("UpdatePersonagem", personagem);
+            return View("UpdatePersonagem", _mapper.Map<PersonagemViewModel>(personagem));
         }
 
 
         // POST: Jogos/UpdatePersonagem/5
         [HttpPost, ActionName("UpdatePersonagem")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> UpdatePersonagem(Guid jogoId, Personagem personagem)
+        public async Task<IActionResult> UpdatePersonagem(Guid jogoId, PersonagemViewModel personagemViewModel)
         {
-            if (ModelState.IsValid)
-            {
-                var jogo = await _jogoRepository.ObterJogoComPersonagens(jogoId);
+           if (ModelState.IsValid) return View("EditPersonagem", personagemViewModel);
 
-                if (jogo == null)
-                {
-                    return NotFound();
-                }
+            var personagem = await BuscarPersonagemJogo(jogoId, personagemViewModel.Id);
 
-                var existingPersonagem = jogo.Personagens.FirstOrDefault(p => p.Id == personagem.Id);
+            if (personagem == null) return NotFound();
 
-                if (existingPersonagem == null)
-                {
-                    return NotFound();
-                }
+            personagem.Nome = personagemViewModel.Nome;
+            personagem.Descricao = personagemViewModel.Descricao;
+            personagem.Imagem = personagemViewModel.Imagem;
 
-                existingPersonagem.Nome = personagem.Nome;
-                existingPersonagem.Descricao = personagem.Descricao;
-                existingPersonagem.Imagem = personagem.Imagem;
+            await _jogoService.AlterarPersonagem(personagem);
 
-                await _jogoService.AlterarPersonagem(existingPersonagem);
-
-                return RedirectToAction(nameof(Personagens), jogo);
-            }
-
-            return View("EditPersonagem", personagem);
+             return RedirectToAction(nameof(Personagens), personagem.Jogo);
         }
 
 
@@ -222,20 +202,11 @@ namespace HavenGames.App.Controllers
         [HttpGet, ActionName("DeletePersonagem")]
         public async Task<IActionResult> DeletePersonagem(Guid jogoId, Guid personagemId)
         {
-            var jogo = await _jogoRepository.ObterJogoComPersonagens(jogoId);
+           var personagem = await BuscarPersonagemJogo(jogoId, personagemId);
+         
+            if (personagem == null) return NotFound();
 
-            if (jogo == null)
-            {
-                return NotFound();
-            }
-
-            var personagem = jogo.Personagens.FirstOrDefault(p => p.Id == personagemId);
-            if (personagem == null)
-            {
-                return NotFound();
-            }
-
-            return View(personagem);
+            return View(_mapper.Map<PersonagemViewModel>(personagem));
         }
 
         // POST: Jogos/DeletePersonagem/5
@@ -243,24 +214,26 @@ namespace HavenGames.App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeletePersonagemConfirmed(Guid jogoId, Guid personagemId)
         {
+            var personagem = await BuscarPersonagemJogo(jogoId, personagemId);
+
+            if (personagem == null) return NotFound();
+
+            var jogo = personagem.Jogo;
+
+            await _jogoService.RemoverPersonagem(personagem.Jogo, personagem);
+            
+            return RedirectToAction(nameof(Personagens), jogo);
+        }
+         
+        private async Task<Personagem> BuscarPersonagemJogo(Guid jogoId, Guid personagemId)
+        {
             var jogo = await _jogoRepository.ObterJogoComPersonagens(jogoId);
 
-            if (jogo == null)
-            {
-                return NotFound();
-            }
+            if (jogo == null) return null;
 
             var personagem = jogo.Personagens.FirstOrDefault(p => p.Id == personagemId);
-            if (personagem != null)
-            {
 
-                await _jogoService.RemoverPersonagem(jogo, personagem);
-
-
-            }
-
-            return RedirectToAction(nameof(Personagens), jogo);
-
+            return personagem;
         }
 
         private async Task<JogoViewModel> ObterJogo(Guid id)
