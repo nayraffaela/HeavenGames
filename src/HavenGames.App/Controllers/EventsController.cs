@@ -9,13 +9,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HavenGames.App.Controllers
 {
-    public class EventsController : Controller
+    public class EventsController : BaseController
     {
         private readonly IEventRepository _eventRepository;
         private readonly IEventService _eventService;
         private readonly IMapper _mapper;
 
-        public EventsController(IEventRepository eventRepository, IEventService eventService, IMapper mapper)
+        public EventsController(IEventRepository eventRepository, 
+                                IEventService eventService, 
+                                IMapper mapper, INotificador notificador): base(notificador)
         {
             _eventRepository = eventRepository;
             _eventService = eventService;
@@ -43,6 +45,10 @@ namespace HavenGames.App.Controllers
             {
                 var evento = _mapper.Map<Event>(eventViewModel);
                 await _eventService.Adicionar(evento);
+                if (!IsOperacaoValida()) return View(eventViewModel);
+
+                TempData["Sucesso"] = "Evento cadastrado com sucesso!";
+
                 return RedirectToAction(nameof(Index));
             }
             return View(eventViewModel);
@@ -74,6 +80,9 @@ namespace HavenGames.App.Controllers
 
                 var evento = _mapper.Map<Event>(eventViewModel);
                 await _eventService.Alterar(evento);
+                if (!IsOperacaoValida()) return View(eventViewModel);
+
+                TempData["Sucesso"] = "Evento editado com sucesso!";
 
 
                 return RedirectToAction(nameof(Index));
@@ -101,6 +110,11 @@ namespace HavenGames.App.Controllers
             if (eventoExiste)
             {
                 await _eventService.Remover(id);
+
+                if (!IsOperacaoValida()) return View();
+
+                TempData["Sucesso"] = "Evento excluído com sucesso!";
+
             }
 
             return RedirectToAction(nameof(Index));
