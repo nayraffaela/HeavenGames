@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HavenGames.App.Controllers
 {
-    public class JogosController : Controller
+    public class JogosController : BaseController
     {
         private readonly IJogoRepository _jogoRepository;
         private readonly IJogoService _jogoService;
@@ -16,7 +16,8 @@ namespace HavenGames.App.Controllers
 
         public JogosController(IJogoRepository jogoRepository, 
                                 IJogoService jogoService,
-                                IMapper mapper)
+                                IMapper mapper, INotificador notificador) : 
+                                base(notificador)
         {
             _jogoRepository = jogoRepository;
             _jogoService = jogoService;
@@ -59,11 +60,17 @@ namespace HavenGames.App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(JogoViewModel jogoViewModel)
         {
+            //ignora validacao da propriedade personagens
+            ModelState.Remove(nameof(JogoViewModel.Personagens));
+
             if (ModelState.IsValid) return View(jogoViewModel);
             
             await _jogoService.Adicionar(_mapper.Map<Jogo>(jogoViewModel));
 
-            //addnotificador e msg tempdata
+            if (!IsOperacaoValida()) return View(jogoViewModel);
+
+            TempData["Sucesso"] = "Jogo cadastrado com sucesso!";
+
             return RedirectToAction(nameof(Index));
 
         }
@@ -76,6 +83,7 @@ namespace HavenGames.App.Controllers
            
             if (jogoViewModel == null) return NotFound();
 
+            jogoViewModel.Personagens = jogoViewModel.Personagens ?? new List<PersonagemViewModel>();
             return View(jogoViewModel);
         }
 
@@ -85,12 +93,19 @@ namespace HavenGames.App.Controllers
         public async Task<IActionResult> Edit(Guid id, JogoViewModel jogoViewModel)
         {
             if (id != jogoViewModel.Id) return NotFound();
-            
+
+            //ignora validacao da propriedade personagens
+            ModelState.Remove(nameof(JogoViewModel.Personagens));
+
             if (!ModelState.IsValid) return View(jogoViewModel);
             
             var jogo = _mapper.Map<Jogo>(jogoViewModel);
             
             await _jogoService.Alterar(jogo);
+
+            if (!IsOperacaoValida()) return View(jogoViewModel);
+
+            TempData["Sucesso"] = "Jogo editado com sucesso!";
 
             return RedirectToAction(nameof(Index));
             
@@ -113,14 +128,20 @@ namespace HavenGames.App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var jogoViewModel = await ObterJogoPersonagens(id);
+            var jogo = await _jogoRepository.ObterJogoComPersonagens(id);
+          
+            if (jogo == null) return NotFound();
 
-            if (jogoViewModel == null) return NotFound();
-            
-            await _jogoService.Remover(id);
-            
+            await _jogoService.Remover(jogo);
+
+            if (!IsOperacaoValida()) return View( _mapper.Map<JogoViewModel>(jogo));
+
+            TempData["Sucesso"] = "Jogo excluído com sucesso!";
+
             return RedirectToAction(nameof(Index));
         }
+
+      
 
         // GET: Jogos/Personagens/5
         [HttpGet, ActionName("Personagens")]
@@ -159,6 +180,9 @@ namespace HavenGames.App.Controllers
             var jogo = await _jogoRepository.ObterJogoComPersonagens(jogoId);
 
             await _jogoService.AdicionarPersonagem(jogo, personagem);
+            if (!IsOperacaoValida()) return View(personagemViewModel);
+
+            TempData["Sucesso"] = "Personagem cadastrado com sucesso!";
 
             return RedirectToAction("Personagens", jogo);
 
@@ -171,7 +195,6 @@ namespace HavenGames.App.Controllers
             var personagem = await BuscarPersonagemJogo(jogoId, personagemId);
 
             if (personagem == null) return NotFound();
-
             ViewData["JogoId"] = jogoId;
             return View("UpdatePersonagem", _mapper.Map<PersonagemViewModel>(personagem));
         }
@@ -194,7 +217,11 @@ namespace HavenGames.App.Controllers
 
             await _jogoService.AlterarPersonagem(personagem);
 
-             return RedirectToAction(nameof(Personagens), personagem.Jogo);
+            if (!IsOperacaoValida()) return View(personagemViewModel);
+
+            TempData["Sucesso"] = "Personagem editado com sucesso!";
+
+            return RedirectToAction(nameof(Personagens), personagem.Jogo);
         }
 
 
@@ -224,7 +251,7 @@ namespace HavenGames.App.Controllers
             
             return RedirectToAction(nameof(Personagens), jogo);
         }
-         
+
         private async Task<Personagem> BuscarPersonagemJogo(Guid jogoId, Guid personagemId)
         {
             var jogo = await _jogoRepository.ObterJogoComPersonagens(jogoId);
@@ -245,6 +272,9 @@ namespace HavenGames.App.Controllers
         {
             return _mapper.Map<JogoViewModel>(await _jogoRepository.ObterJogoComPersonagens(id));
         }
-
+        private async Task<JogoViewModel> BuscarJogoPersonagens(Guid id)
+        {
+            return _mapper.Map<JogoViewModel>(await _jogoRepository.ObterJogoComPersonagens(id));
+        }
     }
 }

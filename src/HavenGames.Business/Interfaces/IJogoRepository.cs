@@ -7,7 +7,8 @@ namespace HavenGames.Business.Interfaces
         Task AdicionarPersonagem(Personagem personagem);
         Task AlterarPersonagem(Personagem personagem);
         Task<Jogo> ObterJogoComPersonagens(Guid jogoId);
-        void Remover(Personagem item);
+        void Remover(Personagem personagem);
+        Task RemoverAsync(Jogo jogo);
     }
 }
 

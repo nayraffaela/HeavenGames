@@ -7,7 +7,7 @@ namespace HavenGames.Business.Services
     {
         Task Adicionar(Jogo jogo);
         Task Alterar(Jogo jogo);
-        Task Remover(Guid id);
+        Task Remover(Jogo jogo);
         Task AdicionarPersonagem(Jogo jogo, Personagem personagem);
         Task AlterarPersonagem(Personagem existingPersonagem);
         Task RemoverPersonagem(Jogo jogo, Personagem personagem);

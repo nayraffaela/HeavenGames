@@ -30,6 +30,11 @@ namespace HavenGames.Data.Repositories
 
             return jogo;
         }
+        public async Task RemoverAsync(Jogo jogo)
+        {
+            Db.Remove(jogo);
+            await SaveChanges();
+        }
 
         public void Remover(Personagem personagem)
         {

@@ -8,6 +8,6 @@
         public string Genero { get; set; }
         public string Imagem { get; set; }
         public string Descricao { get; set; }
-        public IList<PersonagemViewModel> Personagens { get; set; }
+        public List<PersonagemViewModel> Personagens { get; set; }
     }
 }

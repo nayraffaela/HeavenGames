@@ -16,10 +16,12 @@
 
   <ItemGroup>
     <Compile Remove="Controllers\TicketsController.cs" />
+    <Compile Remove="Extensions\RazorExtensions.cs" />
     <Compile Remove="Views\Home\Contact.cshtml.cs" />
     <Compile Remove="Views\Home\Contato.cshtml.cs" />
     <Compile Remove="Views\Home\FAQ.cshtml.cs" />
     <Compile Remove="Views\Home\Newsletter.cshtml.cs" />
+    <Compile Remove="Views\Shared\Components\Summary\Default.cshtml.cs" />
   </ItemGroup>
 
   <ItemGroup>
