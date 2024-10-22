@@ -30,13 +30,14 @@ namespace HavenGames.App.Controllers
         {
             var jogos = await _jogoRepository.ObterTodos();
 
-            return View(jogos);
+            return View(_mapper.Map<IEnumerable<JogoViewModel>>(jogos));
+
         }
 
         // GET: Jogos/Details/5
         public async Task<IActionResult> Details(Guid id)
         {
-            var jogo = await _jogoRepository.ObterPorId(id);
+            var jogo = await BuscarJogoPersonagens(id);
 
             if (jogo == null)
             {
@@ -63,7 +64,7 @@ namespace HavenGames.App.Controllers
             //ignora validacao da propriedade personagens
             ModelState.Remove(nameof(JogoViewModel.Personagens));
 
-            if (ModelState.IsValid) return View(jogoViewModel);
+            if (!ModelState.IsValid) return View(jogoViewModel);
             
             await _jogoService.Adicionar(_mapper.Map<Jogo>(jogoViewModel));
 
