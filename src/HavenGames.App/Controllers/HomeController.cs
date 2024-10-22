@@ -67,16 +67,16 @@ namespace HavenGames.App.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
+        [HttpPost, ActionName("DeleteComment")]
         public async Task<IActionResult> DeleteComment(Guid id)
         {
-            var comment = await _commentRepository.ObterPorId(id);
+            var comment = (await _commentRepository.Buscar(c => c.Id == id)).FirstOrDefault();
 
             if (comment == null) return NotFound();
             
             await _commentService.DeleteComment(comment);
             
-            TempData["SuccessMessage"] = "Comentário excluído com sucesso.";
+            TempData["Sucesso"] = "Comentário excluído com sucesso.";
             
             return RedirectToAction("Comment");
         }
