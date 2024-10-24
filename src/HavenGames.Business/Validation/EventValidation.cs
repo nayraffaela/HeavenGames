@@ -5,7 +5,7 @@ using HavenGames.Business.Models;
 
 namespace HavenGames.Business.Validation
 {
-    internal class EventValidation : AbstractValidator<Event>
+    public class EventValidation : AbstractValidator<Event>
     {
         public EventValidation()
         {

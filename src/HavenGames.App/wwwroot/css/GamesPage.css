@@ -38,9 +38,10 @@ h6 {
 }
 
 body {
-    background-image: url('../imgs/background/BGPhoto10.PNG');
-    
+    background-color: #faf9f9;
+    font-family: Space Grotesk;
 }
+
 
 .atention {
     color: orangered;

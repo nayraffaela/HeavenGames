@@ -1,5 +1,4 @@
 ﻿using HavenGames.Business.Enums;
-using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace HavenGames.App.ViewModels

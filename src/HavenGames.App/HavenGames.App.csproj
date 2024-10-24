@@ -32,6 +32,7 @@
     <Content Remove="Views\Home\Login.cshtml" />
     <Content Remove="Views\Home\Resenhas.cshtml" />
     <Content Remove="wwwroot\css\AboutUs.cs" />
+    <Content Remove="wwwroot\css\CharacterPage.css" />
     <Content Remove="wwwroot\css\Contact.css" />
     <Content Remove="wwwroot\css\Events.css" />
     <Content Remove="wwwroot\css\Inicio.css" />

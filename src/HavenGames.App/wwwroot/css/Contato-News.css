@@ -18,12 +18,10 @@
 }
 
 body {
+    background-color: #faf9f9;
     font-family: Space Grotesk;
-    background-color: #f4f4f4;
-    color: #333;
-    margin: 0;
-    padding: 20px;
 }
+
 
 h1 {
     font-family: Space Grotesk;
@@ -108,11 +106,10 @@ textarea {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-ul {
+ul{
     list-style-type: none;
     text-align:center;
     font-size: medium;
-
 
 }
 

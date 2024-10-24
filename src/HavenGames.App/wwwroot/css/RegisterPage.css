@@ -55,9 +55,13 @@ p {
 }
 
 body {
-    background-image: url('../imgs/background/BGPhoto10.PNG');
-    /*background-repeat: no-repeat;*/
-    
+    background-color: #faf9f9;
+    font-family: Space Grotesk;
+}
+
+.button-registro{
+    display: flex;
+    justify-content:space-evenly;
 }
 
 .btn-glass {

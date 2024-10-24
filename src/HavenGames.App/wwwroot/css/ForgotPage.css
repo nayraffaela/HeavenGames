@@ -38,6 +38,12 @@ h4 {
     word-spacing: 4px;
 }
 
+body {
+    background-color: #faf9f9;
+    font-family: Space Grotesk;
+}
+
+
 a {
     font-family: Space Grotesk;
     letter-spacing: 2px;

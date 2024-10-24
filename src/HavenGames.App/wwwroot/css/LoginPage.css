@@ -39,6 +39,7 @@ h6 {
     font-family: Space Grotesk;
     letter-spacing: 2px;
     text-align: justify;
+    font-size:medium;
 }
 h4 {
     font-family: Space Grotesk;
@@ -64,8 +65,13 @@ p {
 }
 
 body {
-    background-image: url('../imgs/background/BGPhoto10.PNG');
-    /*background-repeat: no-repeat;*/
+    background-color: #faf9f9;
+    font-family: Space Grotesk;
+}
+
+.button-registro {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .btn-glass {

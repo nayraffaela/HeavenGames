@@ -39,6 +39,12 @@ p {
     text-align: justify;
 }
 
+body {
+    background-color: #faf9f9;
+    font-family: Space Grotesk;
+}
+
+
 
 .col-sem-margem{
     padding-left:100px;

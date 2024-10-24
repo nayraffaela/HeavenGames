@@ -55,6 +55,10 @@ h3 {
     color: black;
 }
 
+body {
+    background-color: #faf9f9;
+    font-family: Space Grotesk;
+}
 
 .card-body {
     box-shadow: 1px 1px 15px #52b69a;
@@ -239,3 +243,4 @@ carousel-fade {
 .textbox {
     color: #e9edc9;
 }
+

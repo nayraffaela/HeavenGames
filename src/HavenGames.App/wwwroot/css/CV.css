@@ -13,12 +13,10 @@
 }
 
 body {
+    background-color: #faf9f9;
     font-family: Space Grotesk;
-    background-color: #f0f4f8;
-    color: #333;
-    margin: 0;
-    padding: 20px;
 }
+
 
 .conteiner-cv {
     background-color: #fff;
@@ -139,5 +137,4 @@ textarea {
     font-size: 0.9em;
     color: red;
 }
-
 

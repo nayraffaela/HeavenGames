@@ -35,6 +35,10 @@ ul {
     font-size: 1.2rem;
 }
 
+body {
+    background-color: #faf9f9;
+    font-family: Space Grotesk;
+}
 .buttons {
     display: flex;
     justify-content: space-between;
@@ -90,3 +94,4 @@ ul {
     height: 200px;
     width: auto;
 }
+
