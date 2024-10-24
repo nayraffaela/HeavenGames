@@ -45,7 +45,11 @@ namespace HavenGames.App.Controllers
             {
                 var evento = _mapper.Map<Event>(eventViewModel);
                 await _eventService.Adicionar(evento);
-                if (!IsOperacaoValida()) return View(eventViewModel);
+                if (!IsOperacaoValida())
+                {
+                    TempData["Erro"] = "Já existe um evento cadastrado com o nome informado.";
+                    return View(eventViewModel);
+                }
 
                 TempData["Sucesso"] = "Evento cadastrado com sucesso!";
 
