@@ -15,7 +15,7 @@ namespace HavenGames.App.Extensions
 
         {
             var notificacoes = await Task.FromResult(_notificador.ObterNotificacoes());
-            notificacoes.ForEach(v => ViewData.ModelState.AddModelError(string.Empty, v.Mensagem));
+            notificacoes.ForEach(v => ViewData.ModelState.AddModelError(string.Empty, v.Menssagem));
             return View();
         }
     }

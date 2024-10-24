@@ -11,49 +11,51 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/GamesPage.css" asp-append-version="true" />
+</head>
+<body>
+    <h1>Cadastrar Novo Personagem</h1>
 
-<h1>Cadastrar Novo Personagem</h1>
+    <h4>Personagem</h4>
+    
+    <hr />
+    <div class="row" style="width: 80%;">
+        <div>
+            <form asp-action="CreatePersonagem">
+                <input type="hidden" asp-for="Id" />
 
-<h4>Personagem</h4>
-<hr />
-<div class="row" style="width: 80%;">
-    <div>
-        <form asp-action="CreatePersonagem">
-           <input type="hidden" asp-for="Id" />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Nome" class="control-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Descricao" class="control-label"></label>
+                    <textarea asp-for="Descricao" class="form-control" rows="4"></textarea>
+                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Imagem" class="control-label"></label>
+                    <input asp-for="Imagem" class="form-control" />
+                    <span asp-validation-for="Imagem" class="text-danger"></span>
+                </div>
+                <br />
 
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Descricao" class="control-label"></label>
-                <textarea asp-for="Descricao" class="form-control" rows="4"></textarea>
-                <span asp-validation-for="Descricao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Imagem" class="control-label"></label>
-                <input asp-for="Imagem" class="form-control" />
-                <span asp-validation-for="Imagem" class="text-danger"></span>
-            </div>
-
-
-
-            <br />
-
-            <div class="form-group">
+                <div class="form-group">
                     <input type="submit" value="Cadastrar" asp-action="CreatePersonagem" class="btn-glass btn-outline-primary" asp-route-jogoId="@Model.Jogo.Id" />
                     <a asp-action="Personagens" class="btn-glass btn-outline-primary" asp-route-jogoId="@Model.Jogo.Id">Voltar a Lista</a>
-            </div>
-        </form>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-</head>
+
+</body>
 </html>
 
 
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

@@ -16,6 +16,11 @@ namespace HavenGames.Business.Services
         {
             if (!ExecutarValidacao(new EventValidation(), evento)) return;
 
+            if (_eventRepository.Buscar(c => c.Name == evento.Name).Result.Any())
+            {
+                Notificar("Já existe um evento cadastrado com o nome informado.");
+                return;
+            }
 
             await _eventRepository.Adicionar(evento);
         }

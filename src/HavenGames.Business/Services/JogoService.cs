@@ -18,11 +18,18 @@ namespace HavenGames.Business.Services
         {
             if (!ExecutarValidacao(new JogoValidation(), jogo)) return;
 
+            if (_jogoRepository.Buscar(c => c.Nome == jogo.Nome).Result.Any())
+            {
+                Notificar("Já existe um jogo cadastrado com o nome informado. ");
+                return;
+            }
+
             await _jogoRepository.Adicionar(jogo);
         }
 
         public async Task AdicionarPersonagem(Jogo jogo, Personagem personagem)
         {
+           
             jogo.Personagens.Add(personagem);
 
             await _jogoRepository.AdicionarPersonagem(personagem);

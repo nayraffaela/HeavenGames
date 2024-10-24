@@ -3,6 +3,7 @@ using AutoMapper;
 using HavenGames.App.ViewModels;
 using HavenGames.Business.Interfaces;
 using HavenGames.Business.Models;
+using HavenGames.Business.Notification;
 using HavenGames.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,7 @@ namespace HavenGames.App.Controllers
         private readonly IJogoRepository _jogoRepository;
         private readonly IJogoService _jogoService;
         private readonly IMapper _mapper;
+        private readonly INotificador _notificador;
 
         public JogosController(IJogoRepository jogoRepository, 
                                 IJogoService jogoService,
@@ -22,6 +24,7 @@ namespace HavenGames.App.Controllers
             _jogoRepository = jogoRepository;
             _jogoService = jogoService;
             _mapper = mapper;
+            _notificador = notificador;
 
         }
 
@@ -72,7 +75,12 @@ namespace HavenGames.App.Controllers
             
             await _jogoService.Adicionar(_mapper.Map<Jogo>(jogoViewModel));
 
-            if (!IsOperacaoValida()) return View(jogoViewModel);
+            if (!IsOperacaoValida())
+            {
+                TempData["Erro"] = "Já existe um jogo cadastrado com o nome informado."; 
+                return View(jogoViewModel);
+            }
+
 
             TempData["Sucesso"] = "Jogo cadastrado com sucesso!";
 
