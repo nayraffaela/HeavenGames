@@ -32,18 +32,20 @@ namespace HavenGames.App.Controllers
 
             var comments = await _commentRepository.ObterTodos();
 
+            //instancia de homeviewmodel, estou atribuindo os comentários recuperados a Comments
             var viewModel = new HomeViewModel { Comments = comments };
 
             return View(viewModel);
         }
 
-
+        //inclui aqui o atributo para que a msg de erro nao seja guardado em cache.
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        
 
         // POST: Jogos/Personagens/5
         [HttpPost, ActionName("CreateComment")]
@@ -92,37 +94,48 @@ namespace HavenGames.App.Controllers
             return View(comments);
         }
 
+        [Route("página-privacidade-politicas")]
         public IActionResult Privacy()
         {
             return View();
         }
+
+        [Route("página-sobre-nós")]
         public IActionResult AboutUs()
         {
             return View();
         }
 
+        [Route("pagina-dicas-jogo")]
         public IActionResult Guide()
         {
             return View();
         }
+
         public IActionResult Events()
         {
             return View();
         }
+
+        [Route("pagina-envio-curriculo")]
         public IActionResult Curriculum()
         {
             return View();
         }
+
+        [Route("pagina-perguntas-frequentes")]
         public IActionResult FAQ()
         {
             return View();
         }
 
+        [Route("pagina-envio-contato")]
         public IActionResult Contato()
         {
             return View();
         }
 
+        [Route("pagina-cadastro-revistaeletronica")]
         public IActionResult Newsletter()
         {
             return View();

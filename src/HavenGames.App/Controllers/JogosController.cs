@@ -26,6 +26,7 @@ namespace HavenGames.App.Controllers
         }
 
         // GET: Jogos
+        [Route("lista-de-jogos")]
         public async Task<IActionResult> Index()
         {
             var jogos = await _jogoRepository.ObterTodos();
@@ -35,6 +36,7 @@ namespace HavenGames.App.Controllers
         }
 
         // GET: Jogos/Details/5
+        [Route("dados-do-jogo/{id:guid}")]
         public async Task<IActionResult> Details(Guid id)
         {
             var jogo = await BuscarJogoPersonagens(id);
@@ -50,6 +52,7 @@ namespace HavenGames.App.Controllers
 
 
         // GET: Jogo/Create
+        [Route("novo-jogo")]
         [HttpGet]
         public IActionResult Create()
         {
@@ -57,6 +60,7 @@ namespace HavenGames.App.Controllers
         }
 
         // POST: Jogos/Create
+        [Route("novo-jogo")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(JogoViewModel jogoViewModel)
@@ -77,7 +81,7 @@ namespace HavenGames.App.Controllers
         }
 
         // GET: Jogos/Edit/5
-        [HttpGet]
+        [Route("editar-produto/{id:guid}")]
         public async Task<IActionResult> Edit(Guid id)
         {
             var jogoViewModel = await ObterJogoPersonagens(id);
@@ -89,7 +93,8 @@ namespace HavenGames.App.Controllers
         }
 
         // POST: Jogos/Edit/5
-        [HttpPost, ActionName("Edit")]
+        [Route("editar-produto/{id:guid}")]
+        [HttpPost, /*ActionName("Edit")*/]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, JogoViewModel jogoViewModel)
         {
@@ -115,6 +120,7 @@ namespace HavenGames.App.Controllers
         }
 
         // GET: Jogos/Delete/5
+        [Route("excluir-jogo/{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var jogoViewModel = await ObterJogoPersonagens(id);
@@ -125,7 +131,8 @@ namespace HavenGames.App.Controllers
         }
 
         // POST: Jogos/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [Route("excluir-jogo/{id:guid}")]
+        [HttpPost, /*ActionName("Delete")*/]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
@@ -142,9 +149,10 @@ namespace HavenGames.App.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-      
+
 
         // GET: Jogos/Personagens/5
+        [Route("lista-personagens")]
         [HttpGet, ActionName("Personagens")]
         public async Task<IActionResult> Personagens(Guid id)
         {
@@ -153,6 +161,7 @@ namespace HavenGames.App.Controllers
         }
 
         // GET: Jogos/Personagems/5
+        //[Route("novo-personagem")]
         [HttpGet, ActionName("CreatePersonagem")]
         public async Task<IActionResult> GetCreatePersonagem(Guid id)
         {
@@ -169,6 +178,7 @@ namespace HavenGames.App.Controllers
 
 
         // POST: Jogos/Personagens/5
+        //[Route("novo-personagem")]
         [HttpPost, ActionName("CreatePersonagem")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreatePersonagem(Guid jogoId, PersonagemViewModel personagemViewModel)

@@ -24,6 +24,8 @@ namespace HavenGames.App.Controllers
             _mapper = mapper;
         }
 
+        [Route("lista-de-eventos")]
+
         public async Task<IActionResult> Index()
         {
             var events = await _eventRepository.ObterTodos();
@@ -31,12 +33,14 @@ namespace HavenGames.App.Controllers
             return View(eventViewModels);
         }
 
+        [Route("novo-evento")]
 
         public IActionResult Create()
         {
             return View();
         }
 
+        [Route("novo-evento")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(EventViewModel eventViewModel)
@@ -54,6 +58,7 @@ namespace HavenGames.App.Controllers
             return View(eventViewModel);
         }
 
+        [Route("editar-evento/{id:guid}")]
         public async Task<IActionResult> Edit(Guid id)
         {
             var evento = await _eventRepository.ObterPorId(id);
@@ -66,6 +71,7 @@ namespace HavenGames.App.Controllers
             return View(eventViewModel);
         }
 
+        [Route("editar-evento/{id:guid}")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, EventViewModel eventViewModel)
@@ -90,6 +96,7 @@ namespace HavenGames.App.Controllers
             return View(eventViewModel);
         }
 
+        [Route("excluir-evento/{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var evento = await _eventRepository.ObterPorId(id);
@@ -102,6 +109,8 @@ namespace HavenGames.App.Controllers
             return View(eventViewModel);
         }
 
+
+        [Route("excluir-evento/{id:guid}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)

@@ -5,7 +5,6 @@ namespace HavenGames.App.Controllers
 {
     public class GuideController : Controller
     {
-        [Route("pagina-dicas-jogo")]
         public IActionResult AssassinCreed()
         {
             return View();
