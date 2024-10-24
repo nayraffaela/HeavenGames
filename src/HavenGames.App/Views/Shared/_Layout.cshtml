@@ -12,11 +12,7 @@
     <header>
         <nav class="magic-navbar">
             <img src="~/imgs/HavenGames1.PNG" alt="Logo" />
-            <div class="hamburger" id="hamburger">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
+    
             <ul class="magic-menu" id="magicMenu">
                 <li><a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a></li>
                 <li><a asp-area="" asp-controller="Home" asp-action="AboutUs">Sobre nós</a></li>
@@ -57,8 +53,6 @@
 
     @await RenderSectionAsync("Scripts", required: false)
 
-    @section Scripts {
-        <script src="~/js/hamburgerresponsivemenu.js"></script>
-    }
+   
 </body>
 </html>
