@@ -1,6 +1,8 @@
 using HavenGames.App.Configurations;
 using HavenGames.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
+using HavenGames.App.Data;
+using Microsoft.AspNetCore.Identity;
 
 
 
@@ -11,6 +13,7 @@ builder.Services.AddIdentityConfiguration(builder.Configuration);
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

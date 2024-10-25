@@ -6,7 +6,6 @@ using HavenGames.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace HavenGames.App.Controllers
 {
     public class EventsController : BaseController
@@ -25,7 +24,6 @@ namespace HavenGames.App.Controllers
         }
 
         [Route("lista-de-eventos")]
-
         public async Task<IActionResult> Index()
         {
             var events = await _eventRepository.ObterTodos();
@@ -34,7 +32,6 @@ namespace HavenGames.App.Controllers
         }
 
         [Route("novo-evento")]
-
         public IActionResult Create()
         {
             return View();

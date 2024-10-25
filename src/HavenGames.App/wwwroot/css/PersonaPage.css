@@ -73,9 +73,10 @@ body {
 }
 
 .card-img-top {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+    Width: 305px;
+    height: 215px;
+    /*    object-fit: cover;
+*/
 }
 
 .btn-glass {

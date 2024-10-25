@@ -13,9 +13,11 @@ namespace HavenGames.App.Configurations
             services.AddScoped<IEventRepository, EventRepository>();
             services.AddScoped<IJogoRepository, JogoRepository>();
             services.AddScoped<ICommentRepository, CommentRepository>();
+
             services.AddScoped<IJogoService, JogoService>();
             services.AddScoped<ICommentService, CommentService>();
             services.AddScoped<IEventService, EventService>();
+
             services.AddScoped<INotificador, Notificador>();
 
             return services;
