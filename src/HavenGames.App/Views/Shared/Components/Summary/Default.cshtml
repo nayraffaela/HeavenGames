@@ -1,24 +1,24 @@
 ﻿@{
-    if (ViewData.ModelState.ErrorCount > 0)
-    {
-        <div style="padding-top: 15px;"></div>
+    // if (ViewData.ModelState.ErrorCount > 0)
+    // {
+    //     <div style="padding-top: 15px;"></div>
 
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <h3 id="msgRetorno" style="padding-top: 20px">Opa! Algo deu errado :(</h3>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            <div style="padding-top: 20px" asp-validation-summary="ModelOnly" class="text-danger"></div>
-        </div>
-    }
-    if (!string.IsNullOrEmpty(ViewBag.Sucesso))
-    {
-        <div style="padding-top: 15px"></div>
+    //     <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    //         <h3 id="msgRetorno" style="padding-top: 20px">Opa! Algo deu errado :(</h3>
+    //         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    //         <div style="padding-top: 20px" asp-validation-summary="ModelOnly" class="text-danger"></div>
+    //     </div>
+    // }
+    // if (!string.IsNullOrEmpty(ViewBag.Sucesso))
+    // {
+    //     <div style="padding-top: 15px"></div>
 
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <h3 id="msgRetorno" style="padding-top: 20px">Opa! Algo deu errado :(</h3>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            <div style="padding-top: 20px" asp-validation-summary="ModelOnly" class="text-danger"></div>
-        </div>
-    }
+    //     <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    //         <h3 id="msgRetorno" style="padding-top: 20px">Opa! Algo deu errado :(</h3>
+    //         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    //         <div style="padding-top: 20px" asp-validation-summary="ModelOnly" class="text-danger"></div>
+    //     </div>
+    // }
     if (!string.IsNullOrEmpty(ViewBag.Sucesso))
     {
         <div style="padding-top: 15px"></div>

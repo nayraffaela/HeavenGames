@@ -59,11 +59,11 @@ namespace HavenGames.App.Controllers
 
                 await _commentService.Adicionar(comment);
 
-                TempData["SuccessMessage"] = "Comentário adicionado com sucesso.";
+                TempData["Sucesso"] = "Comentário adicionado com sucesso.";
             }
             else
             {
-                TempData["ErrorMessage"] = "Erro ao adicionar o comentário.";
+                TempData["Erro"] = "Erro ao adicionar o comentário.";
             }
 
             return RedirectToAction("Index");

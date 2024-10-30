@@ -30,9 +30,14 @@ namespace HavenGames.App.Controllers
 
         // GET: Jogos
         [Route("lista-de-jogos")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string encontrar)
         {
             var jogos = await _jogoRepository.ObterTodos();
+
+            if (!string.IsNullOrEmpty(encontrar))
+            {
+                jogos = jogos.Where(j => j.Nome.Contains(encontrar, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
 
             return View(_mapper.Map<IEnumerable<JogoViewModel>>(jogos));
 
