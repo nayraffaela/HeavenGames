@@ -32,7 +32,7 @@ namespace HavenGames.App.Controllers
         public async Task<IActionResult> Index(string encontrar)
         {
             //tentei
-            //var jogos = await _jogoRepository .Buscar(j=>j.Nome.Contains(encontrar));
+            //var jogos = await _jogoRepository.Buscar(j=>j.Nome.Contains(encontrar));
 
             var jogos = await _jogoRepository.ObterTodos();
 
@@ -43,7 +43,6 @@ namespace HavenGames.App.Controllers
 
             return View(_mapper.Map<IEnumerable<JogoViewModel>>(jogos));
         }
-
 
         // GET: Jogos/Details/5
         [Route("dados-do-jogo/{id:guid}")]

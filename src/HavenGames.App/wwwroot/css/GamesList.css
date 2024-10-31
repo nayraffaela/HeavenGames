@@ -139,4 +139,8 @@ body {
     !important;
 }
 
+.form-control {
+    box-shadow: 1px 1px 15px #52b69a;
+}
+
 
