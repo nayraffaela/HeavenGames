@@ -3,7 +3,6 @@ using AutoMapper;
 using HavenGames.App.ViewModels;
 using HavenGames.Business.Interfaces;
 using HavenGames.Business.Models;
-using HavenGames.Business.Notification;
 using HavenGames.Business.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,6 +31,9 @@ namespace HavenGames.App.Controllers
         [Route("lista-de-jogos")]
         public async Task<IActionResult> Index(string encontrar)
         {
+            //tentei
+            //var jogos = await _jogoRepository .Buscar(j=>j.Nome.Contains(encontrar));
+
             var jogos = await _jogoRepository.ObterTodos();
 
             if (!string.IsNullOrEmpty(encontrar))
@@ -40,8 +42,8 @@ namespace HavenGames.App.Controllers
             }
 
             return View(_mapper.Map<IEnumerable<JogoViewModel>>(jogos));
-
         }
+
 
         // GET: Jogos/Details/5
         [Route("dados-do-jogo/{id:guid}")]
@@ -56,8 +58,6 @@ namespace HavenGames.App.Controllers
 
             return View(jogo);
         }
-
-
 
         // GET: Jogo/Create
         [Route("novo-jogo")]
@@ -127,9 +127,7 @@ namespace HavenGames.App.Controllers
             TempData["Sucesso"] = "Jogo editado com sucesso!";
 
             return RedirectToAction(nameof(Index));
-            
-
-            
+                        
         }
 
         // GET: Jogos/Delete/5
@@ -174,7 +172,7 @@ namespace HavenGames.App.Controllers
         }
 
         // GET: Jogos/Personagems/5
-        //[Route("novo-personagem")]
+        
         [HttpGet, ActionName("CreatePersonagem")]
         public async Task<IActionResult> GetCreatePersonagem(Guid id)
         {
@@ -189,9 +187,8 @@ namespace HavenGames.App.Controllers
         }
 
 
-
         // POST: Jogos/Personagens/5
-        //[Route("novo-personagem")]
+        
         [HttpPost, ActionName("CreatePersonagem")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreatePersonagem(Guid jogoId, PersonagemViewModel personagemViewModel)
@@ -209,7 +206,6 @@ namespace HavenGames.App.Controllers
             TempData["Sucesso"] = "Personagem cadastrado com sucesso!";
 
             return RedirectToAction("Personagens", jogo);
-
         }
 
         // GET: Jogos/UpdatePersonagem/5
