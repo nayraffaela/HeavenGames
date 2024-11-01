@@ -11,6 +11,8 @@ namespace HavenGames.Business.Interfaces
         Task<TEntity> ObterPorId(Guid id);
         Task<IEnumerable<TEntity>> ObterTodos();
         Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate);
+       
+
         Task<int> SaveChanges();
     }
 }

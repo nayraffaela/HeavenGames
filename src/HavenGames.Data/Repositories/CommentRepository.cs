@@ -1,6 +1,7 @@
 ﻿using HavenGames.Business.Interfaces;
 using HavenGames.Business.Models;
 using HavenGames.Data.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace HavenGames.Data.Repositories
 {
@@ -8,7 +9,14 @@ namespace HavenGames.Data.Repositories
     {
         public CommentRepository(AppDbContext db) : base(db)
         {
+            
+        }
 
+        public async Task<IEnumerable<Comment>> ObterTodosOrdenadosPorData()
+        {
+            return await DbSet
+                           .OrderByDescending(c => c.Inclusao)
+                           .ToListAsync();
         }
     }
 }

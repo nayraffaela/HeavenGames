@@ -50,26 +50,6 @@ namespace HavenGames.Data.Repositories
         {
             return await DbSet.AsNoTracking().Where(predicate).ToListAsync();
         }
-        //public async Task<IEnumerable<TEntity>> BuscarPorNome(string nome)
-        //{
-        //    var propertyInfo = typeof(TEntity).GetProperty("Nome", BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
-        //    if (propertyInfo == null)
-        //    {
-        //        throw new InvalidOperationException($"A entidade {typeof(TEntity).Name} não possui uma propriedade chamada 'Nome'.");
-        //    }
-
-        //    var parameter = Expression.Parameter(typeof(TEntity), "e");
-        //    var property = Expression.Property(parameter, propertyInfo);
-        //    var toLowerMethod = typeof(string).GetMethod("ToLower", Type.EmptyTypes);
-        //    var toLowerExpression = Expression.Call(property, toLowerMethod);
-        //    var searchValue = Expression.Constant(nome.ToLower(), typeof(string));
-        //    var containsMethod = typeof(string).GetMethod("Contains", new[] { typeof(string) });
-        //    var containsExpression = Expression.Call(toLowerExpression, containsMethod, searchValue);
-
-        //    var lambda = Expression.Lambda<Func<TEntity, bool>>(containsExpression, parameter);
-
-        //    return await Buscar(lambda);
-        //}
 
         public async Task<int> SaveChanges()
         {
