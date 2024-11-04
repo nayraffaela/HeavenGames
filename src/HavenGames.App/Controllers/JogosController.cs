@@ -31,9 +31,7 @@ namespace HavenGames.App.Controllers
         [Route("lista-de-jogos")]
         public async Task<IActionResult> Index(string encontrar)
         {
-            //tentei
-            //var jogos = await _jogoRepository.Buscar(j=>j.Nome.Contains(encontrar));
-
+           
             var jogos = await _jogoRepository.ObterTodos();
 
             if (!string.IsNullOrEmpty(encontrar))
@@ -106,7 +104,7 @@ namespace HavenGames.App.Controllers
 
         // POST: Jogos/Edit/5
         [Route("editar-produto/{id:guid}")]
-        [HttpPost, /*ActionName("Edit")*/]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, JogoViewModel jogoViewModel)
         {
@@ -142,7 +140,7 @@ namespace HavenGames.App.Controllers
 
         // POST: Jogos/Delete/5
         [Route("excluir-jogo/{id:guid}")]
-        [HttpPost, /*ActionName("Delete")*/]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {

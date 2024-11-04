@@ -130,6 +130,7 @@ namespace HavenGames.App.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+
         private async Task<bool> EventExistsAsync(Guid id)
         {
             var evento = await _eventRepository.Buscar(e => e.Id == id);

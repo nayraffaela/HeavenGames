@@ -25,7 +25,7 @@
         {
             <li>
                 <p><strong>@comentario.Nome:</strong> @comentario.Descricao</p>
-                <p><em>@comentario.Inclusao.ToString("dd/MM/yyyy HH:mm:ss")</em></p>
+                <p><em>@comentario.Inclusao.ToString("dd/MM/yyyy")</em></p>
                 <form asp-action="DeleteComment" method="post" onsubmit="return confirm('Tem certeza que deseja excluir este comentário?');">
                     <input type="hidden" name="id" value="@comentario.Id" />
                     <button supress-by-claim-name="Comment" supress-by-claim-value="U" type="submit" class="btn-glass btn">Excluir</button>

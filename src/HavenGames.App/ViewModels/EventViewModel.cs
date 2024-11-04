@@ -25,5 +25,7 @@ namespace HavenGames.App.ViewModels
 
         [Required(ErrorMessage = "A data é obrigatória")]
         public DateTime Date { get; set; }
+
+        
     }
 }

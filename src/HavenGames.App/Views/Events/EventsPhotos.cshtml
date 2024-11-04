@@ -1,0 +1,34 @@
+﻿@using HavenGames.Business.Models
+
+@model HavenGames.App.ViewModels.EventViewModel
+@{
+    ViewData["Title"] = "Galeria de fotos";
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/GamesList.css" asp-append-version="true" />
+</head>
+    @* <body>
+        <div class="container mt-5">
+            <h1>@Model.Name</h1>
+            <p>@Model.Description</p>
+            <div class="row">
+                @foreach (var photo in Model.Photos)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card border-0">
+                            <img class="img-fluid" src="@photo" alt="Photo">
+                        </div>
+                    </div>
+                }
+            </div>
+            <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+        </div>
+    </body>
+</html> *@

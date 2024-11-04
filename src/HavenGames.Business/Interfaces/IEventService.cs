@@ -8,8 +8,9 @@ namespace HavenGames.Business.Services
         Task Adicionar(Event evento);
 
         Task Alterar(Event evento);
-
         Task Remover(Guid id);
+
+
 
     }
 }

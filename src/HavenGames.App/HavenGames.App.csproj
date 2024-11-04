@@ -17,6 +17,7 @@
   <ItemGroup>
     <Compile Remove="Controllers\TicketsController.cs" />
     <Compile Remove="Extensions\RazorExtensions.cs" />
+    <Compile Remove="Views\Events\Index1.cshtml.cs" />
     <Compile Remove="Views\Home\Contact.cshtml.cs" />
     <Compile Remove="Views\Home\Contato.cshtml.cs" />
     <Compile Remove="Views\Home\FAQ.cshtml.cs" />
@@ -26,6 +27,7 @@
 
   <ItemGroup>
     <Content Remove="Views\Events\Details.cshtml" />
+    <Content Remove="Views\Events\Index1.cshtml" />
     <Content Remove="Views\Home\Comments.cshtml" />
     <Content Remove="Views\Home\Contact.cshtml" />
     <Content Remove="Views\Home\Events.cshtml" />

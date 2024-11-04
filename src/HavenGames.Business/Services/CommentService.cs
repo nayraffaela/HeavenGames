@@ -7,7 +7,7 @@ namespace HavenGames.Business.Services
     public class CommentService : BaseService, ICommentService
     {
         private readonly ICommentRepository _commentRepository;
-        private readonly string _timeZoneId = "E. South America Standard Time";
+       
         public CommentService(ICommentRepository commentRepository, 
                                 INotificador notificador) : base(notificador)
         {
@@ -18,8 +18,7 @@ namespace HavenGames.Business.Services
         {
             if (!ExecutarValidacao(new CommentValidation(), comment)) return;
 
-            var timeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById(_timeZoneId);
-            comment.Inclusao = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, timeZoneInfo);
+            
             
             await _commentRepository.Adicionar(comment);
         }
